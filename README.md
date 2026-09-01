@@ -1,4 +1,4 @@
-# Unciv: Veilfall v0.1
+# Unciv: Veilfall v0.1.1
 
 Veilfall is an extension mod for the **Civ V – Gods & Kings** ruleset in Unciv 4.21.13.
 
@@ -20,6 +20,11 @@ Veilfall is an extension mod for the **Civ V – Gods & Kings** ruleset in Unciv
 2. Enter `https://github.com/ashtonintelligence/Veilfall`.
 3. Restart Unciv after the download finishes.
 4. Import and open the accompanying Veilfall-enabled save.
+
+If Veilfall was already installed, use the mod manager's **Update** action. If
+the update is not offered, delete the installed copy and download it again from
+the same URL. Version 0.1.1 corrects the packed-artwork location required by
+Unciv on Android.
 
 ### Manual installation
 
