@@ -1,0 +1,177 @@
+[
+  {
+    "name": "The Pale Horseman",
+    "unitType": "Celestial",
+    "movement": 10,
+    "strength": 300,
+    "cost": 900,
+    "requiredTech": "Nuclear Fusion",
+    "uniqueTo": "America",
+    "promotions": ["Horseman Lineage"],
+    "uniques": [
+      "Limited to [1] per Civilization",
+      "[2] additional attacks per turn",
+      "Can move after attacking",
+      "Withdraws before melee combat",
+      "No damage penalty for wounded units",
+      "Unit will heal every turn, even if it performs an action",
+      "Heals [50] damage if it kills a unit",
+      "[+100]% Strength <vs [Wounded] units>",
+      "Uncapturable"
+    ],
+    "attackSound": "sword",
+    "civilopediaText": [
+      {"text": "The final rider does not conquer territory. It marks the living and completes what has already begun."}
+    ]
+  },
+  {
+    "name": "Azazel",
+    "unitType": "Celestial",
+    "movement": 8,
+    "strength": 240,
+    "cost": 850,
+    "requiredTech": "Nuclear Fusion",
+    "uniqueTo": "America",
+    "promotions": ["Demonic", "Possession"],
+    "uniques": [
+      "Limited to [1] per Civilization",
+      "[1] additional attacks per turn",
+      "Can move after attacking",
+      "No damage penalty for wounded units",
+      "Heals [50] damage if it kills a unit",
+      "All healing effects doubled",
+      "Uncapturable"
+    ],
+    "attackSound": "sword",
+    "civilopediaText": [
+      {"text": "A fallen prince who breaks the will of defeated armies and returns their bodies as obedient vessels."}
+    ]
+  },
+  {
+    "name": "The First Blood",
+    "unitType": "Bloodbound",
+    "movement": 7,
+    "strength": 220,
+    "cost": 800,
+    "requiredTech": "Biology",
+    "uniqueTo": "America",
+    "promotions": ["Blood Sovereign"],
+    "uniques": [
+      "Limited to [1] per Civilization",
+      "Invisible to non-adjacent units",
+      "May enter foreign tiles without open borders",
+      "Ignores Zone of Control",
+      "Can move after attacking",
+      "[1] additional attacks per turn",
+      "Heals [100] damage if it kills a unit",
+      "All healing effects doubled",
+      "May heal outside of friendly territory",
+      "May capture killed [Military] units",
+      "Uncapturable"
+    ],
+    "attackSound": "sword",
+    "civilopediaText": [
+      {"text": "Older than remembered kingdoms, the First Blood feeds upon war and leaves enthralled survivors in its wake."}
+    ]
+  },
+  {
+    "name": "Moonfang Alpha",
+    "unitType": "Moonborn",
+    "movement": 7,
+    "strength": 200,
+    "cost": 650,
+    "requiredTech": "Biology",
+    "uniqueTo": "America",
+    "promotions": ["Moonborn Alpha"],
+    "uniques": [
+      "Limited to [1] per Civilization",
+      "Ignores terrain cost",
+      "Ignores Zone of Control",
+      "Double movement in [Forest]",
+      "Double movement in [Hill]",
+      "[+50]% Strength <when fighting in [Forest] tiles>",
+      "[+50]% Strength <when fighting in [Hill] tiles>",
+      "Can move after attacking",
+      "No damage penalty for wounded units",
+      "All healing effects doubled",
+      "Heals [75] damage if it kills a unit",
+      "Uncapturable"
+    ],
+    "attackSound": "sword",
+    "civilopediaText": [
+      {"text": "The oldest of the Moonborn hunts across wilderness with impossible speed and heals as quickly as enemies can wound it."}
+    ]
+  },
+  {
+    "name": "The Frost Sovereign",
+    "unitType": "Undead",
+    "movement": 6,
+    "strength": 260,
+    "rangedStrength": 240,
+    "range": 3,
+    "cost": 900,
+    "requiredTech": "Nuclear Fusion",
+    "uniqueTo": "America",
+    "promotions": ["Winter Sovereign"],
+    "uniques": [
+      "Limited to [1] per Civilization",
+      "Can pass through impassable tiles",
+      "Ignores terrain cost",
+      "Ignores Zone of Control",
+      "Ranged attacks may be performed over obstacles",
+      "[1] additional attacks per turn",
+      "Can move after attacking",
+      "May capture killed [Military] units",
+      "Heals [50] damage if it kills a unit",
+      "[+100]% Strength <when fighting in [Snow] tiles>",
+      "[+100]% Strength <when fighting in [Tundra] tiles>",
+      "Uncapturable"
+    ],
+    "attackSound": "metalhit",
+    "civilopediaText": [
+      {"text": "An immortal monarch of black ice whose defeated enemies rise again as servants of the Winter Court."}
+    ]
+  },
+  {
+    "name": "Rimebound Wight",
+    "unitType": "Undead",
+    "movement": 4,
+    "strength": 120,
+    "cost": 300,
+    "requiredTech": "Biology",
+    "uniqueTo": "America",
+    "uniques": [
+      "Ignores terrain cost",
+      "No damage penalty for wounded units",
+      "May heal outside of friendly territory",
+      "[+50]% Strength <when fighting in [Snow] tiles>",
+      "[+50]% Strength <when fighting in [Tundra] tiles>",
+      "Uncapturable"
+    ],
+    "attackSound": "metalhit",
+    "civilopediaText": [
+      {"text": "A fallen warrior emptied of memory and bound to the cold will of the Frost Sovereign."}
+    ]
+  },
+  {
+    "name": "Veilwarden",
+    "unitType": "Veil Hunter",
+    "movement": 4,
+    "strength": 150,
+    "cost": 450,
+    "requiredTech": "Scientific Theory",
+    "uniqueTo": "America",
+    "promotions": ["Consecrated Arsenal"],
+    "uniques": [
+      "Can see invisible [Celestial] units",
+      "Can see invisible [Bloodbound] units",
+      "May heal outside of friendly territory",
+      "[+2] Sight",
+      "Never appears as a Barbarian unit"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {"text": "A human specialist armed with silver, consecrated steel, and the accumulated knowledge of generations of monster hunters."}
+    ]
+  }
+]

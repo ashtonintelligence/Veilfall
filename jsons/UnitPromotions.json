@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Revealed",
+    "unitTypes": ["Celestial"],
+    "uniques": ["Unavailable", "Will not be displayed in Civilopedia"]
+  },
+  {
+    "name": "Horseman Lineage",
+    "unitTypes": ["Celestial"],
+    "uniques": ["Unavailable"]
+  },
+  {
+    "name": "Demonic",
+    "unitTypes": ["Celestial"],
+    "uniques": ["Unavailable"]
+  },
+  {
+    "name": "Possession",
+    "unitTypes": ["Celestial"],
+    "uniques": ["May capture killed [Military] units", "Unavailable"],
+    "civilopediaText": [
+      {"text": "A defeated military unit may rise under the demon's control at half health."}
+    ]
+  },
+  {
+    "name": "Blood Sovereign",
+    "unitTypes": ["Bloodbound"],
+    "uniques": ["Unavailable"]
+  },
+  {
+    "name": "Moonborn Alpha",
+    "unitTypes": ["Moonborn"],
+    "uniques": ["Unavailable"]
+  },
+  {
+    "name": "Winter Sovereign",
+    "unitTypes": ["Undead"],
+    "uniques": ["Unavailable"]
+  },
+  {
+    "name": "Consecrated Arsenal",
+    "unitTypes": ["Veil Hunter"],
+    "uniques": [
+      "[+100]% Strength <vs [Celestial] units>",
+      "[+100]% Strength <vs [Bloodbound] units>",
+      "[+100]% Strength <vs [Moonborn] units>",
+      "[+100]% Strength <vs [Undead] units>",
+      "Unavailable"
+    ]
+  }
+]

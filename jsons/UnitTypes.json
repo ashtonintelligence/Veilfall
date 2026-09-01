@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Celestial",
+    "movementType": "Land",
+    "uniques": [
+      "May travel on Water tiles without embarking",
+      "Can pass through impassable tiles",
+      "Ignores terrain cost",
+      "Ignores Zone of Control",
+      "May enter foreign tiles without open borders",
+      "Invisible to others <for units without [Revealed]>",
+      "[This Unit] gains the [Revealed] status for [1] turn(s) <upon entering combat> <when attacking>"
+    ]
+  },
+  {
+    "name": "Bloodbound",
+    "movementType": "Land",
+    "uniques": []
+  },
+  {
+    "name": "Moonborn",
+    "movementType": "Land",
+    "uniques": []
+  },
+  {
+    "name": "Undead",
+    "movementType": "Land",
+    "uniques": []
+  },
+  {
+    "name": "Veil Hunter",
+    "movementType": "Land",
+    "uniques": []
+  }
+]
