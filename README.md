@@ -1,41 +1,104 @@
-# Unciv: Veilfall v0.1.1
+# Veilfall
 
-Veilfall is an extension mod for the **Civ V – Gods & Kings** ruleset in Unciv 4.21.13.
+**Development branch:** `ashton-vnext-v1-build`  
+**Status:** Ashton vNext v1 implementation in progress  
+**Base ruleset:** Civ V - Gods & Kings
 
-## Included units
+Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
 
-- The Pale Horseman — concealed celestial executioner
-- Azazel — possessing fallen celestial
-- The First Blood — primordial vampire sovereign
-- Moonfang Alpha — regenerating Moonborn predator
-- The Frost Sovereign — ranged ruler of the frozen dead
-- Rimebound Wight — producible undead infantry
-- Veilwarden — producible human supernatural hunter
+## Ashton
 
-## Installation
+**Leader:** Paul Ashton  
+**Capital:** St. Paul  
+**Motto:** *Wisdom in Peace, Fury in Defense*  
+**Civilization ability:** **Evidence Before Confidence**
 
-### Install directly from Unciv
+The current vNext content pass adds:
 
-1. Open **Unciv → Mods → Download mod from URL**.
-2. Enter `https://github.com/ashtonintelligence/Veilfall`.
-3. Restart Unciv after the download finishes.
-4. Import and open the accompanying Veilfall-enabled save.
+- the Ashton civilization and 40-city name list;
+- a stockpiled, tradeable **Knowledge** resource;
+- the **Athenaeum**, **Strategic Analysis Center**, and **The Great Archive**;
+- the six-stage Marine lineage from **Continental Marines** through **Exo-Marine**;
+- **Operational Intelligence** frontline/support formations;
+- **Rationalism** and its first playable belief/building components;
+- the **Slave** civilian and four-stage Slave Raider line;
+- initial Slave labor and instability mechanics;
+- the global infrastructure construction-time rebalance;
+- the original Veilfall supernatural roster reassigned from the development America placeholder to Ashton.
 
-If Veilfall was already installed, use the mod manager's **Update** action. If
-the update is not offered, delete the installed copy and download it again from
-the same URL. Version 0.1.1 corrects the packed-artwork location required by
-Unciv on Android.
+## Marine lineage
 
-### Manual installation
+| Unit | Tech | Strength | Movement | Cost |
+| --- | --- | ---: | ---: | ---: |
+| Continental Marines | Gunpowder | 27 | 2 | 140 |
+| Marine Riflemen | Rifling | 38 | 2 | 208 |
+| Expeditionary Marines | Replaceable Parts | 55 | 2 | 298 |
+| Fleet Marine Force | Plastics | 77 | 2 | 361 |
+| Marine Expeditionary Unit | Mobile Tactics | 100 | 3 | 425 |
+| Exo-Marine | Future Tech | 125 | 4 | 553 |
 
-Extract the `Veilfall` folder into Unciv's `mods` folder and keep the folder name exactly `Veilfall`.
+Marine abilities accumulate through the upgrade chain. The JSON pass includes amphibious combat, rapid embark/disembark, embarked attacks, embarked defense, embarked reconnaissance, healing while acting, MEU combat tempo, and Exo-Marine mobility. Full conditional naval-combat classification while embarked is an engine-level follow-up.
 
-The revised save already lists `Veilfall` as an active extension. It cannot load unless this mod is installed.
+## Knowledge
 
-## Design notes
+Knowledge is a civilization-wide stockpiled resource distinct from Science. Ashton generates it systematically from institutions and Scientist specialists; all civilizations can also gain Knowledge from technology completion, Natural Wonder discovery, era advancement, trade, and the Great Scientist **Document & Disseminate** action.
 
-Celestials ignore political borders, ordinary terrain costs, zones of control, water barriers, and impassable terrain. They remain invisible until they attack and are revealed for one round afterward.
+Standard Knowledge Cost (SKC):
 
-Possession uses Unciv's native defeated-unit capture mechanic. A successfully possessed unit returns under the possessor's owner at 50 health with no movement that turn. The engine caps the success probability at 80 percent.
+| Era | Knowledge |
+| --- | ---: |
+| Ancient | 20 |
+| Classical | 30 |
+| Medieval | 45 |
+| Renaissance | 65 |
+| Industrial | 90 |
+| Modern | 120 |
+| Atomic | 160 |
+| Information | 200 |
+| Future | 250 |
 
-Named sovereign units are limited to one per civilization. Rimebound Wights and Veilwardens may be produced normally.
+AI trade valuation is currently centered around 10 Gold per Knowledge: AI buys at 8 and sells at 12.
+
+## Slavery v1
+
+The JSON pass includes:
+
+- Slave civilian unit;
+- Slave Raider -> Mounted Slave Raider -> Slave Hunter -> Industrial Slaver;
+- 25% prisoner-generation chance after eligible military victories;
+- -25% city attack strength and inability to capture cities for the raider line;
+- -1 Happiness per 3 Slaves;
+- first-stage Worker augmentation while adjacent to a Slave;
+- prototype emancipation by transforming a Slave into a Worker.
+
+The full captive disposition, provenance, emancipation/repatriation, abolition, city-population enslavement, Forced Labor, and revolt systems require the state/UI implementation described in `BUILD_STATUS.md`.
+
+## Infrastructure rebalance
+
+Standard-speed construction times:
+
+- Road 2
+- Railroad 2
+- Farm 5
+- Mine 5
+- Lumber Mill 5
+- Trading Post 5
+- Camp 5
+- Pasture 6
+- Plantation 4
+- Quarry 6
+- Oil Well 6
+- Fort 5
+- Remove Forest 3
+- Remove Jungle 5
+- Remove Marsh 4
+
+Unlisted improvements retain their base Gods & Kings values.
+
+## Build status
+
+See **BUILD_STATUS.md** for the exact division between implemented JSON behavior, prototype behavior, and features that still require Unciv engine/state/UI work.
+
+## Installation during development
+
+Use the `ashton-vnext-v1-build` branch for the current development build. The branch is intentionally separate from `main` until the vNext content pass has been validated in Unciv and the gameplay baseline is accepted.
