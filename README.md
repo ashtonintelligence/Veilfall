@@ -1,9 +1,10 @@
 # Unciv: Veilfall v0.2
 
 **Version:** **v0.2 prerelease**  
-**Development branch:** `veilfall-v0.2-build`  
-**Stable/deployed predecessor:** **v0.1.1** on `main`  
-**Status:** v0.2 implementation and validation in progress  
+**Deployment branch:** `main`  
+**Development/source branch:** `veilfall-v0.2-build`  
+**Predecessor:** **v0.1.1**  
+**Status:** v0.2 prerelease deployed for gameplay testing; engine-level features listed in `BUILD_STATUS.md` remain incomplete  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -11,8 +12,8 @@ Veilfall is an Unciv extension mod combining the supernatural Veilfall roster wi
 ## Version lineage
 
 - **v0.1** — initial prerelease build.
-- **v0.1.1** — patch release correcting the packed-artwork location required by Unciv on Android; this remains the deployed baseline on `main`.
-- **v0.2** — current substantive prerelease development version, adding Ashton and the broader systems overhaul documented here.
+- **v0.1.1** — patch release correcting the packed-artwork location required by Unciv on Android.
+- **v0.2** — current deployed prerelease, adding Ashton and the broader systems overhaul documented here.
 
 ## Ashton
 
@@ -107,6 +108,6 @@ Unlisted improvements retain their base Gods & Kings values.
 
 See **BUILD_STATUS.md** for the exact division between implemented JSON behavior, prototype behavior, and features that still require Unciv engine/state/UI work.
 
-## Installation during development
+## Installation
 
-Use the `veilfall-v0.2-build` branch for the current v0.2 prerelease build. The branch is intentionally separate from `main`, which remains the deployed v0.1.1 baseline, until v0.2 has been validated in Unciv and the gameplay baseline is accepted.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2** is the current deployed prerelease for gameplay testing. The `veilfall-v0.2-build` branch is retained as the source branch for this deployment.
