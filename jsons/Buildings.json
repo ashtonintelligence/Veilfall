@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Athenaeum",
+    "replaces": "Library",
+    "uniqueTo": "Ashton",
+    "hurryCostModifier": 25,
+    "maintenance": 1,
+    "culture": 1,
+    "uniques": [
+      "[+1 Science] per [2] population [in this city]",
+      "Provides [2] [Knowledge]"
+    ],
+    "requiredTech": "Writing",
+    "civilopediaText": [
+      {
+        "text": "A civic institution devoted to scholarship, debate, documentation, and preservation. The Athenaeum begins Ashton's institutional Knowledge economy."
+      }
+    ]
+  },
+  {
+    "name": "Strategic Analysis Center",
+    "replaces": "Armory",
+    "uniqueTo": "Ashton",
+    "hurryCostModifier": 25,
+    "maintenance": 1,
+    "requiredBuilding": "Barracks",
+    "uniques": [
+      "New [Military] units start with [20] XP [in this city]",
+      "Provides [1] [Knowledge]",
+      "Destroyed when the city is captured"
+    ],
+    "requiredTech": "Steel",
+    "civilopediaText": [
+      {
+        "text": "A professional military-learning institution for doctrine, intelligence, after-action analysis, wargaming, planning, and the preservation of lessons learned."
+      }
+    ]
+  },
+  {
+    "name": "The Great Archive",
+    "uniqueTo": "Ashton",
+    "cost": 400,
+    "culture": 2,
+    "greatPersonPoints": {
+      "Great Scientist": 2
+    },
+    "isNationalWonder": true,
+    "uniques": [
+      "Only available <if [University] is constructed in all [non-[Puppeted]] cities>",
+      "Cost increases by [15] per owned city",
+      "Provides [5] [Knowledge]",
+      "Destroyed when the city is captured"
+    ],
+    "requiredTech": "Scientific Theory",
+    "civilopediaText": [
+      {
+        "text": "A civilization-scale repository for scientific literature, engineering practice, doctrine, public records, standards, education, and institutional memory."
+      },
+      {
+        "text": "The Great Archive preserves what Ashton has learned so that future generations need not learn it again from nothing."
+      }
+    ]
+  },
+  {
+    "name": "Forum of Inquiry",
+    "cost": 0,
+    "culture": 2,
+    "happiness": 1,
+    "uniques": [
+      "Unbuildable",
+      "Only available <when religion is enabled>",
+      "Provides [1] [Knowledge]"
+    ],
+    "civilopediaText": [
+      {
+        "text": "A Rationalist civic forum for education, reflection, public inquiry, ethical discussion, and the preservation of useful knowledge."
+      }
+    ]
+  }
+]
