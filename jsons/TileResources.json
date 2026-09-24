@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Knowledge",
+    "resourceType": "Strategic",
+    "terrainsCanBeFoundOn": [],
+    "uniques": [
+      "Stockpiled",
+      "AI will buy at [8] Gold",
+      "AI will sell at [12] Gold"
+    ],
+    "civilopediaText": [
+      {
+        "text": "Knowledge is accumulated, documented, and transferable expertise. It is stockpiled rather than consumed each turn and may be traded between civilizations."
+      },
+      {
+        "text": "Science represents active research; Knowledge represents preserved and reusable understanding."
+      }
+    ]
+  }
+]
