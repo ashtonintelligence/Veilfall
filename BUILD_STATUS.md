@@ -94,7 +94,7 @@ Effects:
 - Slave -> Worker transformation is present as a prototype emancipation action.
 
 ### Rationalism — native portion
-- Rationalism religion/philosophy symbol entry.
+- Rationalism religion/philosophy entry.
 - Education as a Public Good:
   - +1 Science at 4 followers;
   - another +1 at 8;
