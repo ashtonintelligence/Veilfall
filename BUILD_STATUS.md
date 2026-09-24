@@ -1,3 +1,5 @@
+> **Deprecated branch alias:** This branch name was created with incorrect versioning. Veilfall's current prerelease is **v0.2**. Use `veilfall-v0.2-build` for all further development and validation. The deployed predecessor remains **v0.1.1** on `main`.
+
 # Ashton vNext v1 — Build Status
 
 **Branch:** `ashton-vnext-v1-build`  
