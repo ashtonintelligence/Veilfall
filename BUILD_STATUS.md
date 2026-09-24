@@ -1,6 +1,8 @@
-# Ashton vNext v1 — Build Status
+# Veilfall v0.2 — Build Status
 
-**Branch:** `ashton-vnext-v1-build`  
+**Version:** **v0.2 prerelease**  
+**Branch:** `veilfall-v0.2-build`  
+**Predecessor:** **v0.1.1** on `main`  
 **Baseline date:** 2026-09-24
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
