@@ -1,0 +1,41 @@
+[
+  {
+    "name": "The Examined World",
+    "type": "Founder",
+    "uniques": [
+      "Unavailable",
+      "Comment [The Examined World is reserved for Rationalism's Knowledge-on-first-majority founder effect and will be enabled by the vNext state-tracking hook.]"
+    ]
+  },
+  {
+    "name": "Education as a Public Good",
+    "type": "Follower",
+    "uniques": [
+      "[+1 Science] [in cities following this religion] <in cities with at least [4] [Followers of this Religion]>",
+      "[+1 Science] [in cities following this religion] <in cities with at least [8] [Followers of this Religion]>",
+      "[+1 Science] [in cities following this religion] <in cities with at least [12] [Followers of this Religion]>"
+    ]
+  },
+  {
+    "name": "Human Dignity",
+    "type": "Follower",
+    "uniques": [
+      "[+1 Happiness] [in cities following this religion]"
+    ]
+  },
+  {
+    "name": "Forums of Inquiry",
+    "type": "Follower",
+    "uniques": [
+      "May buy [Forum of Inquiry] buildings with [Faith] [in cities following this religion]"
+    ]
+  },
+  {
+    "name": "Open Inquiry",
+    "type": "Enhancer",
+    "uniques": [
+      "[+25]% Natural religion spread [in all cities]",
+      "Comment [Trade-route Rationalist pressure receives an additional +50% once the vNext religion-pressure hook is enabled.]"
+    ]
+  }
+]
