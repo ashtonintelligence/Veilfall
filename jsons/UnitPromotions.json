@@ -1,51 +1,203 @@
 [
   {
     "name": "Revealed",
-    "unitTypes": ["Celestial"],
-    "uniques": ["Unavailable", "Will not be displayed in Civilopedia"]
+    "unitTypes": [
+      "Celestial"
+    ],
+    "uniques": [
+      "Unavailable",
+      "Will not be displayed in Civilopedia"
+    ]
   },
   {
     "name": "Horseman Lineage",
-    "unitTypes": ["Celestial"],
-    "uniques": ["Unavailable"]
+    "unitTypes": [
+      "Celestial"
+    ],
+    "uniques": [
+      "Unavailable"
+    ]
   },
   {
     "name": "Demonic",
-    "unitTypes": ["Celestial"],
-    "uniques": ["Unavailable"]
+    "unitTypes": [
+      "Celestial"
+    ],
+    "uniques": [
+      "Unavailable"
+    ]
   },
   {
     "name": "Possession",
-    "unitTypes": ["Celestial"],
-    "uniques": ["May capture killed [Military] units", "Unavailable"],
+    "unitTypes": [
+      "Celestial"
+    ],
+    "uniques": [
+      "May capture killed [Military] units",
+      "Unavailable"
+    ],
     "civilopediaText": [
-      {"text": "A defeated military unit may rise under the demon's control at half health."}
+      {
+        "text": "A defeated military unit may rise under the demon's control at half health."
+      }
     ]
   },
   {
     "name": "Blood Sovereign",
-    "unitTypes": ["Bloodbound"],
-    "uniques": ["Unavailable"]
+    "unitTypes": [
+      "Bloodbound"
+    ],
+    "uniques": [
+      "Unavailable"
+    ]
   },
   {
     "name": "Moonborn Alpha",
-    "unitTypes": ["Moonborn"],
-    "uniques": ["Unavailable"]
+    "unitTypes": [
+      "Moonborn"
+    ],
+    "uniques": [
+      "Unavailable"
+    ]
   },
   {
     "name": "Winter Sovereign",
-    "unitTypes": ["Undead"],
-    "uniques": ["Unavailable"]
+    "unitTypes": [
+      "Undead"
+    ],
+    "uniques": [
+      "Unavailable"
+    ]
   },
   {
     "name": "Consecrated Arsenal",
-    "unitTypes": ["Veil Hunter"],
+    "unitTypes": [
+      "Veil Hunter"
+    ],
     "uniques": [
       "[+100]% Strength <vs [Celestial] units>",
       "[+100]% Strength <vs [Bloodbound] units>",
       "[+100]% Strength <vs [Moonborn] units>",
       "[+100]% Strength <vs [Undead] units>",
       "Unavailable"
+    ]
+  },
+  {
+    "name": "Operational Frontline",
+    "unitTypes": [
+      "Sword",
+      "Gunpowder",
+      "Mounted",
+      "Armored"
+    ],
+    "uniques": [
+      "[+10]% Strength <when attacking> <when adjacent to a [Operational Support] unit>",
+      "[+15]% Strength <when defending> <when adjacent to a [Operational Support] unit>",
+      "Unavailable"
+    ],
+    "civilopediaText": [
+      {
+        "text": "Ashton frontline formations fight more effectively when operating beside designated ranged-support units."
+      }
+    ]
+  },
+  {
+    "name": "Operational Support",
+    "unitTypes": [
+      "Archery",
+      "Ranged Gunpowder",
+      "Siege"
+    ],
+    "uniques": [
+      "[+15]% Strength <when defending> <when adjacent to a [Operational Frontline] unit>",
+      "Unavailable"
+    ],
+    "civilopediaText": [
+      {
+        "text": "Ashton ranged and siege elements are better protected when operating beside frontline formations."
+      }
+    ]
+  },
+  {
+    "name": "Marine Naval Integration",
+    "unitTypes": [
+      "Gunpowder"
+    ],
+    "uniques": [
+      "Eliminates combat penalty for attacking across a coast",
+      "Eliminates combat penalty for attacking over a river",
+      "[1] Movement point cost to embark",
+      "[1] Movement point cost to disembark",
+      "May attack when embarked",
+      "[+50]% Strength <when defending> <when [Embarked]>",
+      "Unavailable"
+    ],
+    "civilopediaText": [
+      {
+        "text": "When embarked, Ashton Marines represent shipboard Marine detachments operating as part of an armed naval combat vessel."
+      }
+    ]
+  },
+  {
+    "name": "Marine Embarked Recon",
+    "unitTypes": [
+      "Gunpowder"
+    ],
+    "uniques": [
+      "[+1] Sight <when [Embarked]>",
+      "Unavailable"
+    ]
+  },
+  {
+    "name": "Marine Expeditionary Endurance",
+    "unitTypes": [
+      "Gunpowder"
+    ],
+    "uniques": [
+      "Unit will heal every turn, even if it performs an action",
+      "[+50]% Strength <when defending> <when [Embarked]>",
+      "Unavailable"
+    ]
+  },
+  {
+    "name": "MEU Combat Tempo",
+    "unitTypes": [
+      "Gunpowder"
+    ],
+    "uniques": [
+      "[1] additional attacks per turn",
+      "Can move after attacking",
+      "Unavailable"
+    ]
+  },
+  {
+    "name": "Exo-Marine Mobility",
+    "unitTypes": [
+      "Gunpowder"
+    ],
+    "uniques": [
+      "Ignores terrain cost",
+      "Ignores Zone of Control",
+      "Unavailable"
+    ]
+  },
+  {
+    "name": "Slave Raider Doctrine",
+    "unitTypes": [
+      "Sword",
+      "Mounted",
+      "Gunpowder"
+    ],
+    "uniques": [
+      "[-25]% Strength <vs cities> <when attacking>",
+      "Unable to capture cities",
+      "Free [Slave] appears <upon defeating a [Military] unit> <with [25]% chance>",
+      "Unavailable"
+    ],
+    "civilopediaText": [
+      {
+        "text": "Slave-raiding units are optimized for capture and prisoner-taking rather than conquest of cities."
+      }
     ]
   }
 ]
