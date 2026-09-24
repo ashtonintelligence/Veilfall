@@ -356,7 +356,7 @@
     ],
     "civilopediaText": [
       {
-        "text": "An enslaved civilian labor unit. In v1 it augments nearby Worker labor and may be transformed into a Worker as a prototype emancipation action."
+        "text": "An enslaved civilian labor unit. In v0.2 it augments nearby Worker labor and may be transformed into a Worker as a prototype emancipation action."
       }
     ]
   },
@@ -430,7 +430,7 @@
     "attackSound": "shot",
     "civilopediaText": [
       {
-        "text": "The final v1 slave-raider iteration: a mobile coercive force whose battlefield victories can generate captives."
+        "text": "The final v0.2 slave-raider iteration: a mobile coercive force whose battlefield victories can generate captives."
       }
     ]
   }
