@@ -1,10 +1,18 @@
-# Veilfall
+# Unciv: Veilfall v0.2
 
-**Development branch:** `ashton-vnext-v1-build`  
-**Status:** Ashton vNext v1 implementation in progress  
+**Version:** **v0.2 prerelease**  
+**Development branch:** `veilfall-v0.2-build`  
+**Stable/deployed predecessor:** **v0.1.1** on `main`  
+**Status:** v0.2 implementation and validation in progress  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
+
+## Version lineage
+
+- **v0.1** — initial prerelease build.
+- **v0.1.1** — patch release correcting the packed-artwork location required by Unciv on Android; this remains the deployed baseline on `main`.
+- **v0.2** — current substantive prerelease development version, adding Ashton and the broader systems overhaul documented here.
 
 ## Ashton
 
@@ -13,7 +21,7 @@ Veilfall is an Unciv extension mod combining the supernatural Veilfall roster wi
 **Motto:** *Wisdom in Peace, Fury in Defense*  
 **Civilization ability:** **Evidence Before Confidence**
 
-The current vNext content pass adds:
+The current v0.2 content pass adds:
 
 - the Ashton civilization and 40-city name list;
 - a stockpiled, tradeable **Knowledge** resource;
@@ -59,7 +67,7 @@ Standard Knowledge Cost (SKC):
 
 AI trade valuation is currently centered around 10 Gold per Knowledge: AI buys at 8 and sells at 12.
 
-## Slavery v1
+## Slavery — v0.2 implementation
 
 The JSON pass includes:
 
@@ -101,4 +109,4 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation during development
 
-Use the `ashton-vnext-v1-build` branch for the current development build. The branch is intentionally separate from `main` until the vNext content pass has been validated in Unciv and the gameplay baseline is accepted.
+Use the `veilfall-v0.2-build` branch for the current v0.2 prerelease build. The branch is intentionally separate from `main`, which remains the deployed v0.1.1 baseline, until v0.2 has been validated in Unciv and the gameplay baseline is accepted.
