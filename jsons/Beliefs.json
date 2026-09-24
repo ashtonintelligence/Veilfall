@@ -4,7 +4,7 @@
     "type": "Founder",
     "uniques": [
       "Unavailable",
-      "Comment [The Examined World is reserved for Rationalism's Knowledge-on-first-majority founder effect and will be enabled by the vNext state-tracking hook.]"
+      "Comment [The Examined World is reserved for Rationalism's Knowledge-on-first-majority founder effect and will be enabled by the v0.2 state-tracking hook.]"
     ]
   },
   {
@@ -35,7 +35,7 @@
     "type": "Enhancer",
     "uniques": [
       "[+25]% Natural religion spread [in all cities]",
-      "Comment [Trade-route Rationalist pressure receives an additional +50% once the vNext religion-pressure hook is enabled.]"
+      "Comment [Trade-route Rationalist pressure receives an additional +50% once the v0.2 religion-pressure hook is enabled.]"
     ]
   }
 ]
