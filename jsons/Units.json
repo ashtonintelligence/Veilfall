@@ -6,8 +6,10 @@
     "strength": 300,
     "cost": 900,
     "requiredTech": "Nuclear Fusion",
-    "uniqueTo": "America",
-    "promotions": ["Horseman Lineage"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Horseman Lineage"
+    ],
     "uniques": [
       "Limited to [1] per Civilization",
       "[2] additional attacks per turn",
@@ -21,7 +23,9 @@
     ],
     "attackSound": "sword",
     "civilopediaText": [
-      {"text": "The final rider does not conquer territory. It marks the living and completes what has already begun."}
+      {
+        "text": "The final rider does not conquer territory. It marks the living and completes what has already begun."
+      }
     ]
   },
   {
@@ -31,8 +35,11 @@
     "strength": 240,
     "cost": 850,
     "requiredTech": "Nuclear Fusion",
-    "uniqueTo": "America",
-    "promotions": ["Demonic", "Possession"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Demonic",
+      "Possession"
+    ],
     "uniques": [
       "Limited to [1] per Civilization",
       "[1] additional attacks per turn",
@@ -44,7 +51,9 @@
     ],
     "attackSound": "sword",
     "civilopediaText": [
-      {"text": "A fallen prince who breaks the will of defeated armies and returns their bodies as obedient vessels."}
+      {
+        "text": "A fallen prince who breaks the will of defeated armies and returns their bodies as obedient vessels."
+      }
     ]
   },
   {
@@ -54,8 +63,10 @@
     "strength": 220,
     "cost": 800,
     "requiredTech": "Biology",
-    "uniqueTo": "America",
-    "promotions": ["Blood Sovereign"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Blood Sovereign"
+    ],
     "uniques": [
       "Limited to [1] per Civilization",
       "Invisible to non-adjacent units",
@@ -71,7 +82,9 @@
     ],
     "attackSound": "sword",
     "civilopediaText": [
-      {"text": "Older than remembered kingdoms, the First Blood feeds upon war and leaves enthralled survivors in its wake."}
+      {
+        "text": "Older than remembered kingdoms, the First Blood feeds upon war and leaves enthralled survivors in its wake."
+      }
     ]
   },
   {
@@ -81,8 +94,10 @@
     "strength": 200,
     "cost": 650,
     "requiredTech": "Biology",
-    "uniqueTo": "America",
-    "promotions": ["Moonborn Alpha"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Moonborn Alpha"
+    ],
     "uniques": [
       "Limited to [1] per Civilization",
       "Ignores terrain cost",
@@ -99,7 +114,9 @@
     ],
     "attackSound": "sword",
     "civilopediaText": [
-      {"text": "The oldest of the Moonborn hunts across wilderness with impossible speed and heals as quickly as enemies can wound it."}
+      {
+        "text": "The oldest of the Moonborn hunts across wilderness with impossible speed and heals as quickly as enemies can wound it."
+      }
     ]
   },
   {
@@ -111,8 +128,10 @@
     "range": 3,
     "cost": 900,
     "requiredTech": "Nuclear Fusion",
-    "uniqueTo": "America",
-    "promotions": ["Winter Sovereign"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Winter Sovereign"
+    ],
     "uniques": [
       "Limited to [1] per Civilization",
       "Can pass through impassable tiles",
@@ -129,7 +148,9 @@
     ],
     "attackSound": "metalhit",
     "civilopediaText": [
-      {"text": "An immortal monarch of black ice whose defeated enemies rise again as servants of the Winter Court."}
+      {
+        "text": "An immortal monarch of black ice whose defeated enemies rise again as servants of the Winter Court."
+      }
     ]
   },
   {
@@ -139,7 +160,7 @@
     "strength": 120,
     "cost": 300,
     "requiredTech": "Biology",
-    "uniqueTo": "America",
+    "uniqueTo": "Ashton",
     "uniques": [
       "Ignores terrain cost",
       "No damage penalty for wounded units",
@@ -150,7 +171,9 @@
     ],
     "attackSound": "metalhit",
     "civilopediaText": [
-      {"text": "A fallen warrior emptied of memory and bound to the cold will of the Frost Sovereign."}
+      {
+        "text": "A fallen warrior emptied of memory and bound to the cold will of the Frost Sovereign."
+      }
     ]
   },
   {
@@ -160,8 +183,10 @@
     "strength": 150,
     "cost": 450,
     "requiredTech": "Scientific Theory",
-    "uniqueTo": "America",
-    "promotions": ["Consecrated Arsenal"],
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Consecrated Arsenal"
+    ],
     "uniques": [
       "Can see invisible [Celestial] units",
       "Can see invisible [Bloodbound] units",
@@ -171,7 +196,242 @@
     ],
     "attackSound": "shot",
     "civilopediaText": [
-      {"text": "A human specialist armed with silver, consecrated steel, and the accumulated knowledge of generations of monster hunters."}
+      {
+        "text": "A human specialist armed with silver, consecrated steel, and the accumulated knowledge of generations of monster hunters."
+      }
+    ]
+  },
+  {
+    "name": "Continental Marines",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 27,
+    "cost": 140,
+    "requiredTech": "Gunpowder",
+    "obsoleteTech": "Rifling",
+    "upgradesTo": "Marine Riflemen",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "The first Ashton Marine formation: elite shipboard infantry built for amphibious assault and combat at sea."
+      }
+    ]
+  },
+  {
+    "name": "Marine Riflemen",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 38,
+    "cost": 208,
+    "requiredTech": "Rifling",
+    "obsoleteTech": "Replaceable Parts",
+    "upgradesTo": "Expeditionary Marines",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Marine Embarked Recon",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "Rifle-armed Marines with improved reconnaissance while operating from naval vessels."
+      }
+    ]
+  },
+  {
+    "name": "Expeditionary Marines",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 55,
+    "cost": 298,
+    "requiredTech": "Replaceable Parts",
+    "obsoleteTech": "Plastics",
+    "upgradesTo": "Fleet Marine Force",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Marine Embarked Recon",
+      "Marine Expeditionary Endurance",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "A mature expeditionary force able to sustain combat operations while continuing to recover."
+      }
+    ]
+  },
+  {
+    "name": "Fleet Marine Force",
+    "unitType": "Gunpowder",
+    "movement": 2,
+    "strength": 77,
+    "cost": 361,
+    "requiredTech": "Plastics",
+    "obsoleteTech": "Mobile Tactics",
+    "upgradesTo": "Marine Expeditionary Unit",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Marine Embarked Recon",
+      "Marine Expeditionary Endurance",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "A fully institutionalized fleet-amphibious Marine force integrating naval movement, endurance, and frontline operations."
+      }
+    ]
+  },
+  {
+    "name": "Marine Expeditionary Unit",
+    "unitType": "Gunpowder",
+    "movement": 3,
+    "strength": 100,
+    "cost": 425,
+    "requiredTech": "Mobile Tactics",
+    "obsoleteTech": "Future Tech",
+    "upgradesTo": "Exo-Marine",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Marine Embarked Recon",
+      "Marine Expeditionary Endurance",
+      "MEU Combat Tempo",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "A modern combined-arms expeditionary formation capable of attacking twice and maneuvering after contact."
+      }
+    ]
+  },
+  {
+    "name": "Exo-Marine",
+    "unitType": "Gunpowder",
+    "movement": 4,
+    "strength": 125,
+    "cost": 553,
+    "requiredTech": "Future Tech",
+    "uniqueTo": "Ashton",
+    "promotions": [
+      "Amphibious",
+      "Marine Naval Integration",
+      "Marine Embarked Recon",
+      "Marine Expeditionary Endurance",
+      "MEU Combat Tempo",
+      "Exo-Marine Mobility",
+      "Operational Frontline"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "Future Marine infantry equipped with powered exoskeletons, integrated sensors, and energy weapons for unrestricted battlefield maneuver."
+      }
+    ]
+  },
+  {
+    "name": "Slave",
+    "unitType": "Civilian",
+    "movement": 2,
+    "cost": 0,
+    "requiredTech": "Agriculture",
+    "uniques": [
+      "Unbuildable",
+      "Can transform to [Worker]",
+      "Never appears as a Barbarian unit"
+    ],
+    "civilopediaText": [
+      {
+        "text": "An enslaved civilian labor unit. In v1 it augments nearby Worker labor and may be transformed into a Worker as a prototype emancipation action."
+      }
+    ]
+  },
+  {
+    "name": "Slave Raider",
+    "unitType": "Sword",
+    "movement": 3,
+    "strength": 7,
+    "cost": 50,
+    "requiredTech": "Bronze Working",
+    "obsoleteTech": "Chivalry",
+    "upgradesTo": "Mounted Slave Raider",
+    "promotions": [
+      "Slave Raider Doctrine"
+    ],
+    "attackSound": "nonmetalhit",
+    "civilopediaText": [
+      {
+        "text": "A fast early raiding force designed to take captives rather than conquer cities."
+      }
+    ]
+  },
+  {
+    "name": "Mounted Slave Raider",
+    "unitType": "Mounted",
+    "movement": 4,
+    "strength": 17,
+    "cost": 120,
+    "requiredTech": "Chivalry",
+    "obsoleteTech": "Rifling",
+    "upgradesTo": "Slave Hunter",
+    "promotions": [
+      "Slave Raider Doctrine"
+    ],
+    "attackSound": "horse",
+    "civilopediaText": [
+      {
+        "text": "A mobile slave-taking force able to penetrate deep into enemy territory and withdraw with captives."
+      }
+    ]
+  },
+  {
+    "name": "Slave Hunter",
+    "unitType": "Gunpowder",
+    "movement": 4,
+    "strength": 29,
+    "cost": 190,
+    "requiredTech": "Rifling",
+    "obsoleteTech": "Replaceable Parts",
+    "upgradesTo": "Industrial Slaver",
+    "promotions": [
+      "Slave Raider Doctrine"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "An industrializing-era slave-taking force emphasizing mobility and coercive capture."
+      }
+    ]
+  },
+  {
+    "name": "Industrial Slaver",
+    "unitType": "Gunpowder",
+    "movement": 4,
+    "strength": 44,
+    "cost": 280,
+    "requiredTech": "Replaceable Parts",
+    "promotions": [
+      "Slave Raider Doctrine"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "The final v1 slave-raider iteration: a mobile coercive force whose battlefield victories can generate captives."
+      }
     ]
   }
 ]
