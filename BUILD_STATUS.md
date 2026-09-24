@@ -1,8 +1,10 @@
-> **Deprecated branch alias:** This branch name was created with incorrect versioning. Veilfall's current prerelease is **v0.2**. Use `veilfall-v0.2-build` for all further development and validation. The deployed predecessor remains **v0.1.1** on `main`.
+> **Deprecated branch alias:** The branch name `ashton-vnext-v1-build` was created with incorrect versioning. Veilfall's current prerelease is **v0.2**. Use `veilfall-v0.2-build` for all further development and validation. The deployed predecessor remains **v0.1.1** on `main`.
 
-# Ashton vNext v1 — Build Status
+# Veilfall v0.2 — Build Status
 
-**Branch:** `ashton-vnext-v1-build`  
+**Version:** **v0.2 prerelease**  
+**Branch:** `veilfall-v0.2-build`  
+**Predecessor:** **v0.1.1** on `main`  
 **Baseline date:** 2026-09-24
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
