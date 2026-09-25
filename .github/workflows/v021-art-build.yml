@@ -51,7 +51,9 @@ jobs:
           assert (root/'game.atlas').is_file() and (root/'game.png').is_file()
           assert (root/'v021.atlas').is_file() and (root/'v021.png').is_file()
           ver=json.loads((root/'ART_VERIFICATION.json').read_text())
-          assert ver['release']=='v0.2.2'\n          assert ver['entry_count']==80 and ver['missing_keys']==[]\n          assert ver['distinct_unit_icon_count']==11
+          assert ver['release']=='v0.2.2'
+          assert ver['entry_count']==80 and ver['missing_keys']==[]
+          assert ver['distinct_unit_icon_count']==11
           text=(root/'v021.atlas').read_text()
           required=[
             'NationIcons/Ashton','NationPortraits/Ashton',
