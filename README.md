@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2
+# Unciv: Veilfall v0.2.1
 
-**Version:** **v0.2 prerelease**  
+**Version:** **v0.2.1 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2-build`  
+**Development/source branch:** `veilfall-v0.2.1-build`  
 **Predecessor:** **v0.1.1**  
-**Status:** v0.2 prerelease deployed for gameplay testing; engine-level features listed in `BUILD_STATUS.md` remain incomplete  
+**Status:** v0.2.1 patch release prepared for deployment; completes the v0.2 art pass, raises Slave Raider capture chance to 50%, and retains the documented engine-level backlog  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -13,7 +13,8 @@ Veilfall is an Unciv extension mod combining the supernatural Veilfall roster wi
 
 - **v0.1** — initial prerelease build.
 - **v0.1.1** — patch release correcting the packed-artwork location required by Unciv on Android.
-- **v0.2** — current deployed prerelease, adding Ashton and the broader systems overhaul documented here.
+- **v0.2** — substantive prerelease adding Ashton and the broader systems overhaul.
+- **v0.2.1** — art-completion and gameplay-tuning patch: game-ready Ashton/Rationalism/Knowledge/building/unit/promotion assets plus 50% Slave Raider capture chance.
 
 ## Ashton
 
@@ -22,7 +23,7 @@ Veilfall is an Unciv extension mod combining the supernatural Veilfall roster wi
 **Motto:** *Wisdom in Peace, Fury in Defense*  
 **Civilization ability:** **Evidence Before Confidence**
 
-The current v0.2 content pass adds:
+The v0.2/v0.2.1 content set includes:
 
 - the Ashton civilization and 40-city name list;
 - a stockpiled, tradeable **Knowledge** resource;
@@ -110,4 +111,9 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2** is the current deployed prerelease for gameplay testing. The `veilfall-v0.2-build` branch is retained as the source branch for this deployment.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2-build` branch is retained as the source branch for this deployment.
+
+
+## v0.2.1 art assets
+
+v0.2.1 adds packed game-ready artwork for Ashton, Rationalism, Knowledge, the Ashton institutions, the complete Marine line, the Slave/Slave Raider line, and the custom v0.2 promotions. The new regions are carried in the supplemental `v021` atlas while the original Veilfall `game` atlas remains intact.
