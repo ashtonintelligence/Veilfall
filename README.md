@@ -1,8 +1,8 @@
-# Unciv: Veilfall v0.2.1
+# Unciv: Veilfall v0.2.3
 
 **Version:** **v0.2.3 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.1-build`  
+**Development/source branch:** `veilfall-v0.2.3-art-integration`  
 **Predecessor:** **v0.2.2**  
 **Status:** v0.2.3 visual-integration corrective patch deployed for in-game runtime acceptance  
 **Base ruleset:** Civ V - Gods & Kings
@@ -111,7 +111,7 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.3-art-repair` branch contains the v0.2.3 visual-art repair candidate.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.3** is the current prerelease patch. The `veilfall-v0.2.3-art-integration` branch is the verified source branch for the deployed build.
 
 
 ## v0.2.1 art assets
