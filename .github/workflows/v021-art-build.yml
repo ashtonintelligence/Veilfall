@@ -1,4 +1,5 @@
 name: Build Veilfall v0.2.2 art
+# Runtime visual-art corrective build
 
 on:
   push:
