@@ -140,12 +140,13 @@ def unit_icon(name,size=128):
     im=Image.new('RGBA',(size,size),(255,255,255,0)); im.putalpha(alpha); return im
 
 def load_unit_portraits():
-    sheet=Image.open('tools/v022/v022_portraits.jpg').convert('RGB')
-    if sheet.size != (768,256): raise SystemExit('Unexpected v0.2.2 portrait sheet size: '+repr(sheet.size))
     result={}
-    for i,name in enumerate(UNITS):
-        x=(i%6)*128; y=(i//6)*128
-        result[name]=sheet.crop((x,y,x+128,y+128)).resize((256,256),Image.Resampling.LANCZOS).convert('RGBA')
+    for name in UNITS:
+        fn=name.replace(' ','_')+'_portrait.jpg'
+        path=Path('tools/v022/portraits')/fn
+        im=Image.open(path).convert('RGB')
+        if im.size != (128,128): raise SystemExit('Unexpected portrait size for '+name+': '+repr(im.size))
+        result[name]=im.resize((256,256),Image.Resampling.LANCZOS).convert('RGBA')
     return result
 
 def promo(name,size=256):
