@@ -1,4 +1,5 @@
-# Veilfall v0.2.2 visual-art corrective atlas builder\nfrom PIL import Image, ImageDraw, ImageFilter
+# Veilfall v0.2.2 visual-art corrective atlas builder
+from PIL import Image, ImageDraw, ImageFilter
 from pathlib import Path
 import json, hashlib, math, random
 
