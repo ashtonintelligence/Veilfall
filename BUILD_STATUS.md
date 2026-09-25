@@ -4,7 +4,7 @@
 **Deployment branch:** `main`  
 **Source branch:** `veilfall-v0.2.2-art-repair`  
 **Predecessor:** **v0.2.1**  
-**Patch build date:** 2026-09-25\n\n**Current status:** visual-art corrective patch in progress. `main` remains on v0.2.1 until v0.2.2 visual acceptance gates pass.
+**Patch build date:** 2026-09-25\n\n**Current status:** v0.2.2 corrective atlas passed automated verification and is being deployed for in-game runtime acceptance.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -284,3 +284,5 @@ Runtime screenshot QA has now confirmed:
 - Slave Raider Doctrine renders cleanly and is accepted as-is;
 - the Ashton civilization emblem artwork is accepted but requires optical recentering within its circular frame.
 
+
+- v0.2.2 automated art verification confirms 80/80 required atlas entries and 11 distinct custom unit icons.
