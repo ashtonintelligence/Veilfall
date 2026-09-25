@@ -2,9 +2,11 @@
 
 **Version:** **v0.2.3 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.3-art-repair`  
+**Source branch:** `veilfall-v0.2.3-art-integration`  
 **Predecessor:** **v0.2.2**  
-**Patch build date:** 2026-09-25\n\n**Current status:** v0.2.3 corrective atlas passed automated verification and is being deployed for in-game runtime acceptance.
+**Patch build date:** 2026-09-25
+
+**Current status:** v0.2.3 corrective atlas passed automated verification and is deployed to `main` for in-game runtime acceptance.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
