@@ -1,10 +1,10 @@
-# Veilfall v0.2.2 — Build Status
+# Veilfall v0.2.3 — Build Status
 
-**Version:** **v0.2.2 prerelease**  
+**Version:** **v0.2.3 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.2-art-repair`  
-**Predecessor:** **v0.2.1**  
-**Patch build date:** 2026-09-25\n\n**Current status:** v0.2.2 corrective atlas passed automated verification and is being deployed for in-game runtime acceptance.
+**Source branch:** `veilfall-v0.2.3-art-repair`  
+**Predecessor:** **v0.2.2**  
+**Patch build date:** 2026-09-25\n\n**Current status:** v0.2.3 corrective atlas passed automated verification and is being deployed for in-game runtime acceptance.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -262,11 +262,11 @@ A real Unciv ruleset-validator/game load has **not yet been run** in this enviro
 7. capture any validator/runtime errors before proceeding into the engine hooks.
 
 
-## v0.2.2 visual-QA repair
+## v0.2.3 visual-QA repair
 
 Runtime testing of v0.2.1 confirmed that the supplemental atlas loads, but also exposed unacceptable generated substitute art. The Slave Raider map sprite rendered as an oversized white humanoid silhouette rather than the approved historical unit direction.
 
-v0.2.2 therefore treats atlas-key presence as necessary but not sufficient. Unit-art acceptance additionally requires:
+v0.2.3 therefore treats atlas-key presence as necessary but not sufficient. Unit-art acceptance additionally requires:
 - source-derived or specifically approved unit artwork rather than generic substitute figures;
 - map sprites with genuine transparency and no rectangular poster background;
 - opaque sprite content scaled to a restrained footprint within its atlas region;
@@ -285,4 +285,14 @@ Runtime screenshot QA has now confirmed:
 - the Ashton civilization emblem artwork is accepted but requires optical recentering within its circular frame.
 
 
-- v0.2.2 automated art verification confirms 80/80 required atlas entries and 11 distinct custom unit icons.
+- v0.2.3 automated art verification confirms 80/80 required atlas entries and 11 distinct custom unit icons.
+
+
+## v0.2.3 runtime-integration repair
+
+Runtime screenshots from v0.2.2 confirmed that the replacement atlas loads correctly and the detailed unit portraits are distinct, but the map sprites remained oversized and the circular unit-icon treatment was not sufficiently Unciv-native. v0.2.3 therefore:
+- preserves the accepted detailed portraits;
+- rebuilds all 11 UnitIcons as simplified tintable silhouettes;
+- constrains map-sprite opaque footprints to game-scale bounds;
+- keeps Mounted Slave Raider visibly mounted;
+- preserves all accepted non-unit artwork.
