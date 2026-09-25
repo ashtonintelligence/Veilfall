@@ -21,13 +21,16 @@ def star(draw,cx,cy,r1,r2,n=8,fill=LGOLD):
 def crest(size=256):
     im=canvas(size); d=ImageDraw.Draw(im); cx=cy=size/2
     circ(d,(size*.07,size*.07,size*.93,size*.93),fill=NAVY2,outline=GOLD,w=max(5,size//24))
-    d.polygon([(cx,size*.27),(size*.69,size*.39),(size*.63,size*.70),(cx,size*.79),(size*.37,size*.70),(size*.31,size*.39)],fill=NAVY,outline=GOLD)
-    star(d,cx,cy+size*.02,size*.14,size*.055,8,LGOLD)
-    d.arc((size*.12,size*.18,size*.58,size*.76),70,290,fill=LGOLD,width=max(7,size//18))
-    d.arc((size*.42,size*.18,size*.88,size*.76),250,470,fill=SCARLET,width=max(7,size//18))
-    d.polygon([(size*.23,size*.29),(size*.13,size*.18),(size*.30,size*.21)],fill=GOLD)
-    d.polygon([(size*.77,size*.29),(size*.87,size*.18),(size*.70,size*.21)],fill=SCARLET)
-    d.polygon([(size*.39,size*.22),(size*.44,size*.12),(size*.50,size*.20),(size*.56,size*.12),(size*.61,size*.22)],fill=GOLD)
+    # Keep the accepted outer ring fixed; optically recenter the internal heraldry right/down.
+    inner=canvas(size); q=ImageDraw.Draw(inner); ox=size*.025; oy=size*.025
+    q.polygon([(cx+ox,size*.27+oy),(size*.69+ox,size*.39+oy),(size*.63+ox,size*.70+oy),(cx+ox,size*.79+oy),(size*.37+ox,size*.70+oy),(size*.31+ox,size*.39+oy)],fill=NAVY,outline=GOLD)
+    star(q,cx+ox,cy+size*.02+oy,size*.14,size*.055,8,LGOLD)
+    q.arc((size*.12+ox,size*.18+oy,size*.58+ox,size*.76+oy),70,290,fill=LGOLD,width=max(7,size//18))
+    q.arc((size*.42+ox,size*.18+oy,size*.88+ox,size*.76+oy),250,470,fill=SCARLET,width=max(7,size//18))
+    q.polygon([(size*.23+ox,size*.29+oy),(size*.13+ox,size*.18+oy),(size*.30+ox,size*.21+oy)],fill=GOLD)
+    q.polygon([(size*.77+ox,size*.29+oy),(size*.87+ox,size*.18+oy),(size*.70+ox,size*.21+oy)],fill=SCARLET)
+    q.polygon([(size*.39+ox,size*.22+oy),(size*.44+ox,size*.12+oy),(size*.50+ox,size*.20+oy),(size*.56+ox,size*.12+oy),(size*.61+ox,size*.22+oy)],fill=GOLD)
+    im.alpha_composite(inner)
     return im
 
 def rationalism(size=256):
