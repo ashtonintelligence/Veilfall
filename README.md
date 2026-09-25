@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.3
+# Unciv: Veilfall v0.2.4
 
-**Version:** **v0.2.3 prerelease**  
+**Version:** **v0.2.4 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.3-art-integration`  
-**Predecessor:** **v0.2.2**  
-**Status:** v0.2.3 visual-integration corrective patch deployed for in-game runtime acceptance  
+**Development/source branch:** `veilfall-v0.2.4-runtime-art-fix`  
+**Predecessor:** **v0.2.3**  
+**Status:** v0.2.4 runtime-art corrective patch prepared for deployment  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,7 +111,7 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.3** is the current prerelease patch. The `veilfall-v0.2.3-art-integration` branch is the verified source branch for the deployed build.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.4** is the current prerelease patch. The `veilfall-v0.2.3-art-integration` branch is the verified source branch for the deployed build.
 
 
 ## v0.2.1 art assets
@@ -129,3 +129,8 @@ The generated atlas has passed automated verification and v0.2.3 is deployed. Fi
 ## v0.2.3 visual integration correction
 
 v0.2.3 corrects the remaining runtime integration defects identified after v0.2.2. The detailed source-derived unit portraits are retained, while UnitIcons are rebuilt as simplified tintable silhouettes and map sprites are scaled to a restrained transparent footprint appropriate to Unciv hexes. The six Marine stages and five slavery-line stages remain visually distinct. Accepted building, promotion, Knowledge, Rationalism, and Ashton artwork is preserved.
+
+
+## v0.2.4 runtime-art correction
+
+v0.2.4 corrects the remaining runtime presentation defects observed after v0.2.3: unit portraits no longer reuse labeled source-sheet crops, and custom map sprites use a substantially smaller transparent footprint appropriate to Unciv hexes. Gameplay rules are unchanged from v0.2.3, including the 50% Slave Raider capture chance.
