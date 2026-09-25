@@ -1,5 +1,5 @@
 {
-  "release": "v0.2.1",
+  "release": "v0.2.2",
   "entry_count": 80,
   "missing_keys": [],
   "png_size": [
@@ -92,6 +92,7 @@
     "UnitPromotionPortraits/Operational Support",
     "UnitPromotionPortraits/Slave Raider Doctrine"
   ],
-  "v021_png_sha256": "3ffce9306dc9078601bfa3193aea73cb1a86ac8b393e11ef4dbeb9125f306675",
+  "distinct_unit_icon_count": 11,
+  "v021_png_sha256": "03d599358e3e8c836ffb4c5026e29c909d2ee7d5261404259968dfb26c45329a",
   "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73"
 }
