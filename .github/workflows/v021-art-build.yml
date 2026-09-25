@@ -43,7 +43,7 @@ jobs:
               json.loads(p.read_text(encoding='utf-8'))
           assert json.loads((root/'Atlases.json').read_text()) == ['game','v021']
           opts=json.loads((root/'jsons/ModOptions.json').read_text())
-          assert opts.get('modVersion') == '0.2.2', opts
+          assert opts.get('modVersion') == '0.2.3', opts
           promos=json.loads((root/'jsons/UnitPromotions.json').read_text())
           doctrine=next(x for x in promos if x.get('name')=='Slave Raider Doctrine')
           assert any('with [50]% chance' in u for u in doctrine.get('uniques',[])), doctrine
@@ -82,7 +82,7 @@ jobs:
           readme=(root/'README.md').read_text()
           build=(root/'BUILD_STATUS.md').read_text()
           assert 'v0.2.3' in readme and 'v0.2.3' in build
-          assert '**Predecessor:** **v0.2.1**' in readme and '**Predecessor:** **v0.2.1**' in build
+          assert '**Predecessor:** **v0.2.2**' in readme and '**Predecessor:** **v0.2.2**' in build
           assert 'veilfall-v0.2-build' not in readme
           print('All v0.2.3 verification gates passed.')
           PY
