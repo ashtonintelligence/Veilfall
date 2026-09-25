@@ -3,7 +3,7 @@
 **Version:** **v0.2.1 prerelease**  
 **Deployment branch:** `main`  
 **Development/source branch:** `veilfall-v0.2.1-build`  
-**Predecessor:** **v0.1.1**  
+**Predecessor:** **v0.2**  
 **Status:** v0.2.1 patch release prepared for deployment; completes the v0.2 art pass, raises Slave Raider capture chance to 50%, and retains the documented engine-level backlog  
 **Base ruleset:** Civ V - Gods & Kings
 
@@ -111,7 +111,7 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2-build` branch is retained as the source branch for this deployment.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.1-build` branch is the verified source branch for this patch.
 
 
 ## v0.2.1 art assets
