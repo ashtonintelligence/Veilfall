@@ -158,21 +158,26 @@ def unit_icon(name,size=128):
     return _fit_alpha(silhouette,size,max_w,max_h,108)
 
 def map_sprite(name,size=128):
-    # Hex-map sprite: compact transparent figure with a deliberately restrained footprint.
+    # Hex-map sprite: intentionally much smaller than the Civilopedia/UI art.
+    # Runtime screenshots showed the prior 70 px figures dominating a full hex.
     sp=unit_sprite(name,size)
-    max_w=78 if name=='Mounted Slave Raider' else 52
-    max_h=58 if name=='Mounted Slave Raider' else 70
-    return _fit_alpha(sp,size,max_w,max_h,112)
+    max_w=48 if name=='Mounted Slave Raider' else 34
+    max_h=36 if name=='Mounted Slave Raider' else 44
+    return _fit_alpha(sp,size,max_w,max_h,106)
+
+def unit_portrait(name,size=256):
+    # Standalone UI portrait. Do not crop labeled art-bible/contact sheets:
+    # Unciv masks portraits into circles and any sheet labels/background bars become visible.
+    im=canvas(size); d=ImageDraw.Draw(im)
+    circ(d,(12,12,size-12,size-12),fill=NAVY2,outline=GOLD,w=max(6,size//26))
+    inner=unit_sprite(name,128)
+    fitted=_fit_alpha(inner,128,88 if name=='Mounted Slave Raider' else 68,92 if name=='Mounted Slave Raider' else 100,112)
+    fitted=fitted.resize((196,196),Image.Resampling.LANCZOS)
+    im.alpha_composite(fitted,((size-196)//2,(size-196)//2+8))
+    return im
 
 def load_unit_portraits():
-    result={}
-    for name in UNITS:
-        fn=name.replace(' ','_')+'_portrait.jpg'
-        path=Path('tools/v022/portraits')/fn
-        im=Image.open(path).convert('RGB')
-        if im.size != (128,128): raise SystemExit('Unexpected portrait size for '+name+': '+repr(im.size))
-        result[name]=im.resize((256,256),Image.Resampling.LANCZOS).convert('RGBA')
-    return result
+    return {name:unit_portrait(name,256) for name in UNITS}
 
 def promo(name,size=256):
     im=canvas(size); d=ImageDraw.Draw(im); m=size*.09; cx=cy=size/2; w=max(4,size//20)
@@ -224,9 +229,9 @@ for u in UNITS:
     w=bbox[2]-bbox[0]; h=bbox[3]-bbox[1]
     sprite_metrics[u]={'bbox':list(bbox),'w':w,'h':h}
     if u=='Mounted Slave Raider':
-        if w>82 or h>62: raise SystemExit('Mounted map sprite footprint too large: '+repr(sprite_metrics[u]))
-    elif w>56 or h>74:
+        if w>50 or h>40: raise SystemExit('Mounted map sprite footprint too large: '+repr(sprite_metrics[u]))
+    elif w>36 or h>48:
         raise SystemExit('Map sprite footprint too large: '+u+' '+repr(sprite_metrics[u]))
-verification={'release':'v0.2.3','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'map_sprite_metrics':sprite_metrics,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
+verification={'release':'v0.2.4','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'map_sprite_metrics':sprite_metrics,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
 (OUT/'ART_VERIFICATION.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in verification.items() if k!='required_keys'},indent=2))
