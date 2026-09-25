@@ -58,9 +58,9 @@ jobs:
           assert set(metrics)==set(['Continental Marines','Marine Riflemen','Expeditionary Marines','Fleet Marine Force','Marine Expeditionary Unit','Exo-Marine','Slave','Slave Raider','Mounted Slave Raider','Slave Hunter','Industrial Slaver'])
           for name,m in metrics.items():
               if name=='Mounted Slave Raider':
-                  assert m['w']<=82 and m['h']<=62, (name,m)
+                  assert m['w']<=50 and m['h']<=40, (name,m)
               else:
-                  assert m['w']<=56 and m['h']<=74, (name,m)
+                  assert m['w']<=36 and m['h']<=48, (name,m)
           text=(root/'v021.atlas').read_text()
           required=[
             'NationIcons/Ashton','NationPortraits/Ashton',
@@ -82,7 +82,7 @@ jobs:
           readme=(root/'README.md').read_text()
           build=(root/'BUILD_STATUS.md').read_text()
           assert 'v0.2.4' in readme and 'v0.2.4' in build
-          assert '**Predecessor:** **v0.2.2**' in readme and '**Predecessor:** **v0.2.2**' in build
+          assert '**Predecessor:** **v0.2.3**' in readme and '**Predecessor:** **v0.2.3**' in build
           assert 'veilfall-v0.2-build' not in readme
           print('All v0.2.4 verification gates passed.')
           PY
