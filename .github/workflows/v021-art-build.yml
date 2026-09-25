@@ -5,7 +5,8 @@ on:
     branches: [veilfall-v0.2.2-art-repair]
     paths:
       - '.github/workflows/v021-art-build.yml'
-      - 'tools/v021/**'\n      - 'tools/v022/**'
+      - 'tools/v021/**'
+      - 'tools/v022/**'
   workflow_dispatch:
 
 permissions:
