@@ -98,5 +98,5 @@ jobs:
             echo "Generated assets already match repository."
           else
             git commit -m "Pack and verify Veilfall v0.2.3 artwork"
-            git push origin HEAD:veilfall-v0.2.3-art-repair
+            git push origin HEAD:veilfall-v0.2.3-art-integration
           fi
