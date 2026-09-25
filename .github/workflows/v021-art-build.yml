@@ -3,7 +3,7 @@ name: Build Veilfall v0.2.3 art
 
 on:
   push:
-    branches: [veilfall-v0.2.3-art-repair]
+    branches: [veilfall-v0.2.3-art-integration]
     paths:
       - '.github/workflows/v021-art-build.yml'
       - 'tools/v021/**'
