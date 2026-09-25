@@ -296,3 +296,6 @@ Runtime screenshots from v0.2.2 confirmed that the replacement atlas loads corre
 - constrains map-sprite opaque footprints to game-scale bounds;
 - keeps Mounted Slave Raider visibly mounted;
 - preserves all accepted non-unit artwork.
+
+
+- v0.2.3 automated verification passed: 80/80 atlas entries, 11 distinct UnitIcons, and constrained map-sprite footprints for all 11 custom units.
