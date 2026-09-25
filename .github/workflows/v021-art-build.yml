@@ -43,7 +43,7 @@ jobs:
               json.loads(p.read_text(encoding='utf-8'))
           assert json.loads((root/'Atlases.json').read_text()) == ['game','v021']
           opts=json.loads((root/'jsons/ModOptions.json').read_text())
-          assert opts.get('modVersion') == '0.2.1', opts
+          assert opts.get('modVersion') == '0.2.2', opts
           promos=json.loads((root/'jsons/UnitPromotions.json').read_text())
           doctrine=next(x for x in promos if x.get('name')=='Slave Raider Doctrine')
           assert any('with [50]% chance' in u for u in doctrine.get('uniques',[])), doctrine
