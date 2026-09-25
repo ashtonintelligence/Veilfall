@@ -3,7 +3,7 @@
 **Version:** **v0.2.1 prerelease**  
 **Deployment branch:** `main`  
 **Source branch:** `veilfall-v0.2.1-build`  
-**Predecessor:** **v0.1.1**  
+**Predecessor:** **v0.2**  
 **Patch build date:** 2026-09-25
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
