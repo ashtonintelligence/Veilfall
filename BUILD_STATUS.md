@@ -1,12 +1,12 @@
-# Veilfall v0.2.3 — Build Status
+# Veilfall v0.2.4 — Build Status
 
-**Version:** **v0.2.3 prerelease**  
+**Version:** **v0.2.4 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.3-art-integration`  
-**Predecessor:** **v0.2.2**  
+**Source branch:** `veilfall-v0.2.4-runtime-art-fix`  
+**Predecessor:** **v0.2.3**  
 **Patch build date:** 2026-09-25
 
-**Current status:** v0.2.3 corrective atlas passed automated verification and is deployed to `main` for in-game runtime acceptance.
+**Current status:** v0.2.4 runtime-art repair is under automated verification.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -301,3 +301,8 @@ Runtime screenshots from v0.2.2 confirmed that the replacement atlas loads corre
 
 
 - v0.2.3 automated verification passed: 80/80 atlas entries, 11 distinct UnitIcons, and constrained map-sprite footprints for all 11 custom units.
+
+
+## v0.2.4 runtime-art repair
+
+Runtime screenshots from v0.2.3 showed that atlas loading and key resolution were correct, but UnitPortraits still exposed labeled source-sheet crops and map sprites remained too large for the hex map. v0.2.4 replaces custom UnitPortraits with clean standalone transparent/circular compositions derived from the unit silhouettes and reduces map-sprite footprint limits to 36×48 px for infantry-style units and 50×40 px for Mounted Slave Raider. Ruleset behavior is unchanged.
