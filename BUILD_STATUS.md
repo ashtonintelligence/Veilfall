@@ -1,10 +1,10 @@
-# Veilfall v0.2.1 — Build Status
+# Veilfall v0.2.2 — Build Status
 
-**Version:** **v0.2.1 prerelease**  
+**Version:** **v0.2.2 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.1-build`  
-**Predecessor:** **v0.2**  
-**Patch build date:** 2026-09-25
+**Source branch:** `veilfall-v0.2.2-art-repair`  
+**Predecessor:** **v0.2.1**  
+**Patch build date:** 2026-09-25\n\n**Current status:** visual-art corrective patch in progress. `main` remains on v0.2.1 until v0.2.2 visual acceptance gates pass.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -260,3 +260,18 @@ A real Unciv ruleset-validator/game load has **not yet been run** in this enviro
 5. inspect Knowledge in the resource UI;
 6. verify build menus, upgrade paths, promotions, Rationalism beliefs, and improvement times;
 7. capture any validator/runtime errors before proceeding into the engine hooks.
+
+
+## v0.2.2 visual-QA repair
+
+Runtime testing of v0.2.1 confirmed that the supplemental atlas loads, but also exposed unacceptable generated substitute art. The Slave Raider map sprite rendered as an oversized white humanoid silhouette rather than the approved historical unit direction.
+
+v0.2.2 therefore treats atlas-key presence as necessary but not sufficient. Unit-art acceptance additionally requires:
+- source-derived or specifically approved unit artwork rather than generic substitute figures;
+- map sprites with genuine transparency and no rectangular poster background;
+- opaque sprite content scaled to a restrained footprint within its atlas region;
+- UnitIcons derived from recognizable unit silhouettes suitable for tinting;
+- distinct visual progression across the Marine and slavery lines;
+- runtime screenshot review before deployment to main.
+
+The full custom-unit set is being audited, not only Slave Raider.
