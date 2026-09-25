@@ -1,10 +1,10 @@
-# Veilfall v0.2 — Build Status
+# Veilfall v0.2.1 — Build Status
 
-**Version:** **v0.2 prerelease**  
+**Version:** **v0.2.1 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2-build`  
+**Source branch:** `veilfall-v0.2.1-build`  
 **Predecessor:** **v0.1.1**  
-**Deployment date:** 2026-09-24
+**Patch build date:** 2026-09-25
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -228,17 +228,17 @@ Later:
 - slavery/abolition preferences;
 - Rationalist ethical behavior.
 
-## Art integration still required
-The design art is locked, but the current repository pass does not yet contain all final game-ready icon/sprite exports for:
-- Ashton civilization emblem;
-- Rationalism icon;
-- Athenaeum;
-- Strategic Analysis Center;
-- The Great Archive;
-- Marine lineage;
-- Slave and Slave Raider lineage.
+## Art integration — v0.2.1
+v0.2.1 supplies packed game-ready assets for:
+- Ashton Nation icon and portrait;
+- Rationalism icon and portrait;
+- Knowledge resource icon and portrait;
+- Athenaeum, Strategic Analysis Center, The Great Archive, and Forum of Inquiry portraits;
+- all six Marine unit portraits, unit icons, and Minimal/FantasyHex/HexaRealm map sprites;
+- Slave plus all four Slave Raider-line unit portraits, unit icons, and Minimal/FantasyHex/HexaRealm map sprites;
+- Operational Frontline, Operational Support, Marine Naval Integration, Marine Embarked Recon, Marine Expeditionary Endurance, MEU Combat Tempo, Exo-Marine Mobility, and Slave Raider Doctrine promotion icons/portraits.
 
-Until those assets are exported into Unciv-compatible atlas/icon files, Unciv may use fallback type/building imagery.
+These assets are packed into the supplemental `v021` atlas, loaded alongside the original `game` atlas.
 
 ## Validation performed
 - All current mod JSON files on the development branch parse successfully.
