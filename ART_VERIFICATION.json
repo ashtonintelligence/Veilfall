@@ -1,5 +1,5 @@
 {
-  "release": "v0.2.2",
+  "release": "v0.2.3",
   "entry_count": 80,
   "missing_keys": [],
   "png_size": [
@@ -93,6 +93,118 @@
     "UnitPromotionPortraits/Slave Raider Doctrine"
   ],
   "distinct_unit_icon_count": 11,
-  "v021_png_sha256": "03d599358e3e8c836ffb4c5026e29c909d2ee7d5261404259968dfb26c45329a",
+  "map_sprite_metrics": {
+    "Continental Marines": {
+      "bbox": [
+        45,
+        42,
+        83,
+        112
+      ],
+      "w": 38,
+      "h": 70
+    },
+    "Marine Riflemen": {
+      "bbox": [
+        44,
+        42,
+        84,
+        112
+      ],
+      "w": 40,
+      "h": 70
+    },
+    "Expeditionary Marines": {
+      "bbox": [
+        43,
+        42,
+        84,
+        112
+      ],
+      "w": 41,
+      "h": 70
+    },
+    "Fleet Marine Force": {
+      "bbox": [
+        43,
+        42,
+        85,
+        112
+      ],
+      "w": 42,
+      "h": 70
+    },
+    "Marine Expeditionary Unit": {
+      "bbox": [
+        42,
+        42,
+        86,
+        112
+      ],
+      "w": 44,
+      "h": 70
+    },
+    "Exo-Marine": {
+      "bbox": [
+        39,
+        42,
+        88,
+        112
+      ],
+      "w": 49,
+      "h": 70
+    },
+    "Slave": {
+      "bbox": [
+        50,
+        42,
+        78,
+        112
+      ],
+      "w": 28,
+      "h": 70
+    },
+    "Slave Raider": {
+      "bbox": [
+        42,
+        42,
+        85,
+        112
+      ],
+      "w": 43,
+      "h": 70
+    },
+    "Mounted Slave Raider": {
+      "bbox": [
+        33,
+        54,
+        94,
+        112
+      ],
+      "w": 61,
+      "h": 58
+    },
+    "Slave Hunter": {
+      "bbox": [
+        42,
+        42,
+        85,
+        112
+      ],
+      "w": 43,
+      "h": 70
+    },
+    "Industrial Slaver": {
+      "bbox": [
+        43,
+        42,
+        85,
+        112
+      ],
+      "w": 42,
+      "h": 70
+    }
+  },
+  "v021_png_sha256": "2aada0474ff51576a0379cfaca85092863748142c7f4f0984a5d710832af1b3c",
   "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73"
 }
