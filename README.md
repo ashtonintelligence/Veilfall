@@ -74,7 +74,7 @@ The JSON pass includes:
 
 - Slave civilian unit;
 - Slave Raider -> Mounted Slave Raider -> Slave Hunter -> Industrial Slaver;
-- 25% prisoner-generation chance after eligible military victories;
+- 50% prisoner-generation chance after eligible military victories;
 - -25% city attack strength and inability to capture cities for the raider line;
 - -1 Happiness per 3 Slaves;
 - first-stage Worker augmentation while adjacent to a Slave;
