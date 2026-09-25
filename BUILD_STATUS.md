@@ -2,11 +2,11 @@
 
 **Version:** **v0.2.4 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.4-runtime-art-fix`  
+**Source branch:** `veilfall-v0.2.4-art-integration`  
 **Predecessor:** **v0.2.3**  
 **Patch build date:** 2026-09-25
 
-**Current status:** v0.2.4 runtime-art repair is under automated verification.
+**Current status:** v0.2.4 runtime-art repair passed automated verification and is deployed to `main` for in-game acceptance.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
