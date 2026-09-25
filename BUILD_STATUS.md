@@ -27,7 +27,6 @@ This file is the implementation truth for the current build. A design being lock
   - University +2.
   - Public School +3.
   - Research Lab +5.
-  - Scientist specialist +1.
   - Strategic Analysis Center +1.
   - Great Archive +5.
 - Universal event generation:
@@ -114,6 +113,12 @@ Effects:
 Locked construction-time rebalance is implemented for Road, Railroad, Farm, Mine, Lumber Mill, Trading Post, Camp, Pasture, Plantation, Quarry, Oil Well, Fort, Remove Forest, Remove Jungle, and Remove Marsh.
 
 ## Native approximation / prototype differences
+
+### Scientist specialist Knowledge
+Locked design: each Scientist specialist generates +1 Knowledge per turn.
+
+The initial JSON implementation attempted to express this with a specialist-specific countable. Unciv's in-game validator rejects that expression on the deployed game build, so the invalid unique has been removed from v0.2. Scientist Knowledge generation remains a required engine/unique enhancement rather than shipping a broken ruleset.
+
 
 ### Great Archive city scaling
 Locked design: +15 Production per **non-puppet** city.
