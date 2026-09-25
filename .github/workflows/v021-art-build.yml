@@ -2,7 +2,7 @@ name: Build Veilfall v0.2.2 art
 
 on:
   push:
-    branches: [veilfall-v0.2.2-build]
+    branches: [veilfall-v0.2.2-art-repair]
     paths:
       - '.github/workflows/v021-art-build.yml'
       - 'tools/v021/**'\n      - 'tools/v022/**'
@@ -87,5 +87,5 @@ jobs:
             echo "Generated assets already match repository."
           else
             git commit -m "Pack and verify Veilfall v0.2.2 artwork"
-            git push origin HEAD:veilfall-v0.2.2-build
+            git push origin HEAD:veilfall-v0.2.2-art-repair
           fi
