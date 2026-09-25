@@ -1,10 +1,10 @@
 # Unciv: Veilfall v0.2.1
 
-**Version:** **v0.2.1 prerelease**  
+**Version:** **v0.2.2 prerelease**  
 **Deployment branch:** `main`  
 **Development/source branch:** `veilfall-v0.2.1-build`  
-**Predecessor:** **v0.2**  
-**Status:** v0.2.1 deployed prerelease patch; completes the v0.2 art pass, raises Slave Raider capture chance to 50%, and retains the documented engine-level backlog  
+**Predecessor:** **v0.2.1**  
+**Status:** v0.2.2 visual-art corrective patch in verification; `main` remains on deployed v0.2.1 until runtime acceptance  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,9 +111,16 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.1-build` branch is the verified source branch for this patch.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.2-art-repair` branch contains the v0.2.2 visual-art repair candidate.
 
 
 ## v0.2.1 art assets
 
 v0.2.1 adds packed game-ready artwork for Ashton, Rationalism, Knowledge, the Ashton institutions, the complete Marine line, the Slave/Slave Raider line, and the custom v0.2 promotions. The new regions are carried in the supplemental `v021` atlas while the original Veilfall `game` atlas remains intact.
+
+
+## v0.2.2 visual-art correction
+
+v0.2.2 corrects the runtime visual defects found after v0.2.1 deployment. All six Marine units and all five slavery-line units now receive distinct unit silhouettes/map sprites, while detailed portraits are derived from the approved Marine lineage and historical art-bible source material. The accepted building, Knowledge, Rationalism, and promotion artwork is preserved. The Ashton emblem receives only an optical recentering adjustment.
+
+This patch is not considered deployed until the generated atlas passes automated verification and the repaired assets receive in-game runtime acceptance.
