@@ -89,7 +89,7 @@ Effects:
 ### Slavery — JSON portion
 - Slave civilian unit.
 - Slave Raider line and upgrade path.
-- 25% chance to create a Slave after defeating an eligible military unit.
+- 50% chance to create a Slave after defeating an eligible military unit.
 - Slave Raiders are -25% vs cities and cannot capture cities.
 - -1 Happiness per 3 owned Slaves.
 - Adjacent Slave reduces improvement construction time by 33%, approximating the locked first-stage 150% Worker rate.
