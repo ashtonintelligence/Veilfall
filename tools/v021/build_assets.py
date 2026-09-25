@@ -76,47 +76,74 @@ def building(kind,size=256):
     d.rectangle((size*.14,size*.73,size*.86,size*.78),fill=GOLD)
     return im
 
-def portrait(name,size=256):
-    im=Image.new('RGBA',(size,size),NAVY2); d=ImageDraw.Draw(im); random.seed(name)
-    d.rectangle((0,size*.58,size,size),fill=(60,59,58,255)); cx=size*.50; skin=(163,118,83,255)
-    if name=='Mounted Slave Raider':
-        d.ellipse((size*.18,size*.60,size*.78,size*.84),fill=(67,48,36,255)); d.ellipse((size*.69,size*.50,size*.86,size*.68),fill=(67,48,36,255))
-    if name=='Continental Marines': coat=(36,57,76,255); accent=SCARLET
-    elif name=='Marine Riflemen': coat=(47,67,73,255); accent=GOLD
-    elif name=='Expeditionary Marines': coat=(92,83,62,255); accent=(47,65,52,255)
-    elif name=='Fleet Marine Force': coat=(58,70,56,255); accent=GOLD
-    elif name=='Marine Expeditionary Unit': coat=(46,62,56,255); accent=SCARLET
-    elif name=='Exo-Marine': coat=(24,31,40,255); accent=GOLD
-    elif name=='Slave': coat=(111,91,70,255); accent=(137,112,79,255)
-    elif name=='Industrial Slaver': coat=(33,34,35,255); accent=GOLD
-    else: coat=(88,69,52,255); accent=SCARLET
-    d.ellipse((cx-size*.10,size*.13,cx+size*.10,size*.33),fill=skin)
-    d.polygon([(cx-size*.18,size*.31),(cx+size*.18,size*.31),(cx+size*.24,size*.78),(cx-size*.24,size*.78)],fill=coat)
-    d.polygon([(cx-size*.18,size*.76),(cx-size*.03,size*.76),(cx-size*.08,size*.98),(cx-size*.22,size*.98)],fill=coat)
-    d.polygon([(cx+size*.03,size*.76),(cx+size*.18,size*.76),(cx+size*.22,size*.98),(cx+size*.08,size*.98)],fill=coat)
-    if name.startswith('Marine') or name in ['Continental Marines','Exo-Marine']:
-        d.line((cx+size*.12,size*.38,size*.86,size*.72),fill=(35,31,28,255),width=max(7,size//24))
-    if name=='Exo-Marine':
-        d.arc((cx-size*.22,size*.24,cx+size*.22,size*.72),180,360,fill=GOLD,width=8); d.line((size*.66,size*.43,size*.90,size*.66),fill=SCARLET,width=6)
-    if name=='Industrial Slaver': d.rectangle((size*.65,size*.55,size*.83,size*.70),fill=(69,45,30,255),outline=GOLD,width=2)
-    if name in ['Slave Raider','Slave Hunter']: d.line((size*.62,size*.30,size*.87,size*.78),fill=(50,38,29,255),width=6)
-    if name=='Slave': d.arc((size*.32,size*.52,size*.68,size*.86),10,170,fill=(180,174,160,255),width=4)
-    if 'Marine' in name: d.rectangle((cx-size*.18,size*.42,cx-size*.13,size*.55),fill=accent)
+def human(d,coat,legs=None,skin=(163,118,83,255),head=(64,28)):
+    legs=legs or coat
+    d.ellipse((head[0]-8,head[1]-8,head[0]+8,head[1]+8),fill=skin)
+    d.polygon([(48,43),(80,43),(84,88),(44,88)],fill=coat)
+    d.polygon([(48,84),(61,84),(58,121),(45,121)],fill=legs)
+    d.polygon([(67,84),(80,84),(83,121),(70,121)],fill=legs)
+
+def rifle(d,x1,y1,x2,y2,col=(25,27,29,255),w=5):
+    d.line((x1,y1,x2,y2),fill=col,width=w)
+    d.line((x2-5,y2-4,x2+4,y2+4),fill=col,width=2)
+
+def unit_sprite(name,size=128):
+    im=canvas(size); d=ImageDraw.Draw(im)
+    K=(25,27,29,255); S=(163,118,83,255); B=(91,68,47,255); O=(74,83,67,255); T=(126,105,74,255)
+    if name=='Continental Marines':
+        human(d,NAVY); d.polygon([(48,19),(64,11),(80,19),(72,23),(56,23)],fill=K)
+        d.polygon([(51,43),(59,43),(75,88),(67,88)],fill=WHITE); d.polygon([(77,43),(69,43),(53,88),(61,88)],fill=WHITE)
+        rifle(d,36,50,90,108,B,4); d.rectangle((46,52,51,70),fill=SCARLET)
+    elif name=='Marine Riflemen':
+        human(d,NAVY2); d.rectangle((52,17,76,22),fill=K); d.ellipse((55,12,73,24),fill=K)
+        d.line((45,45,83,87),fill=GOLD,width=3); rifle(d,39,48,95,105,B,4); d.rectangle((78,50,83,68),fill=SCARLET)
+    elif name=='Expeditionary Marines':
+        human(d,T); d.polygon([(49,20),(64,12),(79,20),(73,25),(55,25)],fill=(104,89,61,255))
+        d.rectangle((45,55,83,65),fill=(92,77,51,255)); rifle(d,37,50,94,104,B,4)
+    elif name=='Fleet Marine Force':
+        human(d,O); d.arc((49,13,79,31),180,360,fill=K,width=7); d.rectangle((45,50,83,66),fill=(62,69,55,255))
+        rifle(d,37,52,96,101,K,5); d.rectangle((76,49,82,66),fill=GOLD)
+    elif name=='Marine Expeditionary Unit':
+        human(d,(47,58,50,255)); d.arc((47,10,81,34),180,360,fill=K,width=9)
+        d.rectangle((45,48,83,67),fill=(40,46,41,255)); d.ellipse((73,19,78,24),fill=SCARLET)
+        rifle(d,35,53,98,100,K,6); d.rectangle((45,70,54,80),fill=GOLD)
+    elif name=='Exo-Marine':
+        human(d,(31,36,43,255),legs=(31,36,43,255)); d.arc((44,8,84,38),180,360,fill=(45,52,61,255),width=11)
+        d.arc((39,37,89,98),185,355,fill=GOLD,width=5); d.rectangle((43,50,85,72),outline=GOLD,width=3)
+        rifle(d,35,52,99,98,(55,61,69,255),7); d.line((93,91,111,107),fill=SCARLET,width=4)
+    elif name=='Slave':
+        human(d,(205,190,160,255),legs=(188,170,140,255)); d.line((45,65,83,65),fill=(120,105,85,255),width=3)
+        d.arc((50,78,78,102),0,180,fill=(150,145,135,255),width=3)
+    elif name=='Slave Raider':
+        human(d,(112,83,56,255),legs=(92,68,49,255)); d.rectangle((51,17,77,21),fill=(79,59,42,255))
+        d.line((39,47,91,104),fill=(79,58,40,255),width=4); d.line((87,101,100,116),fill=(79,58,40,255),width=3)
+        d.rectangle((46,56,82,62),fill=SCARLET)
+    elif name=='Mounted Slave Raider':
+        d.ellipse((13,67,93,101),fill=B); d.polygon([(79,70),(102,52),(114,61),(100,82)],fill=B); d.polygon([(101,53),(110,43),(108,59)],fill=B)
+        for x in (26,48,70,86): d.polygon([(x,94),(x+8,94),(x+5,124),(x-2,124)],fill=B)
+        d.polygon([(18,75),(4,63),(18,88)],fill=B); d.ellipse((51,28,65,42),fill=S); d.polygon([(45,42),(70,42),(76,72),(49,73)],fill=(79,67,55,255))
+        d.arc((48,20,68,37),180,360,fill=K,width=5); d.line((65,46,97,75),fill=K,width=4)
+    elif name=='Slave Hunter':
+        human(d,(105,55,43,255),legs=(47,49,46,255)); d.polygon([(50,18),(64,9),(78,18),(75,28),(53,28)],fill=(223,216,191,255))
+        d.rectangle((45,51,83,60),fill=SCARLET); rifle(d,35,50,98,105,B,5)
+    elif name=='Industrial Slaver':
+        human(d,(35,36,38,255),legs=(31,32,34,255)); d.rectangle((51,11,77,18),fill=K); d.rectangle((55,4,73,15),fill=K)
+        d.polygon([(48,43),(80,43),(87,93),(41,93)],fill=(38,39,41,255)); d.line((53,44,64,61),fill=GOLD,width=2); d.line((75,44,64,61),fill=GOLD,width=2)
+        d.ellipse((61,59,67,65),outline=GOLD,width=2); d.rectangle((82,61,98,82),fill=B,outline=GOLD,width=2); d.line((42,56,29,110),fill=B,width=4)
     return im
 
 def unit_icon(name,size=128):
-    im=canvas(size); d=ImageDraw.Draw(im); W=WHITE
-    d.ellipse((size*.43,size*.10,size*.57,size*.24),fill=W)
-    d.polygon([(size*.35,size*.27),(size*.65,size*.27),(size*.61,size*.68),(size*.39,size*.68)],fill=W)
-    d.polygon([(size*.39,size*.65),(size*.49,size*.65),(size*.45,size*.94),(size*.34,size*.94)],fill=W)
-    d.polygon([(size*.51,size*.65),(size*.61,size*.65),(size*.66,size*.94),(size*.55,size*.94)],fill=W)
-    if name=='Mounted Slave Raider':
-        d.ellipse((size*.12,size*.55,size*.72,size*.88),outline=W,width=5); d.ellipse((size*.62,size*.45,size*.83,size*.62),fill=W)
-    elif name=='Slave': d.arc((size*.18,size*.28,size*.82,size*.82),15,165,fill=W,width=4)
-    else: d.line((size*.62,size*.31,size*.92,size*.78),fill=W,width=5)
-    if name in ['Exo-Marine','Marine Expeditionary Unit']: d.arc((size*.24,size*.18,size*.76,size*.70),180,360,fill=W,width=4)
-    if name=='Industrial Slaver': d.rectangle((size*.67,size*.49,size*.88,size*.68),outline=W,width=3)
-    return im
+    sp=unit_sprite(name,size); alpha=sp.getchannel('A').filter(ImageFilter.MaxFilter(3))
+    im=Image.new('RGBA',(size,size),(255,255,255,0)); im.putalpha(alpha); return im
+
+def load_unit_portraits():
+    sheet=Image.open('tools/v022/v022_portraits.jpg').convert('RGB')
+    if sheet.size != (768,256): raise SystemExit('Unexpected v0.2.2 portrait sheet size: '+repr(sheet.size))
+    result={}
+    for i,name in enumerate(UNITS):
+        x=(i%6)*128; y=(i//6)*128
+        result[name]=sheet.crop((x,y,x+128,y+128)).resize((256,256),Image.Resampling.LANCZOS).convert('RGBA')
+    return result
 
 def promo(name,size=256):
     im=canvas(size); d=ImageDraw.Draw(im); m=size*.09; cx=cy=size/2; w=max(4,size//20)
@@ -133,9 +160,12 @@ def promo(name,size=256):
 
 assets={'NationPortraits/Ashton':crest(256),'NationIcons/Ashton':crest(128),'ReligionPortraits/Rationalism':rationalism(256),'ReligionIcons/Rationalism':rationalism(128),'ResourcePortraits/Knowledge':knowledge(256)}
 for b in ['Athenaeum','Strategic Analysis Center','The Great Archive','Forum of Inquiry']: assets['BuildingPortraits/'+b]=building(b)
+unit_portraits=load_unit_portraits()
 for u in UNITS:
-    assets['UnitPortraits/'+u]=portrait(u); ui=unit_icon(u); assets['UnitIcons/'+u]=ui
-    for ts in ['Minimal','FantasyHex','HexaRealm']: assets[f'TileSets/{ts}/Units/{u}']=ui.copy()
+    assets['UnitPortraits/'+u]=unit_portraits[u]
+    ui=unit_icon(u); assets['UnitIcons/'+u]=ui
+    sprite=unit_sprite(u)
+    for ts in ['Minimal','FantasyHex','HexaRealm']: assets[f'TileSets/{ts}/Units/{u}']=sprite.copy()
 for p in PROMOS:
     assets['UnitPromotionPortraits/'+p]=promo(p,256); assets['UnitPromotionIcons/'+p]=promo(p,128)
 assert len(assets)==80
@@ -156,6 +186,8 @@ missing=[k for k in required if ('\n'+k+'\n') not in ('\n'+text)]
 if missing: raise SystemExit('Missing atlas keys: '+repr(missing))
 check=Image.open(OUT/'v021.png').convert('RGBA'); alpha=check.getchannel('A')
 if alpha.getextrema()[0] != 0: raise SystemExit('Atlas has no true transparency')
-icon_hashes={u:hashlib.sha256(assets['UnitIcons/'+u].tobytes()).hexdigest() for u in UNITS}\nif len(set(icon_hashes.values())) != len(UNITS): raise SystemExit('Custom unit icons are not all visually distinct')\nverification={'release':'v0.2.2','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
+icon_hashes={u:hashlib.sha256(assets['UnitIcons/'+u].tobytes()).hexdigest() for u in UNITS}
+if len(set(icon_hashes.values())) != len(UNITS): raise SystemExit('Custom unit icons are not all visually distinct')
+verification={'release':'v0.2.2','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
 (OUT/'ART_VERIFICATION.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in verification.items() if k!='required_keys'},indent=2))
