@@ -4,7 +4,7 @@
 **Deployment branch:** `main`  
 **Development/source branch:** `veilfall-v0.2.1-build`  
 **Predecessor:** **v0.2.1**  
-**Status:** v0.2.2 visual-art corrective patch in verification; `main` remains on deployed v0.2.1 until runtime acceptance  
+**Status:** v0.2.2 visual-art corrective patch deployed for in-game runtime acceptance  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -123,4 +123,4 @@ v0.2.1 adds packed game-ready artwork for Ashton, Rationalism, Knowledge, the As
 
 v0.2.2 corrects the runtime visual defects found after v0.2.1 deployment. All six Marine units and all five slavery-line units now receive distinct unit silhouettes/map sprites, while detailed portraits are derived from the approved Marine lineage and historical art-bible source material. The accepted building, Knowledge, Rationalism, and promotion artwork is preserved. The Ashton emblem receives only an optical recentering adjustment.
 
-This patch is not considered deployed until the generated atlas passes automated verification and the repaired assets receive in-game runtime acceptance.
+The generated atlas has passed automated verification and v0.2.2 is deployed. Final visual acceptance remains an in-game runtime check.
