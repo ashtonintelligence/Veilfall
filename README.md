@@ -1,10 +1,10 @@
 # Unciv: Veilfall v0.2.1
 
-**Version:** **v0.2.2 prerelease**  
+**Version:** **v0.2.3 prerelease**  
 **Deployment branch:** `main`  
 **Development/source branch:** `veilfall-v0.2.1-build`  
-**Predecessor:** **v0.2.1**  
-**Status:** v0.2.2 visual-art corrective patch deployed for in-game runtime acceptance  
+**Predecessor:** **v0.2.2**  
+**Status:** v0.2.3 visual-art corrective patch deployed for in-game runtime acceptance  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,7 +111,7 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.2-art-repair` branch contains the v0.2.2 visual-art repair candidate.
+Install or update Veilfall from the repository's default `main` branch. Version **v0.2.1** is the current prerelease patch. The `veilfall-v0.2.3-art-repair` branch contains the v0.2.3 visual-art repair candidate.
 
 
 ## v0.2.1 art assets
@@ -119,8 +119,13 @@ Install or update Veilfall from the repository's default `main` branch. Version 
 v0.2.1 adds packed game-ready artwork for Ashton, Rationalism, Knowledge, the Ashton institutions, the complete Marine line, the Slave/Slave Raider line, and the custom v0.2 promotions. The new regions are carried in the supplemental `v021` atlas while the original Veilfall `game` atlas remains intact.
 
 
-## v0.2.2 visual-art correction
+## v0.2.3 visual-art correction
 
-v0.2.2 corrects the runtime visual defects found after v0.2.1 deployment. All six Marine units and all five slavery-line units now receive distinct unit silhouettes/map sprites, while detailed portraits are derived from the approved Marine lineage and historical art-bible source material. The accepted building, Knowledge, Rationalism, and promotion artwork is preserved. The Ashton emblem receives only an optical recentering adjustment.
+v0.2.3 corrects the runtime visual defects found after v0.2.1 deployment. All six Marine units and all five slavery-line units now receive distinct unit silhouettes/map sprites, while detailed portraits are derived from the approved Marine lineage and historical art-bible source material. The accepted building, Knowledge, Rationalism, and promotion artwork is preserved. The Ashton emblem receives only an optical recentering adjustment.
 
-The generated atlas has passed automated verification and v0.2.2 is deployed. Final visual acceptance remains an in-game runtime check.
+The generated atlas has passed automated verification and v0.2.3 is deployed. Final visual acceptance remains an in-game runtime check.
+
+
+## v0.2.3 visual integration correction
+
+v0.2.3 corrects the remaining runtime integration defects identified after v0.2.2. The detailed source-derived unit portraits are retained, while UnitIcons are rebuilt as simplified tintable silhouettes and map sprites are scaled to a restrained transparent footprint appropriate to Unciv hexes. The six Marine stages and five slavery-line stages remain visually distinct. Accepted building, promotion, Knowledge, Rationalism, and Ashton artwork is preserved.
