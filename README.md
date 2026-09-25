@@ -4,7 +4,7 @@
 **Deployment branch:** `main`  
 **Development/source branch:** `veilfall-v0.2.1-build`  
 **Predecessor:** **v0.2**  
-**Status:** v0.2.1 patch release prepared for deployment; completes the v0.2 art pass, raises Slave Raider capture chance to 50%, and retains the documented engine-level backlog  
+**Status:** v0.2.1 deployed prerelease patch; completes the v0.2 art pass, raises Slave Raider capture chance to 50%, and retains the documented engine-level backlog  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
