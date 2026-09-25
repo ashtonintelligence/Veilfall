@@ -275,3 +275,12 @@ v0.2.2 therefore treats atlas-key presence as necessary but not sufficient. Unit
 - runtime screenshot review before deployment to main.
 
 The full custom-unit set is being audited, not only Slave Raider.
+
+Runtime screenshot QA has now confirmed:
+- all six Marine unit icons use the same generic block-person treatment and require replacement;
+- all five slavery-line unit icons use effectively the same generic block-person treatment and require replacement;
+- the Industrial Slaver does not visually read as a distinct 19th-century/industrial unit;
+- Athenaeum, Strategic Analysis Center, The Great Archive, and Forum of Inquiry building artwork render cleanly and are accepted as-is;
+- Slave Raider Doctrine renders cleanly and is accepted as-is;
+- the Ashton civilization emblem artwork is accepted but requires optical recentering within its circular frame.
+
