@@ -50,7 +50,7 @@ Marine abilities accumulate through the upgrade chain. The JSON pass includes am
 
 ## Knowledge
 
-Knowledge is a civilization-wide stockpiled resource distinct from Science. Ashton generates it systematically from institutions and Scientist specialists; all civilizations can also gain Knowledge from technology completion, Natural Wonder discovery, era advancement, trade, and the Great Scientist **Document & Disseminate** action.
+Knowledge is a civilization-wide stockpiled resource distinct from Science. Ashton generates it systematically from institutions; all civilizations can also gain Knowledge from technology completion, Natural Wonder discovery, era advancement, trade, and the Great Scientist **Document & Disseminate** action.
 
 Standard Knowledge Cost (SKC):
 
