@@ -136,9 +136,33 @@ def unit_sprite(name,size=128):
         d.ellipse((61,59,67,65),outline=GOLD,width=2); d.rectangle((82,61,98,82),fill=B,outline=GOLD,width=2); d.line((42,56,29,110),fill=B,width=4)
     return im
 
+def _fit_alpha(src, canvas_size=128, max_w=84, max_h=84, bottom=110):
+    bbox=src.getbbox()
+    if not bbox: return canvas(canvas_size)
+    crop=src.crop(bbox)
+    scale=min(max_w/crop.width,max_h/crop.height)
+    nw=max(1,round(crop.width*scale)); nh=max(1,round(crop.height*scale))
+    crop=crop.resize((nw,nh),Image.Resampling.LANCZOS)
+    out=canvas(canvas_size)
+    x=(canvas_size-nw)//2; y=min(canvas_size-nh,max(4,bottom-nh))
+    out.alpha_composite(crop,(x,y))
+    return out
+
 def unit_icon(name,size=128):
-    sp=unit_sprite(name,size); alpha=sp.getchannel('A').filter(ImageFilter.MaxFilter(3))
-    im=Image.new('RGBA',(size,size),(255,255,255,0)); im.putalpha(alpha); return im
+    # Unciv-style icon: simple tintable silhouette, not a miniature painting.
+    sp=unit_sprite(name,size)
+    alpha=sp.getchannel('A').filter(ImageFilter.MaxFilter(3))
+    silhouette=Image.new('RGBA',(size,size),(255,255,255,0)); silhouette.putalpha(alpha)
+    max_w=92 if name=='Mounted Slave Raider' else 78
+    max_h=72 if name=='Mounted Slave Raider' else 88
+    return _fit_alpha(silhouette,size,max_w,max_h,108)
+
+def map_sprite(name,size=128):
+    # Hex-map sprite: compact transparent figure with a deliberately restrained footprint.
+    sp=unit_sprite(name,size)
+    max_w=78 if name=='Mounted Slave Raider' else 52
+    max_h=58 if name=='Mounted Slave Raider' else 70
+    return _fit_alpha(sp,size,max_w,max_h,112)
 
 def load_unit_portraits():
     result={}
@@ -169,7 +193,7 @@ unit_portraits=load_unit_portraits()
 for u in UNITS:
     assets['UnitPortraits/'+u]=unit_portraits[u]
     ui=unit_icon(u); assets['UnitIcons/'+u]=ui
-    sprite=unit_sprite(u)
+    sprite=map_sprite(u)
     for ts in ['Minimal','FantasyHex','HexaRealm']: assets[f'TileSets/{ts}/Units/{u}']=sprite.copy()
 for p in PROMOS:
     assets['UnitPromotionPortraits/'+p]=promo(p,256); assets['UnitPromotionIcons/'+p]=promo(p,128)
@@ -193,6 +217,16 @@ check=Image.open(OUT/'v021.png').convert('RGBA'); alpha=check.getchannel('A')
 if alpha.getextrema()[0] != 0: raise SystemExit('Atlas has no true transparency')
 icon_hashes={u:hashlib.sha256(assets['UnitIcons/'+u].tobytes()).hexdigest() for u in UNITS}
 if len(set(icon_hashes.values())) != len(UNITS): raise SystemExit('Custom unit icons are not all visually distinct')
-verification={'release':'v0.2.2','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
+sprite_metrics={}
+for u in UNITS:
+    bbox=assets['TileSets/Minimal/Units/'+u].getbbox()
+    if not bbox: raise SystemExit('Empty map sprite: '+u)
+    w=bbox[2]-bbox[0]; h=bbox[3]-bbox[1]
+    sprite_metrics[u]={'bbox':list(bbox),'w':w,'h':h}
+    if u=='Mounted Slave Raider':
+        if w>82 or h>62: raise SystemExit('Mounted map sprite footprint too large: '+repr(sprite_metrics[u]))
+    elif w>56 or h>74:
+        raise SystemExit('Map sprite footprint too large: '+u+' '+repr(sprite_metrics[u]))
+verification={'release':'v0.2.3','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'map_sprite_metrics':sprite_metrics,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
 (OUT/'ART_VERIFICATION.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in verification.items() if k!='required_keys'},indent=2))
