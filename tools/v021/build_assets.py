@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 from pathlib import Path
 import json, hashlib, math, random
 
@@ -156,6 +156,6 @@ missing=[k for k in required if ('\n'+k+'\n') not in ('\n'+text)]
 if missing: raise SystemExit('Missing atlas keys: '+repr(missing))
 check=Image.open(OUT/'v021.png').convert('RGBA'); alpha=check.getchannel('A')
 if alpha.getextrema()[0] != 0: raise SystemExit('Atlas has no true transparency')
-verification={'release':'v0.2.1','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
+icon_hashes={u:hashlib.sha256(assets['UnitIcons/'+u].tobytes()).hexdigest() for u in UNITS}\nif len(set(icon_hashes.values())) != len(UNITS): raise SystemExit('Custom unit icons are not all visually distinct')\nverification={'release':'v0.2.2','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
 (OUT/'ART_VERIFICATION.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in verification.items() if k!='required_keys'},indent=2))
