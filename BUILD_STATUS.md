@@ -241,6 +241,10 @@ v0.2.1 supplies packed game-ready assets for:
 These assets are packed into the supplemental `v021` atlas, loaded alongside the original `game` atlas.
 
 ## Validation performed
+- GitHub Actions v0.2.1 build/verification workflow passed on 2026-09-25.
+- Supplemental `v021` atlas contains all 80 required logical entries with true transparency in the PNG sheet.
+- Slave Raider Doctrine is verified at 50% capture probability; no 25% rule remains in the patch.
+- Existing `game` atlas files are preserved and were not modified by the v0.2.1 patch.
 - All current mod JSON files on the development branch parse successfully.
 - No duplicate custom unit, promotion, building, or belief names were found.
 - Ashton, Knowledge, Rationalism, all six Marine units, all five slavery units, and the seven original supernatural Ashton units are present and cross-referenced.
