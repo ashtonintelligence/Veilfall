@@ -1,32 +1,70 @@
-name: Stage Veilfall v0.2.6 build inputs
+name: Build and verify Veilfall v0.2.6 art
 
 on:
   push:
-    branches: [veilfall-v0.2.6-portrait-cleanup]
-    paths: ['.github/workflows/v021-art-build.yml']
+    branches: [veilfall-v0.2.6-portrait-cleanup, main]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: veilfall-v026-art-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  stage-inputs:
+  build-and-verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
-      - name: Snapshot predecessor and current build sources
+      - name: Install pinned Pillow
+        run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Prepare metadata and pinned baseline manifest
+        if: github.ref == 'refs/heads/veilfall-v0.2.6-portrait-cleanup'
+        run: python3 tools/v026/prepare_release.py
+      - name: Build 55 unit assets and supplemental atlas
+        if: github.ref == 'refs/heads/veilfall-v0.2.6-portrait-cleanup'
+        run: python3 tools/v026/build_assets.py
+      - name: Verify packed atlas and baseline invariants
+        run: python3 tools/v026/build_assets.py --check
+      - name: Run verifier corruption and reproducibility tests
+        run: python3 tools/v026/test_verification.py
+      - name: Render packed-asset QA sheets
+        if: github.ref == 'refs/heads/veilfall-v0.2.6-portrait-cleanup'
+        run: python3 tools/v026/preview_assets.py
+      - name: Recheck evidence after tests
+        run: python3 tools/v026/build_assets.py --check
+      - name: Commit and push verified integration branch
+        if: github.ref == 'refs/heads/veilfall-v0.2.6-portrait-cleanup'
         shell: bash
         run: |
           set -euo pipefail
-          git archive cd377c5a2ef04c9447656673e06c6a9fc4d47a97 -o /tmp/veilfall-v025-baseline.zip
-          sha256sum /tmp/veilfall-v025-baseline.zip
-      - name: Retain build inputs for verification
+          git config user.name 'Veilfall v0.2.6 Builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- tools/v026 tools/v021/build_assets.py README.md BUILD_STATUS.md jsons/ModOptions.json v021.atlas v021.png ART_VERIFICATION.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Pack and verify Veilfall v0.2.6 isolated-character artwork'
+          fi
+          git push origin HEAD:veilfall-v0.2.6-art-integration
+          printf 'Integration commit: '
+          git rev-parse HEAD
+      - name: Confirm main verification leaves tracked files unchanged
+        if: github.ref == 'refs/heads/main'
+        run: git diff --exit-code
+      - name: Archive exact verified commit
+        run: |
+          git archive HEAD -o /tmp/veilfall-v0.2.6-verified.zip
+          git rev-parse HEAD > /tmp/veilfall-v0.2.6-commit.txt
+          sha256sum /tmp/veilfall-v0.2.6-verified.zip
+      - name: Retain verified release and evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: veilfall-v025-baseline
-          path: /tmp/veilfall-v025-baseline.zip
-          retention-days: 7
+          name: veilfall-v0.2.6-verified-${{ github.run_id }}
+          path: |
+            /tmp/veilfall-v0.2.6-verified.zip
+            /tmp/veilfall-v0.2.6-commit.txt
+          retention-days: 30
           if-no-files-found: error
