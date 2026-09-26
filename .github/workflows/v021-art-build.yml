@@ -1,9 +1,9 @@
-name: Build Veilfall v0.2.4 art
+name: Build Veilfall v0.2.5 art
 # Runtime visual-art corrective build
 
 on:
   push:
-    branches: [veilfall-v0.2.4-runtime-art-fix]
+    branches: [veilfall-v0.2.5-portrait-fix]
     paths:
       - '.github/workflows/v021-art-build.yml'
       - 'tools/v021/**'
@@ -43,7 +43,7 @@ jobs:
               json.loads(p.read_text(encoding='utf-8'))
           assert json.loads((root/'Atlases.json').read_text()) == ['game','v021']
           opts=json.loads((root/'jsons/ModOptions.json').read_text())
-          assert opts.get('modVersion') == '0.2.4', opts
+          assert opts.get('modVersion') == '0.2.5', opts
           promos=json.loads((root/'jsons/UnitPromotions.json').read_text())
           doctrine=next(x for x in promos if x.get('name')=='Slave Raider Doctrine')
           assert any('with [50]% chance' in u for u in doctrine.get('uniques',[])), doctrine
@@ -51,7 +51,7 @@ jobs:
           assert (root/'game.atlas').is_file() and (root/'game.png').is_file()
           assert (root/'v021.atlas').is_file() and (root/'v021.png').is_file()
           ver=json.loads((root/'ART_VERIFICATION.json').read_text())
-          assert ver['release']=='v0.2.4'
+          assert ver['release']=='v0.2.5'
           assert ver['entry_count']==80 and ver['missing_keys']==[]
           assert ver['distinct_unit_icon_count']==11
           metrics=ver['map_sprite_metrics']
@@ -81,22 +81,22 @@ jobs:
           assert not missing, missing
           readme=(root/'README.md').read_text()
           build=(root/'BUILD_STATUS.md').read_text()
-          assert 'v0.2.4' in readme and 'v0.2.4' in build
-          assert '**Predecessor:** **v0.2.3**' in readme and '**Predecessor:** **v0.2.3**' in build
+          assert 'v0.2.5' in readme and 'v0.2.5' in build
+          assert '**Predecessor:** **v0.2.4**' in readme and '**Predecessor:** **v0.2.4**' in build
           assert 'veilfall-v0.2-build' not in readme
-          print('All v0.2.4 verification gates passed.')
+          print('All v0.2.5 verification gates passed.')
           PY
 
       - name: Commit generated atlas artifacts
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "Veilfall v0.2.4 Builder"
+          git config user.name "Veilfall v0.2.5 Builder"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- v021.atlas v021.png ART_VERIFICATION.json
           if git diff --cached --quiet; then
             echo "Generated assets already match repository."
           else
-            git commit -m "Pack and verify Veilfall v0.2.4 artwork"
-            git push origin HEAD:veilfall-v0.2.4-art-integration
+            git commit -m "Pack and verify Veilfall v0.2.5 artwork"
+            git push origin HEAD:veilfall-v0.2.5-art-integration
           fi
