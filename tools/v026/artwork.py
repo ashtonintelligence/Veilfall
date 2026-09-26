@@ -320,6 +320,34 @@ def fit(src,size,maxw,maxh,bottom):
     out=Image.new('RGBA',(size,size),(0,0,0,0));out.alpha_composite(crop,((size-wh[0])//2,bottom-wh[1]))
     return out
 
+def _sprite(portrait,name,tileset):
+    """Normalize map-unit scale to the native Unciv tileset frame.
+
+    FantasyHex vanilla combat units use a 32x28 frame. HexaRealm uses a
+    64x56 frame for infantry and a taller ~64x65 frame for mounted units.
+    Minimal has no vanilla pixel-unit sheet, so use the HexaRealm-sized frame
+    for consistent on-map readability. Figures are bottom-anchored with a
+    one-pixel safety border, matching the visual placement of native combat
+    units rather than floating in the center of a 128px transparent canvas.
+    """
+    mounted=name=='Mounted Slave Raider'
+    if tileset=='FantasyHex':
+        size=(32,28); maxw,maxh=(30,26)
+    elif mounted:
+        size=(64,65); maxw,maxh=(62,63)
+    else:
+        size=(64,56); maxw,maxh=(60,54)
+    crop=portrait.crop(portrait.getchannel('A').getbbox())
+    scale=min(maxw/crop.width,maxh/crop.height)
+    wh=(max(1,round(crop.width*scale)),max(1,round(crop.height*scale)))
+    crop=crop.resize(wh,Image.Resampling.LANCZOS)
+    out=Image.new('RGBA',size,(0,0,0,0))
+    x=(size[0]-wh[0])//2
+    y=size[1]-wh[1]-1
+    out.alpha_composite(crop,(x,y))
+    out.putalpha(out.getchannel('A').point(lambda v:0 if v<36 else (255 if v>220 else v)))
+    return out
+
 def make_assets():
     result={}
     for name,artist in ARTISTS.items():
@@ -328,8 +356,6 @@ def make_assets():
         icon=fit(icon,128,102 if name=='Mounted Slave Raider' else 96,88,110)
         white=Image.new('RGBA',icon.size,(255,255,255,0));white.putalpha(icon.getchannel('A'))
         result['UnitIcons/'+name]=white
-        maxw,maxh=(40,36) if name=='Mounted Slave Raider' else (32,44)
-        sprite=fit(portrait,128,maxw,maxh,86)
-        sprite.putalpha(sprite.getchannel('A').point(lambda v:0 if v<36 else (255 if v>220 else v)))
-        for ts in ('Minimal','FantasyHex','HexaRealm'):result[f'TileSets/{ts}/Units/{name}']=sprite.copy()
+        for ts in ('Minimal','FantasyHex','HexaRealm'):
+            result[f'TileSets/{ts}/Units/{name}']=_sprite(portrait,name,ts)
     return result
