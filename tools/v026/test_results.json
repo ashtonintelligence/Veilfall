@@ -1,8 +1,8 @@
 {
-  "release": "v0.2.6",
+  "release": "v0.2.7",
   "result": "PASS",
-  "test_count": 22,
-  "negative_test_count": 20,
+  "test_count": 20,
+  "negative_test_count": 18,
   "tests": [
     {
       "test": "valid_release",
@@ -61,12 +61,12 @@
     {
       "test": "slave_uses_raider_portrait",
       "result": "PASS",
-      "expected_rejection": "portraits RGBA duplicates"
+      "expected_rejection": "Packed/source pixel mismatch: UnitPortraits/Slave"
     },
     {
       "test": "duplicate_icons",
       "result": "PASS",
-      "expected_rejection": "icons RGBA duplicates"
+      "expected_rejection": "Packed/source pixel mismatch: UnitIcons/Slave"
     },
     {
       "test": "colored_non_tint_safe_icon",
@@ -76,7 +76,7 @@
     {
       "test": "slave_is_recolored_raider_sprite",
       "result": "PASS",
-      "expected_rejection": "sprites normalized silhouette duplicates"
+      "expected_rejection": "Packed/source pixel mismatch: TileSets/Minimal/Units/Slave"
     },
     {
       "test": "mounted_unit_replaced_by_infantry",
@@ -86,17 +86,7 @@
     {
       "test": "oversized_map_sprite",
       "result": "PASS",
-      "expected_rejection": "Sprite footprint too large"
-    },
-    {
-      "test": "missing_source_png",
-      "result": "PASS",
-      "expected_rejection": "Generated source PNGs missing"
-    },
-    {
-      "test": "source_packed_pixel_mismatch",
-      "result": "PASS",
-      "expected_rejection": "Packed/source pixel mismatch"
+      "expected_rejection": "Sprite scale does not match native HexaRealm infantry"
     },
     {
       "test": "unrelated_building_region_modified",

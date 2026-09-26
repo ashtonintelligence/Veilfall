@@ -68,308 +68,308 @@ ResourcePortraits/Knowledge
   index: -1
 TileSets/FantasyHex/Units/Continental Marines
   rotate: false
-  xy: 1552, 776
-  size: 128, 128
-  orig: 128, 128
+  xy: 1584, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Exo-Marine
   rotate: false
-  xy: 1682, 776
-  size: 128, 128
-  orig: 128, 128
+  xy: 1618, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Expeditionary Marines
   rotate: false
-  xy: 1812, 776
-  size: 128, 128
-  orig: 128, 128
+  xy: 1652, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Fleet Marine Force
   rotate: false
-  xy: 2, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1686, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Industrial Slaver
   rotate: false
-  xy: 132, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1720, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Marine Expeditionary Unit
   rotate: false
-  xy: 262, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1754, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Marine Riflemen
   rotate: false
-  xy: 392, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1788, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Mounted Slave Raider
   rotate: false
-  xy: 522, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1822, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Slave
   rotate: false
-  xy: 652, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1856, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Slave Hunter
   rotate: false
-  xy: 782, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1890, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/FantasyHex/Units/Slave Raider
   rotate: false
-  xy: 912, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 1924, 1164
+  size: 32, 28
+  orig: 32, 28
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Continental Marines
   rotate: false
-  xy: 1042, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 264, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Exo-Marine
   rotate: false
-  xy: 1172, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 330, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Expeditionary Marines
   rotate: false
-  xy: 1302, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 396, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Fleet Marine Force
   rotate: false
-  xy: 1432, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 462, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Industrial Slaver
   rotate: false
-  xy: 1562, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 528, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Marine Expeditionary Unit
   rotate: false
-  xy: 1692, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 594, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Marine Riflemen
   rotate: false
-  xy: 1822, 1034
-  size: 128, 128
-  orig: 128, 128
+  xy: 660, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Mounted Slave Raider
   rotate: false
-  xy: 2, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 132, 1164
+  size: 64, 65
+  orig: 64, 65
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Slave
   rotate: false
-  xy: 132, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 726, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Slave Hunter
   rotate: false
-  xy: 262, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 792, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Slave Raider
   rotate: false
-  xy: 392, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 858, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Continental Marines
   rotate: false
-  xy: 522, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 924, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Exo-Marine
   rotate: false
-  xy: 652, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 990, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Expeditionary Marines
   rotate: false
-  xy: 782, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1056, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Fleet Marine Force
   rotate: false
-  xy: 912, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1122, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Industrial Slaver
   rotate: false
-  xy: 1042, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1188, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Marine Expeditionary Unit
   rotate: false
-  xy: 1172, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1254, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Marine Riflemen
   rotate: false
-  xy: 1302, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1320, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Mounted Slave Raider
   rotate: false
-  xy: 1432, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 198, 1164
+  size: 64, 65
+  orig: 64, 65
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Slave
   rotate: false
-  xy: 1562, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1386, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Slave Hunter
   rotate: false
-  xy: 1692, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1452, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Slave Raider
   rotate: false
-  xy: 1822, 1164
-  size: 128, 128
-  orig: 128, 128
+  xy: 1518, 1164
+  size: 64, 56
+  orig: 64, 56
   offset: 0, 0
   index: -1
 UnitIcons/Continental Marines
   rotate: false
-  xy: 2, 1294
+  xy: 1552, 776
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Exo-Marine
   rotate: false
-  xy: 132, 1294
+  xy: 1682, 776
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Expeditionary Marines
   rotate: false
-  xy: 262, 1294
+  xy: 1812, 776
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Fleet Marine Force
   rotate: false
-  xy: 392, 1294
+  xy: 2, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Industrial Slaver
   rotate: false
-  xy: 522, 1294
+  xy: 132, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Marine Expeditionary Unit
   rotate: false
-  xy: 652, 1294
+  xy: 262, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Marine Riflemen
   rotate: false
-  xy: 782, 1294
+  xy: 392, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Mounted Slave Raider
   rotate: false
-  xy: 912, 1294
+  xy: 522, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Slave
   rotate: false
-  xy: 1042, 1294
+  xy: 652, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Slave Hunter
   rotate: false
-  xy: 1172, 1294
+  xy: 782, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitIcons/Slave Raider
   rotate: false
-  xy: 1302, 1294
+  xy: 912, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
@@ -453,56 +453,56 @@ UnitPortraits/Slave Raider
   index: -1
 UnitPromotionIcons/Exo-Marine Mobility
   rotate: false
-  xy: 1432, 1294
+  xy: 1042, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/MEU Combat Tempo
   rotate: false
-  xy: 1562, 1294
+  xy: 1172, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Marine Embarked Recon
   rotate: false
-  xy: 1692, 1294
+  xy: 1302, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Marine Expeditionary Endurance
   rotate: false
-  xy: 1822, 1294
+  xy: 1432, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Marine Naval Integration
   rotate: false
-  xy: 2, 1424
+  xy: 1562, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Operational Frontline
   rotate: false
-  xy: 132, 1424
+  xy: 1692, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Operational Support
   rotate: false
-  xy: 262, 1424
+  xy: 1822, 1034
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 UnitPromotionIcons/Slave Raider Doctrine
   rotate: false
-  xy: 392, 1424
+  xy: 2, 1164
   size: 128, 128
   orig: 128, 128
   offset: 0, 0

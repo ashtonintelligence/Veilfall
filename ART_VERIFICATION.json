@@ -1,6 +1,6 @@
 {
-  "release": "v0.2.6",
-  "predecessor": "v0.2.5",
+  "release": "v0.2.7",
+  "predecessor": "v0.2.6",
   "baseline_commit": "cd377c5a2ef04c9447656673e06c6a9fc4d47a97",
   "status": "automated_checks_passed",
   "manual_in_game_acceptance": "pending",
@@ -130,12 +130,12 @@
     "sprites": {
       "distinct_rgba_count": 11,
       "distinct_normalized_silhouettes": 11,
-      "max_pair_iou": 0.773874,
+      "max_pair_iou": 0.792065,
       "closest_pair": [
-        "Industrial Slaver",
-        "Marine Expeditionary Unit"
+        "Slave Hunter",
+        "Fleet Marine Force"
       ],
-      "slave_raider_iou": 0.425831
+      "slave_raider_iou": 0.464236
     }
   },
   "portrait_metrics": {
@@ -475,174 +475,174 @@
   "map_sprite_metrics": {
     "Slave": {
       "bbox": [
-        56,
-        42,
-        71,
-        86
+        23,
+        1,
+        41,
+        55
       ],
-      "w": 15,
-      "h": 44,
-      "coverage": 0.022705,
-      "bbox_coverage": 0.563636,
-      "rgba_sha256": "9a0f2a7f8a75c5306d8564b04194d662755cc3277b582ab1d5f978b7dacdf7f8",
-      "alpha_sha256": "93efe7bbc85ce3d1eeecd695509b3064a58040cf3bbcc233810248f9be7ece85",
-      "normalized_alpha_sha256": "e6333664772bbc4cbbb3f5eaedd70dde8c7d7003b1d7a34a85f83da8ebe9482b"
+      "w": 18,
+      "h": 54,
+      "coverage": 0.151786,
+      "bbox_coverage": 0.559671,
+      "rgba_sha256": "2f38ff2533fab4aac1f8b592264ecf2895ee4f47067d393f157657de30673ca8",
+      "alpha_sha256": "84fb64a539bdb145fd266c251357f171599a545ed7a25206c4498eb91aeed5e2",
+      "normalized_alpha_sha256": "d422b0fa8e40c10d7b6c5572b1fa1f90b4f50b576c137d6dc6e84946b0e59f98"
     },
     "Slave Raider": {
       "bbox": [
-        48,
-        45,
-        80,
-        86
+        11,
+        2,
+        53,
+        55
       ],
-      "w": 32,
-      "h": 41,
-      "coverage": 0.026978,
-      "bbox_coverage": 0.33689,
-      "rgba_sha256": "c0ab2bd9ef323163b1afc6c944c142e50670d55d7d9302da03af84f0a9030681",
-      "alpha_sha256": "b9e24ec3d7c1cba40e4015d92f4eee896ef97258710cc29ab4fa0b8b96352983",
-      "normalized_alpha_sha256": "8e20a16d2644e35ee6926717dffe4c0820ac7673adfa8499ea48c522e36f85cc"
+      "w": 42,
+      "h": 53,
+      "coverage": 0.213728,
+      "bbox_coverage": 0.344115,
+      "rgba_sha256": "94b0eb1b91237cc57174425f8151ae7c1bdfdc7f3532ec3aa841acee5a914598",
+      "alpha_sha256": "a709a7f0cb61fd2519776b2fec76a460fb7326866713439cd3f21077db596278",
+      "normalized_alpha_sha256": "23866f9a7e275a8f00fbcc1d12a84b122122eb7199467ed6e6c838e7d445882a"
     },
     "Mounted Slave Raider": {
       "bbox": [
-        46,
-        50,
-        81,
-        86
+        1,
+        2,
+        62,
+        64
       ],
-      "w": 35,
-      "h": 36,
-      "coverage": 0.028931,
-      "bbox_coverage": 0.37619,
-      "rgba_sha256": "a2a53e0ebacddbea3b12a77327bf04f1bd55430a84e591fab68bbef7a4b6bf5e",
-      "alpha_sha256": "07bfd3316ca67b00fd4790cf21c311f4743cbca13202a78ba1cd7b919bbc80bd",
-      "normalized_alpha_sha256": "c291ba3643a7c6c9126117c5c7dbd9c60a425da6630c4e558b7eb83d8c444279"
+      "w": 61,
+      "h": 62,
+      "coverage": 0.340144,
+      "bbox_coverage": 0.374141,
+      "rgba_sha256": "c9c745537fd41bc5b6ae66727dd27ec46160626761f03956afd37643f88188e9",
+      "alpha_sha256": "e093fcb4e1bbd14dfc19e7f5a7fe8a9c0e5c616729673474e60fb03ce3377130",
+      "normalized_alpha_sha256": "c4edd48efa3991c3167d4c4263e4dd4435d3ed4031e351c97e8cd525d98f63c9"
     },
     "Slave Hunter": {
       "bbox": [
-        52,
-        42,
-        75,
-        86
+        17,
+        1,
+        46,
+        55
       ],
-      "w": 23,
-      "h": 44,
-      "coverage": 0.025208,
-      "bbox_coverage": 0.408103,
-      "rgba_sha256": "8d38c4fdd3e8ce3b7a6fd0da7b9f273342c31d672260dcd7bd463e0435e76d74",
-      "alpha_sha256": "8593a590506404301ce8f1035d04506d16d5f2a7146504678d9dd3de2b2d0426",
-      "normalized_alpha_sha256": "0d2a7d5e3e132ed1aa8aa2eda26bc0b2a2679f10fd4b59888493ab67b3c7f2d3"
+      "w": 29,
+      "h": 54,
+      "coverage": 0.178571,
+      "bbox_coverage": 0.408685,
+      "rgba_sha256": "060616ea9a686a3c62fe591283b9be41af96df778a4029228497f2d9ed41cc3b",
+      "alpha_sha256": "d585e77e5180c3bc421b177b87bd46924b26d49998296c0d324572a827b0cdc8",
+      "normalized_alpha_sha256": "bfea68b2631f7668f0c60447ba96f523c9a8c0e71fdc07d575829535462a971c"
     },
     "Industrial Slaver": {
       "bbox": [
+        14,
+        1,
         49,
-        42,
-        78,
-        86
+        55
       ],
-      "w": 29,
-      "h": 44,
-      "coverage": 0.032532,
-      "bbox_coverage": 0.417712,
-      "rgba_sha256": "c809044bc2224af47c68d6735d79a05fe5ca0af0452f723edde3b8364bdf2f50",
-      "alpha_sha256": "7ce8b6bb149c09789869e08041db5315e51600043d3a70b994dd7026da67f0c7",
-      "normalized_alpha_sha256": "8568b4d8196efffa321a989c6e090da34800617cdb1a7e726353053ba53d0e19"
+      "w": 35,
+      "h": 54,
+      "coverage": 0.21875,
+      "bbox_coverage": 0.414815,
+      "rgba_sha256": "45fdfca2c640fc247eac86d54f133d2cbfcfd045d9e6269636f6a7d4955d66c7",
+      "alpha_sha256": "d7dc960622c0b7d615f5dbfb29cf85c80eba0ee7d1c6a93b3cbf162947f0c60a",
+      "normalized_alpha_sha256": "9863886d0eed1ee1d921010dac4dd1b862e1ad89bc38fdf7284f0e9df38ba1e1"
     },
     "Continental Marines": {
       "bbox": [
-        53,
-        43,
-        74,
-        86
+        19,
+        1,
+        45,
+        55
       ],
-      "w": 21,
-      "h": 43,
-      "coverage": 0.026489,
-      "bbox_coverage": 0.48062,
-      "rgba_sha256": "b3046115b37d96957d0e2f8c3b80fc7d61bb3f1187298b001f8abd733b40ed90",
-      "alpha_sha256": "1ac9c400635a7f454d80c94a6e4b7d53b85981c8ec572defbbb92242a9d4a5d8",
-      "normalized_alpha_sha256": "48c381a6552c6f32e1c94f1f1e3ff3de57a7221a5775285ee195de8668526e37"
+      "w": 26,
+      "h": 54,
+      "coverage": 0.184152,
+      "bbox_coverage": 0.470085,
+      "rgba_sha256": "071e67b4a907b2d2969b92d4d584e62e7c71f184d31669f103005a8a41c7fca9",
+      "alpha_sha256": "6fad5095f478a0079a13b703dbc5a558d5293e1c11160a386898ae32b163941d",
+      "normalized_alpha_sha256": "d486ade5d151bac30fdb0f035dbb8d27c868f09f3f5b26cde0a7d3a8224a6e5d"
     },
     "Marine Riflemen": {
       "bbox": [
-        48,
-        51,
-        80,
-        86
+        7,
+        1,
+        56,
+        55
       ],
-      "w": 32,
-      "h": 35,
-      "coverage": 0.022705,
-      "bbox_coverage": 0.332143,
-      "rgba_sha256": "bc4e72d43a0e102844255657a5170e7153bafa031918f2dd7eff65b3833f58c8",
-      "alpha_sha256": "ea69120208d4a5beb6df724c3ea78ab7b0add982ba959de14b93023e3d48e94b",
-      "normalized_alpha_sha256": "1dc59ad9a680e27ff7f9c384103254bb24321785fbf893e7849de56a2a61453d"
+      "w": 49,
+      "h": 54,
+      "coverage": 0.244141,
+      "bbox_coverage": 0.330688,
+      "rgba_sha256": "08ca8c8f856cc2970bfd73dd35f64cd2a0b628a9a848cc259c8f650892f90e1b",
+      "alpha_sha256": "07134d00e2e9c89b22e544a93467bacea59e32c932ef7d06a9464af90ee19d31",
+      "normalized_alpha_sha256": "6a7cbbef97e1b29f5b551bc15b72f57d63befa60b1d4962a0b597098953f5b3d"
     },
     "Expeditionary Marines": {
       "bbox": [
-        52,
-        42,
-        76,
-        86
+        17,
+        1,
+        46,
+        55
       ],
-      "w": 24,
-      "h": 44,
-      "coverage": 0.029114,
-      "bbox_coverage": 0.451705,
-      "rgba_sha256": "6693c91c509d4aa436f3428ac50500b1b63b718e118323010d02afef1013ce5b",
-      "alpha_sha256": "8dccfa927846075ac84a9ee2d7de869a3cfe62c6d9b9f5e88020f206c956258b",
-      "normalized_alpha_sha256": "7ba2ce18d841a36f0021647177289b40479ce8f3bdda054e8eae729fa22c26b2"
+      "w": 29,
+      "h": 54,
+      "coverage": 0.193638,
+      "bbox_coverage": 0.443167,
+      "rgba_sha256": "aaa54324c219af921fc127b89ad4d144ee4666f3f15f43604c61a83840035dbc",
+      "alpha_sha256": "416eea923c32cb160b6d3f99289bc65e8eae449c0c5a8fd0fad1f012f61bdd08",
+      "normalized_alpha_sha256": "b8837d73dc27aae674b28ecc125e34bbbda055afab73fb0993f566f79375a5c5"
     },
     "Fleet Marine Force": {
       "bbox": [
-        52,
-        42,
-        76,
-        86
+        17,
+        1,
+        46,
+        55
       ],
-      "w": 24,
-      "h": 44,
-      "coverage": 0.026611,
-      "bbox_coverage": 0.412879,
-      "rgba_sha256": "5eb153530f364d26eab909d40530ccbcebced6f6d8652c4729a18af65e70ae5e",
-      "alpha_sha256": "c507363140b932cd3b10fbe52a222c11fef83a6d24c45ef82e5145b126e1b678",
-      "normalized_alpha_sha256": "618a7bc9219e2fe2cd1efc3a97df0265476770d731986aa1aee0bee1deecbb50"
+      "w": 29,
+      "h": 54,
+      "coverage": 0.180804,
+      "bbox_coverage": 0.413793,
+      "rgba_sha256": "9c9dc3ede22d6819cee99ff556605d9a7348ea25f7ce66dc4608b434e04bfe4a",
+      "alpha_sha256": "1f564d23914b1942468d87b35c345233bbaae1b550c72976605470ed04cdf463",
+      "normalized_alpha_sha256": "336f4dc348a6a6d45e398053a6565c4bfb3b186efebc6604def3290bd1419e63"
     },
     "Marine Expeditionary Unit": {
       "bbox": [
+        14,
+        1,
         49,
-        42,
-        78,
-        86
+        55
       ],
-      "w": 29,
-      "h": 44,
-      "coverage": 0.030884,
-      "bbox_coverage": 0.396552,
-      "rgba_sha256": "53e7fb916f0339b7850171e0e0b730b48ac2d2f4bac91863df68ee5388be2391",
-      "alpha_sha256": "c6c537012b1f8cbcd99ceabac86bb3f4b40c3ee49ba325b2a302c432eb890474",
-      "normalized_alpha_sha256": "f8f31bd320234e92667013ece9d9b871149789f6c6c7d7bf84613d0c60e4b983"
+      "w": 35,
+      "h": 54,
+      "coverage": 0.212333,
+      "bbox_coverage": 0.402646,
+      "rgba_sha256": "3b7e1a1f62219891b21d9ba2cee46071acc0815e7b0251e5becf98e35210cc37",
+      "alpha_sha256": "ee171685a4f353e17c089dc10ff91f44932bc9905f2d433f73db350be0a90529",
+      "normalized_alpha_sha256": "e9693177bb38f201dd58c105ce91680e8f92690a763eb53fdd2df298500ba0b3"
     },
     "Exo-Marine": {
       "bbox": [
-        48,
-        44,
-        80,
-        86
+        11,
+        1,
+        53,
+        55
       ],
-      "w": 32,
-      "h": 42,
-      "coverage": 0.041382,
-      "bbox_coverage": 0.504464,
-      "rgba_sha256": "f9fc1977e355f78911b53450e199a5a889fe88b57f66ec67bd3646ccd8577045",
-      "alpha_sha256": "754fc24c3dc9e75999865875a3583b382540e564bc4a816ade0b61689120dd4d",
-      "normalized_alpha_sha256": "add64278c68552a1a1c8acc407fbba45e57cfda1ab8a06192eae746d50b664ac"
+      "w": 42,
+      "h": 54,
+      "coverage": 0.321987,
+      "bbox_coverage": 0.508818,
+      "rgba_sha256": "651d566a61f132933fa9b6b7f9bff5511d6f3795447857afb408f2246a625310",
+      "alpha_sha256": "80de4db28886b43386670af6ca4a6a33c937b7daa28b710e4e0e940548ca08c6",
+      "normalized_alpha_sha256": "749bb9380f7659a2f5e34fa2cb21e67449359d76603f5012260b04df13a18d93"
     }
   },
-  "source_png_count": 55,
+  "source_asset_count": 55,
   "all_packed_regions_match_sources": true,
-  "v021_png_sha256": "6a3f474e6eeea82a1de270c0a194b3479e65645ed6a9047790c5c4b2ab29b637",
-  "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73",
+  "v021_png_sha256": "3ab79b063e53fafd22ac260c74aa186ce24d8f44fd1af1eeb3c052f8dfae6d3c",
+  "v021_atlas_sha256": "de95166c18042cb3990d2a8db2e01d220233a5f7ed7b39be233488a63c2ad5b7",
   "legacy_file_sha256": {
     "game.atlas": "10088140759b890646c24fbd78809eb99f4c3c59189eabbc7938236ba5cec3c4",
     "game.png": "7699d0592664a23ed013d6b3f942d39b9bb15b9219ba69f29d7d66be96feb755",
