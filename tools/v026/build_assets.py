@@ -1,4 +1,4 @@
-"""Build/check the v0.2.6 supplemental atlas without writing legacy game art.
+"""Build/check the v0.2.7 supplemental atlas without writing legacy game art.
 Run from the repository root; --check verifies committed bytes without rebuilding.
 """
 from pathlib import Path
@@ -10,7 +10,7 @@ import re
 from artwork import UNITS, make_assets
 
 ROOT=Path(__file__).resolve().parents[2]
-BASELINE='cd377c5a2ef04c9447656673e06c6a9fc4d47a97'
+BASELINE='b7d3428e9b7e7f04331389a3e68aa8768c077094'
 RULE='Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>'
 SETS=['Minimal','FantasyHex','HexaRealm']
 
@@ -66,10 +66,19 @@ def image_metrics(im,kind,name):
         require(im.size==(128,128),'Icon size: '+name)
         require(all((r,g,b)==(255,255,255) for r,g,b,aa in im.getdata() if aa>0),'Icon is not white/tint-safe: '+name)
     else:
-        require(im.size==(128,128),'Sprite canvas size: '+name)
-        if name=='Mounted Slave Raider':require(width<=50 and height<=40 and width/height>=0.8,'Mounted footprint not broad/compact')
-        else:require(width<=36 and height<=48,'Sprite footprint too large: '+name)
-        require(width>=12 and height>=20,'Sprite too small: '+name)
+        valid_sizes={(32,28),(64,56),(64,65)}
+        require(im.size in valid_sizes,'Unexpected native sprite frame size: '+name+' '+repr(im.size))
+        if name=='Mounted Slave Raider':
+            if im.size==(32,28):
+                require(22<=width<=30 and 18<=height<=26 and width/height>=0.8,'Mounted footprint not broad/compact')
+            else:
+                require(44<=width<=62 and 36<=height<=63 and width/height>=0.8,'Mounted footprint not broad/compact')
+        else:
+            if im.size==(32,28):
+                require(12<=width<=30 and 20<=height<=26,'Sprite scale does not match native FantasyHex infantry: '+name)
+            else:
+                require(24<=width<=60 and 42<=height<=54,'Sprite scale does not match native HexaRealm infantry: '+name)
+        require(box[3]>=im.height-2,'Sprite is not bottom-anchored like native combat units: '+name)
     return {'bbox':list(box),'w':width,'h':height,'coverage':round(coverage,6),'bbox_coverage':round(bbox_coverage,6),'rgba_sha256':digest(im.tobytes()),'alpha_sha256':digest(a.tobytes()),'normalized_alpha_sha256':digest(normalized_mask(im).tobytes())}
 
 def verify(root=ROOT):
@@ -80,7 +89,7 @@ def verify(root=ROOT):
     for p in root.rglob('*.json'):
         if '.git' not in p.parts:load_json(p)
     opts=load_json(root/'jsons/ModOptions.json');expected=dict(manifest['mod_options'])
-    expected.update(modVersion='0.2.6',lastUpdated='2026-09-26')
+    expected.update(modVersion='0.2.7',lastUpdated='2026-09-26')
     require(opts==expected,'ModOptions not limited to release metadata')
     require(load_json(root/'Atlases.json')==['game','v021'],'Atlas list changed')
     promos=load_json(root/'jsons/UnitPromotions.json');doctrine=next(p for p in promos if p['name']=='Slave Raider Doctrine')
@@ -92,14 +101,14 @@ def verify(root=ROOT):
         require('Slave Raider Doctrine' in units[name].get('promotions',[]),'Capture doctrine missing: '+name)
     for name in ['README.md','BUILD_STATUS.md']:
         text=(root/name).read_text(encoding='utf-8')
-        require('**Predecessor:** **v0.2.5**' in text,'Wrong predecessor in '+name)
-        require('v0.2.6' in text.splitlines()[0],'Wrong current version in '+name)
-        require('`veilfall-v0.2.6-art-integration`' in text,'Wrong source branch in '+name)
+        require('**Predecessor:** **v0.2.6**' in text,'Wrong predecessor in '+name)
+        require('v0.2.7' in text.splitlines()[0],'Wrong current version in '+name)
+        require('`veilfall-v0.2.7-art-integration`' in text,'Wrong source branch in '+name)
         require('automated' in text and 'in-game' in text,'Acceptance distinction missing in '+name)
     workflow=(root/'.github/workflows/v021-art-build.yml').read_text(encoding='utf-8')
-    require('Build and verify Veilfall v0.2.6 art' in workflow,'Wrong workflow release label')
-    require('veilfall-v0.2.6-portrait-cleanup' in workflow and 'veilfall-v0.2.6-art-integration' in workflow,'Wrong workflow branches')
-    require('v0.2.5' not in workflow,'Stale workflow release label')
+    require('Build and verify Veilfall v0.2.7 art' in workflow,'Wrong workflow release label')
+    require('veilfall-v0.2.7-unit-scale' in workflow and 'veilfall-v0.2.7-art-integration' in workflow,'Wrong workflow branches')
+    require('v0.2.6' not in workflow,'Stale workflow release label')
     regions,boxes=atlas_read(root);required=set(manifest['required_keys'])
     require(set(regions)==required and len(regions)==80,'Atlas keys missing/extra: '+str(sorted(required^set(regions))))
     for key,sha in manifest['preserved_regions'].items():
@@ -110,8 +119,11 @@ def verify(root=ROOT):
             target[name]=image_metrics(regions[f'{prefix}/{name}'],kind,name)
         for ts in SETS:
             key=f'TileSets/{ts}/Units/{name}';m=image_metrics(regions[key],'sprite',name)
-            if ts=='Minimal':sprites[name]=m
-            require(regions[key].tobytes()==regions[f'TileSets/Minimal/Units/{name}'].tobytes(),'Unexpected tileset-specific silhouette divergence: '+name)
+            if ts=='HexaRealm':sprites[name]=m
+        require(regions[f'TileSets/FantasyHex/Units/{name}'].size==(32,28),'FantasyHex frame mismatch: '+name)
+        expected_hr=(64,65) if name=='Mounted Slave Raider' else (64,56)
+        require(regions[f'TileSets/HexaRealm/Units/{name}'].size==expected_hr,'HexaRealm frame mismatch: '+name)
+        require(regions[f'TileSets/Minimal/Units/{name}'].size==expected_hr,'Minimal frame mismatch: '+name)
     new_keys=set(regions)-set(manifest['preserved_regions'])
     source_files={p.relative_to(root/'tools/v026/generated').as_posix()[:-4]:p for p in (root/'tools/v026/generated').rglob('*.png')}
     require(set(source_files)==new_keys,'Generated source PNGs missing or extraneous')
@@ -130,7 +142,7 @@ def verify(root=ROOT):
         pair=max(pairs);slave=similarity(regions[f'{prefix}/Slave'],regions[f'{prefix}/Slave Raider'])
         require(slave<0.80,'Slave and Slave Raider too similar in '+kind)
         distinctness[kind]={'distinct_rgba_count':11,'distinct_normalized_silhouettes':11,'max_pair_iou':pair[0],'closest_pair':list(pair[1:]),'slave_raider_iou':slave}
-    return {'release':'v0.2.6','predecessor':'v0.2.5','baseline_commit':BASELINE,
+    return {'release':'v0.2.7','predecessor':'v0.2.6','baseline_commit':BASELINE,
             'status':'automated_checks_passed','manual_in_game_acceptance':'pending',
             'entry_count':80,'replaced_region_count':55,'preserved_region_count':25,
             'required_keys':sorted(required),'missing_keys':[],
