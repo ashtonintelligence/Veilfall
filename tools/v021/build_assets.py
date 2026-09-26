@@ -1,4 +1,4 @@
-"""Compatibility entrypoint for the v021 atlas; current release is v0.2.6."""
+"""Compatibility entrypoint for the v021 atlas; current release is v0.2.7."""
 from pathlib import Path
 import runpy
 import sys
