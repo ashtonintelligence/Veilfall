@@ -1,9 +1,9 @@
-# Unciv: Veilfall v0.2.6
+# Unciv: Veilfall v0.2.7
 
-**Version:** **v0.2.6 prerelease**  
+**Version:** **v0.2.7 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.6-art-integration`  
-**Predecessor:** **v0.2.5**  
+**Development/source branch:** `veilfall-v0.2.7-art-integration`  
+**Predecessor:** **v0.2.6**  
 **Status:** v0.2.6 corrective art release; automated evidence in ART_VERIFICATION.json; in-game visual acceptance pending  
 **Base ruleset:** Civ V - Gods & Kings
 
@@ -172,3 +172,9 @@ The predecessor v0.2.5 restored source-art crops; runtime screenshots still show
 background and scenery/card remnants. v0.2.6 supersedes that crop pipeline while
 retaining small map footprints. These are historical notes, not current deployment
 claims. Actual deployment is established by Git refs and successful workflow runs.
+
+## v0.2.7 native-scale map-unit framing
+
+Runtime screenshots from v0.2.6 showed the rebuilt figures were too small inside their map-sprite frames compared with adjacent vanilla combat units. v0.2.7 keeps the accepted character designs and transparent portraits/icons, but rescales and bottom-anchors map sprites to native Unciv tileset frames. FantasyHex uses 32x28 frames; HexaRealm uses 64x56 infantry frames and a taller 64x65 mounted frame. Minimal uses the HexaRealm-sized framing for consistent readability.
+
+The Continental Marines calibration target is the adjacent vanilla Spearman shown in the acceptance screenshot: comparable apparent height, grounded foot position, and native in-frame placement. Infantry is normalized against infantry; Mounted Slave Raider is normalized against mounted-unit framing. No gameplay rules change.
