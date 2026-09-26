@@ -1,5 +1,6 @@
 name: Build Veilfall v0.2.5 art
 # Runtime visual-art corrective build
+# complete v0.2.5 branch trigger
 
 on:
   push:
