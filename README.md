@@ -2,9 +2,9 @@
 
 **Version:** **v0.2.5 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.5-portrait-fix`  
+**Development/source branch:** `veilfall-v0.2.5-art-integration`  
 **Predecessor:** **v0.2.4**  
-**Status:** v0.2.5 source-portrait corrective patch prepared for deployment  
+**Status:** v0.2.5 source-portrait corrective patch deployed for in-game acceptance  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
