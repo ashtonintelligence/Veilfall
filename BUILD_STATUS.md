@@ -1,12 +1,12 @@
-# Veilfall v0.2.4 — Build Status
+# Veilfall v0.2.5 — Build Status
 
-**Version:** **v0.2.4 prerelease**  
+**Version:** **v0.2.5 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.4-art-integration`  
-**Predecessor:** **v0.2.3**  
+**Source branch:** `veilfall-v0.2.5-portrait-fix`  
+**Predecessor:** **v0.2.4**  
 **Patch build date:** 2026-09-25
 
-**Current status:** v0.2.4 runtime-art repair passed automated verification and is deployed to `main` for in-game acceptance.
+**Current status:** v0.2.5 source-portrait repair is under automated verification.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -306,3 +306,8 @@ Runtime screenshots from v0.2.2 confirmed that the replacement atlas loads corre
 ## v0.2.4 runtime-art repair
 
 Runtime screenshots from v0.2.3 showed that atlas loading and key resolution were correct, but UnitPortraits still exposed labeled source-sheet crops and map sprites remained too large for the hex map. v0.2.4 replaces custom UnitPortraits with clean standalone transparent/circular compositions derived from the unit silhouettes and reduces map-sprite footprint limits to 36×48 px for infantry-style units and 50×40 px for Mounted Slave Raider. Ruleset behavior is unchanged.
+
+
+## v0.2.5 source-portrait repair
+
+Runtime screenshots from v0.2.4 confirmed the smaller map sprites are materially closer to the correct scale, but the replacement Civilopedia portraits were still overly generic. v0.2.5 restores the recovered source-derived unit artwork, crops away source-sheet labels, and enlarges the character within the UI portrait while preserving the v0.2.4 map-sprite sizing and all gameplay rules.
