@@ -47,9 +47,9 @@ def main():
     verify_report(ROOT);RESULTS.append({'test':'valid_release','result':'PASS'});tests=[]
     tests.append(('capture_probability_regression',lambda r:(r/'jsons/UnitPromotions.json').write_text((r/'jsons/UnitPromotions.json').read_text().replace('with [50]% chance','with [25]% chance')),'Protected baseline file changed: jsons/UnitPromotions.json'))
     tests.append(('legacy_second_atlas_page_changed',lambda r:(r/'game2.png').write_bytes((r/'game2.png').read_bytes()+b'corruption'),'Protected baseline file changed: game2.png'))
-    tests.append(('wrong_version',lambda r:replace_json(r,'jsons/ModOptions.json',lambda d:d.update(modVersion='0.2.5')),'ModOptions not limited'))
+    tests.append(('wrong_version',lambda r:replace_json(r,'jsons/ModOptions.json',lambda d:d.update(modVersion='0.2.6')),'ModOptions not limited'))
     tests.append(('wrong_atlas_list',lambda r:(r/'Atlases.json').write_text('["game"]'),'Protected baseline file changed: Atlases.json'))
-    tests.append(('wrong_current_readme',lambda r:(r/'README.md').write_text((r/'README.md').read_text().replace('# Unciv: Veilfall v0.2.6','# Unciv: Veilfall v0.2.5')),'Wrong current version'))
+    tests.append(('wrong_current_readme',lambda r:(r/'README.md').write_text((r/'README.md').read_text().replace('# Unciv: Veilfall v0.2.7','# Unciv: Veilfall v0.2.6')),'Wrong current version'))
     tests.append(('malformed_auxiliary_json',lambda r:(r/'broken.json').write_text('{invalid'),'Expecting property name'))
     tests.append(('missing_case_sensitive_key',lambda r:(r/'v021.atlas').write_text((r/'v021.atlas').read_text().replace('UnitPortraits/Slave\n','UnitPortraits/slave\n')),'Atlas keys missing/extra'))
     def overlap(r):
@@ -77,7 +77,10 @@ def main():
         for ts in b.SETS:mutate_region(r,f'TileSets/{ts}/Units/Mounted Slave Raider',lambda _:regions[f'TileSets/{ts}/Units/Slave'])
     tests.append(('mounted_unit_replaced_by_infantry',foot_mounted,'Mounted footprint not broad/compact'))
     def oversized(im):
-        crop=im.crop(im.getchannel('A').getbbox()).resize((60,70));out=Image.new('RGBA',im.size,(0,0,0,0));out.paste(crop,(32,25));return out
+        crop=im.crop(im.getchannel('A').getbbox()).resize((63,55))
+        out=Image.new('RGBA',im.size,(0,0,0,0))
+        out.paste(crop,(0,0))
+        return out
     tests.append(('oversized_map_sprite',lambda r:mutate_region(r,'TileSets/Minimal/Units/Slave Raider',oversized),'Sprite footprint too large'))
     tests.append(('missing_source_png',lambda r:(r/'tools/v026/generated/UnitIcons/Slave.png').unlink(),'Generated source PNGs missing'))
     tests.append(('source_packed_pixel_mismatch',lambda r:Image.new('RGBA',(128,128)).save(r/'tools/v026/generated/UnitIcons/Slave.png'),'Packed/source pixel mismatch'))
@@ -93,7 +96,7 @@ def main():
         paths += [p.relative_to(ROOT).as_posix() for p in (ROOT/'tools/v026/generated').rglob('*.png')]
         for rel in paths:b.require((ROOT/rel).read_bytes()==(root/rel).read_bytes(),'Nondeterministic rebuild: '+rel)
         RESULTS.append({'test':'second_build_byte_identical_58_files','result':'PASS'});print('PASS: second_build_byte_identical_58_files')
-    report={'release':'v0.2.6','result':'PASS','test_count':len(RESULTS),'negative_test_count':len(tests),'tests':RESULTS}
+    report={'release':'v0.2.7','result':'PASS','test_count':len(RESULTS),'negative_test_count':len(tests),'tests':RESULTS}
     (ROOT/'tools/v026/test_results.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='tests'},indent=2))
 
