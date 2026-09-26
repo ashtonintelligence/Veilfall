@@ -1,9 +1,9 @@
-# Veilfall v0.2.6 — Build Status
+# Veilfall v0.2.7 — Build Status
 
-**Version:** **v0.2.6 prerelease**  
+**Version:** **v0.2.7 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.6-art-integration`  
-**Predecessor:** **v0.2.5**  
+**Source branch:** `veilfall-v0.2.7-art-integration`  
+**Predecessor:** **v0.2.6**  
 **Patch build date:** 2026-09-26
 
 **Current status:** v0.2.6 corrective art release. Automated status is recorded in ART_VERIFICATION.json; in-game acceptance remains pending. Deployment is established by Git refs and the workflow, not this document alone.
@@ -288,3 +288,7 @@ established smaller footprints but its generic portraits were not accepted. The
 predecessor v0.2.5 restored source-derived portraits that still exposed backgrounds.
 v0.2.6 replaces that approach. Broader gameplay implementation and deferred-work
 statements above are unchanged by this art-only release.
+
+## v0.2.7 unit-scale/framing corrective pass
+
+The v0.2.6 isolated figures remain the source art. This pass changes only map-sprite scale and transparent-frame placement so custom combat units read like neighboring vanilla units at runtime. FantasyHex assets use the native 32x28 unit frame. HexaRealm infantry uses 64x56 and mounted art uses 64x65. Figures are bottom-anchored with a one-pixel safety margin instead of centered in a 128x128 transparent canvas.
