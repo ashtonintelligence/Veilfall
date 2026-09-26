@@ -2,11 +2,11 @@
 
 **Version:** **v0.2.5 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.5-portrait-fix`  
+**Source branch:** `veilfall-v0.2.5-art-integration`  
 **Predecessor:** **v0.2.4**  
 **Patch build date:** 2026-09-25
 
-**Current status:** v0.2.5 source-portrait repair is under automated verification.
+**Current status:** v0.2.5 source-portrait repair passed automated verification and is deployed to `main` for in-game acceptance.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
