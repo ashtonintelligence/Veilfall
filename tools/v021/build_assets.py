@@ -166,15 +166,25 @@ def map_sprite(name,size=128):
     return _fit_alpha(sp,size,max_w,max_h,106)
 
 def unit_portrait(name,size=256):
-    # Standalone UI portrait. Do not crop labeled art-bible/contact sheets:
-    # Unciv masks portraits into circles and any sheet labels/background bars become visible.
-    im=canvas(size); d=ImageDraw.Draw(im)
-    circ(d,(12,12,size-12,size-12),fill=NAVY2,outline=GOLD,w=max(6,size//26))
-    inner=unit_sprite(name,128)
-    fitted=_fit_alpha(inner,128,88 if name=='Mounted Slave Raider' else 68,92 if name=='Mounted Slave Raider' else 100,112)
-    fitted=fitted.resize((196,196),Image.Resampling.LANCZOS)
-    im.alpha_composite(fitted,((size-196)//2,(size-196)//2+8))
-    return im
+    # Reuse the recovered source-derived v0.2.2 character art, but remove
+    # art-bible title fragments and zoom the figure for Unciv's circular UI mask.
+    fn=name.replace(' ','_')+'_portrait.jpg'
+    path=Path('tools/v022/portraits')/fn
+    src=Image.open(path).convert('RGB')
+    if src.size != (128,128):
+        raise SystemExit('Unexpected source portrait size for '+name+': '+repr(src.size))
+
+    # The slavery-line source crops contain residual sheet labels near the top.
+    # Pull the crop downward and inward. Marine crops need less top removal.
+    slavery={'Slave','Slave Raider','Mounted Slave Raider','Slave Hunter','Industrial Slaver'}
+    if name in slavery:
+        crop=src.crop((14,24,114,126))
+    else:
+        crop=src.crop((8,8,120,126))
+
+    # Fill the circular portrait area with actual character art rather than a
+    # tiny icon centered in a decorative disk.
+    return crop.resize((size,size),Image.Resampling.LANCZOS).convert('RGBA')
 
 def load_unit_portraits():
     return {name:unit_portrait(name,256) for name in UNITS}
@@ -232,6 +242,6 @@ for u in UNITS:
         if w>50 or h>40: raise SystemExit('Mounted map sprite footprint too large: '+repr(sprite_metrics[u]))
     elif w>36 or h>48:
         raise SystemExit('Map sprite footprint too large: '+u+' '+repr(sprite_metrics[u]))
-verification={'release':'v0.2.4','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'map_sprite_metrics':sprite_metrics,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
+verification={'release':'v0.2.5','entry_count':80,'missing_keys':missing,'png_size':list(check.size),'alpha_extrema':list(alpha.getextrema()),'required_keys':required,'distinct_unit_icon_count':len(set(icon_hashes.values())),'map_sprite_metrics':sprite_metrics,'v021_png_sha256':hashlib.sha256((OUT/'v021.png').read_bytes()).hexdigest(),'v021_atlas_sha256':hashlib.sha256((OUT/'v021.atlas').read_bytes()).hexdigest()}
 (OUT/'ART_VERIFICATION.json').write_text(json.dumps(verification,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in verification.items() if k!='required_keys'},indent=2))
