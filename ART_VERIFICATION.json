@@ -1,5 +1,5 @@
 {
-  "release": "v0.2.4",
+  "release": "v0.2.5",
   "entry_count": 80,
   "missing_keys": [],
   "png_size": [
@@ -205,6 +205,6 @@
       "h": 44
     }
   },
-  "v021_png_sha256": "9dc42817d632d0dd1ec40a4aab4398031680095ef9fa1dfcda7f32cb038ecf08",
+  "v021_png_sha256": "6e0a161b1af4a9214c9ed69be6d9b641a1836bd6e2c5adf72a4eff83ad3c806e",
   "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73"
 }
