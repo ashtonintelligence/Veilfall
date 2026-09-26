@@ -1,0 +1,116 @@
+{
+  "release": "v0.2.6",
+  "result": "PASS",
+  "test_count": 22,
+  "negative_test_count": 20,
+  "tests": [
+    {
+      "test": "valid_release",
+      "result": "PASS"
+    },
+    {
+      "test": "capture_probability_regression",
+      "result": "PASS",
+      "expected_rejection": "Protected baseline file changed: jsons/UnitPromotions.json"
+    },
+    {
+      "test": "legacy_second_atlas_page_changed",
+      "result": "PASS",
+      "expected_rejection": "Protected baseline file changed: game2.png"
+    },
+    {
+      "test": "wrong_version",
+      "result": "PASS",
+      "expected_rejection": "ModOptions not limited"
+    },
+    {
+      "test": "wrong_atlas_list",
+      "result": "PASS",
+      "expected_rejection": "Protected baseline file changed: Atlases.json"
+    },
+    {
+      "test": "wrong_current_readme",
+      "result": "PASS",
+      "expected_rejection": "Wrong current version"
+    },
+    {
+      "test": "malformed_auxiliary_json",
+      "result": "PASS",
+      "expected_rejection": "Expecting property name"
+    },
+    {
+      "test": "missing_case_sensitive_key",
+      "result": "PASS",
+      "expected_rejection": "Atlas keys missing/extra"
+    },
+    {
+      "test": "overlapping_regions",
+      "result": "PASS",
+      "expected_rejection": "Overlapping regions"
+    },
+    {
+      "test": "opaque_portrait_corner",
+      "result": "PASS",
+      "expected_rejection": "portrait has opaque corners"
+    },
+    {
+      "test": "rectangular_portrait_background",
+      "result": "PASS",
+      "expected_rejection": "rectangular/background-like alpha"
+    },
+    {
+      "test": "slave_uses_raider_portrait",
+      "result": "PASS",
+      "expected_rejection": "portraits RGBA duplicates"
+    },
+    {
+      "test": "duplicate_icons",
+      "result": "PASS",
+      "expected_rejection": "icons RGBA duplicates"
+    },
+    {
+      "test": "colored_non_tint_safe_icon",
+      "result": "PASS",
+      "expected_rejection": "Icon is not white/tint-safe"
+    },
+    {
+      "test": "slave_is_recolored_raider_sprite",
+      "result": "PASS",
+      "expected_rejection": "sprites normalized silhouette duplicates"
+    },
+    {
+      "test": "mounted_unit_replaced_by_infantry",
+      "result": "PASS",
+      "expected_rejection": "Mounted footprint not broad/compact"
+    },
+    {
+      "test": "oversized_map_sprite",
+      "result": "PASS",
+      "expected_rejection": "Sprite footprint too large"
+    },
+    {
+      "test": "missing_source_png",
+      "result": "PASS",
+      "expected_rejection": "Generated source PNGs missing"
+    },
+    {
+      "test": "source_packed_pixel_mismatch",
+      "result": "PASS",
+      "expected_rejection": "Packed/source pixel mismatch"
+    },
+    {
+      "test": "unrelated_building_region_modified",
+      "result": "PASS",
+      "expected_rejection": "Unrelated supplemental art changed"
+    },
+    {
+      "test": "fabricated_verification_report",
+      "result": "PASS",
+      "expected_rejection": "ART_VERIFICATION does not match"
+    },
+    {
+      "test": "second_build_byte_identical_58_files",
+      "result": "PASS"
+    }
+  ]
+}

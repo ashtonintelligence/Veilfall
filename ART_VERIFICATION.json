@@ -1,15 +1,12 @@
 {
-  "release": "v0.2.5",
+  "release": "v0.2.6",
+  "predecessor": "v0.2.5",
+  "baseline_commit": "cd377c5a2ef04c9447656673e06c6a9fc4d47a97",
+  "status": "automated_checks_passed",
+  "manual_in_game_acceptance": "pending",
   "entry_count": 80,
-  "missing_keys": [],
-  "png_size": [
-    2048,
-    2048
-  ],
-  "alpha_extrema": [
-    0,
-    255
-  ],
+  "replaced_region_count": 55,
+  "preserved_region_count": 25,
   "required_keys": [
     "BuildingPortraits/Athenaeum",
     "BuildingPortraits/Forum of Inquiry",
@@ -92,119 +89,568 @@
     "UnitPromotionPortraits/Operational Support",
     "UnitPromotionPortraits/Slave Raider Doctrine"
   ],
+  "missing_keys": [],
+  "all_repository_json_valid": true,
+  "gameplay_files_byte_identical": true,
+  "legacy_art_byte_identical": true,
+  "protected_file_count": 73,
+  "atlas_names": [
+    "game",
+    "v021"
+  ],
+  "png_size": [
+    2048,
+    2048
+  ],
+  "exact_capture_rule": "Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>",
+  "capture_chance_percent": 50,
+  "military_filter_unchanged_no_barbarian_exclusion_added": true,
   "distinct_unit_icon_count": 11,
-  "map_sprite_metrics": {
-    "Continental Marines": {
-      "bbox": [
-        52,
-        62,
-        76,
-        106
+  "distinctness": {
+    "portraits": {
+      "distinct_rgba_count": 11,
+      "distinct_normalized_silhouettes": 11,
+      "max_pair_iou": 0.775921,
+      "closest_pair": [
+        "Slave Hunter",
+        "Fleet Marine Force"
       ],
-      "w": 24,
-      "h": 44
+      "slave_raider_iou": 0.461651
     },
-    "Marine Riflemen": {
-      "bbox": [
-        51,
-        62,
-        76,
-        106
+    "icons": {
+      "distinct_rgba_count": 11,
+      "distinct_normalized_silhouettes": 11,
+      "max_pair_iou": 0.774779,
+      "closest_pair": [
+        "Slave Hunter",
+        "Fleet Marine Force"
       ],
-      "w": 25,
-      "h": 44
+      "slave_raider_iou": 0.466127
     },
-    "Expeditionary Marines": {
-      "bbox": [
-        51,
-        62,
-        77,
-        106
+    "sprites": {
+      "distinct_rgba_count": 11,
+      "distinct_normalized_silhouettes": 11,
+      "max_pair_iou": 0.773874,
+      "closest_pair": [
+        "Industrial Slaver",
+        "Marine Expeditionary Unit"
       ],
-      "w": 26,
-      "h": 44
-    },
-    "Fleet Marine Force": {
-      "bbox": [
-        50,
-        62,
-        77,
-        106
-      ],
-      "w": 27,
-      "h": 44
-    },
-    "Marine Expeditionary Unit": {
-      "bbox": [
-        50,
-        62,
-        78,
-        106
-      ],
-      "w": 28,
-      "h": 44
-    },
-    "Exo-Marine": {
-      "bbox": [
-        48,
-        62,
-        79,
-        106
-      ],
-      "w": 31,
-      "h": 44
-    },
+      "slave_raider_iou": 0.425831
+    }
+  },
+  "portrait_metrics": {
     "Slave": {
       "bbox": [
-        55,
-        62,
-        73,
-        106
+        88,
+        11,
+        167,
+        245
       ],
-      "w": 18,
-      "h": 44
+      "w": 79,
+      "h": 234,
+      "coverage": 0.159683,
+      "bbox_coverage": 0.566104,
+      "rgba_sha256": "9565b418db1d4cfa6e6fd073d5e17870e00684afe49a144a8a5868d80c558e40",
+      "alpha_sha256": "60f8a708147332c80149cf04cce96b8d8d5751eb64d6c42ecc896bb5ced8c05e",
+      "normalized_alpha_sha256": "ad1d5881fb6b896d2bdf7bb3d8bbbe20a8d415f9f38d434dcabd94a242c02dc5"
     },
     "Slave Raider": {
       "bbox": [
-        50,
-        62,
-        77,
-        106
+        37,
+        11,
+        219,
+        245
       ],
-      "w": 27,
-      "h": 44
+      "w": 182,
+      "h": 234,
+      "coverage": 0.220001,
+      "bbox_coverage": 0.338546,
+      "rgba_sha256": "a5e68ce352205d737dcb030f1af7ab625b941e1a93c0f5e30af0e132ddb2a351",
+      "alpha_sha256": "865d11b3cf05a065db7f89aae3a94b0463b75187c3bc95a95b5895d00880c5f9",
+      "normalized_alpha_sha256": "d89f55f3d86472b60b149e9e0430367e66e2616c327bb78564c01d2d0346ceda"
     },
     "Mounted Slave Raider": {
       "bbox": [
-        45,
-        70,
-        83,
-        106
+        15,
+        11,
+        241,
+        245
       ],
-      "w": 38,
-      "h": 36
+      "w": 226,
+      "h": 234,
+      "coverage": 0.297913,
+      "bbox_coverage": 0.369185,
+      "rgba_sha256": "08c4afb6af28f9011ce6ee83ec80db911c35bfd71cfd07f63a492603aaddb357",
+      "alpha_sha256": "19e310442da761949a66e390031b17907fd7867169fbabeacded643feab52135",
+      "normalized_alpha_sha256": "2f873dee130d33af6b6711f9ca4fc4649d7ac381c3db5e1057ed2d157f69d476"
     },
     "Slave Hunter": {
       "bbox": [
-        50,
-        62,
-        77,
-        106
+        66,
+        11,
+        190,
+        245
       ],
-      "w": 27,
-      "h": 44
+      "w": 124,
+      "h": 234,
+      "coverage": 0.182404,
+      "bbox_coverage": 0.41198,
+      "rgba_sha256": "44e4189a72950360b2bd183768a8c1714c02621b6f645e49d8d8c327dd9dd846",
+      "alpha_sha256": "b6a5b46fcf2270d39ae162bf5245dcd0ab0efe780008e26c650faf15de33507b",
+      "normalized_alpha_sha256": "473648bc368fdf2b84008948e37aa74d489f76ca2232507acd74810bb267f362"
     },
     "Industrial Slaver": {
       "bbox": [
         51,
-        62,
-        77,
-        106
+        11,
+        204,
+        245
       ],
-      "w": 26,
-      "h": 44
+      "w": 153,
+      "h": 234,
+      "coverage": 0.226639,
+      "bbox_coverage": 0.414865,
+      "rgba_sha256": "756a551e6798a1f168de94d00ef1ea04980f01fdbb50c4e6720c8dc7fdfffa6d",
+      "alpha_sha256": "db69e85971677cbb3e592e46e4a207caa02d0de309ab6b32ac96974c5f98148f",
+      "normalized_alpha_sha256": "9ed0f83f4fef4b6d68dec39bcc1de907fd7d63f5dc3488f62da378371a519c9d"
+    },
+    "Continental Marines": {
+      "bbox": [
+        72,
+        11,
+        183,
+        245
+      ],
+      "w": 111,
+      "h": 234,
+      "coverage": 0.187195,
+      "bbox_coverage": 0.472318,
+      "rgba_sha256": "7acf58ed6f05eed0f2e3e967026d6dfbb5960464777683147d835f0f45975888",
+      "alpha_sha256": "3045dd60407abce912e2d48e64648b5547822a9f472ea2665d479b2988902c93",
+      "normalized_alpha_sha256": "ba900457d763f930bfd143cfb9273dd86d4c678474d20f8fc6cc42b500e6c2ff"
+    },
+    "Marine Riflemen": {
+      "bbox": [
+        22,
+        11,
+        234,
+        245
+      ],
+      "w": 212,
+      "h": 234,
+      "coverage": 0.250916,
+      "bbox_coverage": 0.331479,
+      "rgba_sha256": "bbef3072ff17d6b390775573eb7c317aa7d042168f698a989f3a729382332b0a",
+      "alpha_sha256": "f23e032c8cd2f25758819e9e6bdfa6259d7eae98c3bce60300f61b28af124329",
+      "normalized_alpha_sha256": "ca09d6a29664cbcd86542107369667c6b738f8686c0af2c56bcee8327adaf197"
+    },
+    "Expeditionary Marines": {
+      "bbox": [
+        65,
+        11,
+        190,
+        245
+      ],
+      "w": 125,
+      "h": 234,
+      "coverage": 0.200241,
+      "bbox_coverage": 0.44865,
+      "rgba_sha256": "29c2d190074656e254e06f3cc7fc618aad1488a99a25b56eb16ebf71c6820a56",
+      "alpha_sha256": "66cc2653a9299f2522d8846a953f0ff87ae854c08611e96ee07855ae97b3f536",
+      "normalized_alpha_sha256": "85d08ecad6c1bbc0ad0e2c657db63694c53dc18a8908f3701883ba62581269a2"
+    },
+    "Fleet Marine Force": {
+      "bbox": [
+        65,
+        11,
+        191,
+        245
+      ],
+      "w": 126,
+      "h": 234,
+      "coverage": 0.186951,
+      "bbox_coverage": 0.415547,
+      "rgba_sha256": "eae25db8aa9fc5750b4304b325ada51d4cbeecfd248d9abe19dbdc61c0abfa64",
+      "alpha_sha256": "3035b84fe15cd3a9fee6ff33b901ed63cd270608592229ac687374a0c1401773",
+      "normalized_alpha_sha256": "57671e66495543d69a2a31d0be8740e3032940fed3932f53b0959dab1fd26cfb"
+    },
+    "Marine Expeditionary Unit": {
+      "bbox": [
+        52,
+        11,
+        204,
+        245
+      ],
+      "w": 152,
+      "h": 234,
+      "coverage": 0.21759,
+      "bbox_coverage": 0.400922,
+      "rgba_sha256": "1831fbf3fcc65389eef4b68451a1254de952c3b3eb869bac8e1a0e27aec12905",
+      "alpha_sha256": "6f7552a009af4169010519cd8d2a8602c42807695b83770a01086dddfa8101f0",
+      "normalized_alpha_sha256": "51dd73da5b467e8e9639eac804d34d4593e060e1347adfec8337be132cae76af"
+    },
+    "Exo-Marine": {
+      "bbox": [
+        38,
+        11,
+        218,
+        245
+      ],
+      "w": 180,
+      "h": 234,
+      "coverage": 0.326706,
+      "bbox_coverage": 0.508333,
+      "rgba_sha256": "eb0bb91a75bb74804474517ab081f16b8e720373238f1b9c0b3a19fd0fe7c3c8",
+      "alpha_sha256": "824e85438b9a1ef1c0cba3a3684358c8fc32d55a8fb246e60cbdad67bf7c750a",
+      "normalized_alpha_sha256": "1aac659125a0311b236435add7dec380f2e6cdfcdf2d60912d4463397d4baae3"
     }
   },
-  "v021_png_sha256": "6e0a161b1af4a9214c9ed69be6d9b641a1836bd6e2c5adf72a4eff83ad3c806e",
-  "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73"
+  "icon_metrics": {
+    "Slave": {
+      "bbox": [
+        49,
+        22,
+        79,
+        110
+      ],
+      "w": 30,
+      "h": 88,
+      "coverage": 0.091064,
+      "bbox_coverage": 0.565152,
+      "rgba_sha256": "f26a47195d487585c3164c9207d0168e721a2e8be635952eea805e25cf58626e",
+      "alpha_sha256": "d4a7d78614b45e7f884fc0b5e1575b32499443bc270d7cf447490e060febb754",
+      "normalized_alpha_sha256": "0fbb40d415872a441e81c1a9cc8c97f5dc092045d5649c79fa84cc8a2d472de2"
+    },
+    "Slave Raider": {
+      "bbox": [
+        30,
+        22,
+        98,
+        110
+      ],
+      "w": 68,
+      "h": 88,
+      "coverage": 0.123718,
+      "bbox_coverage": 0.338737,
+      "rgba_sha256": "15e7e29f301c8a2022dd2f347bafd6f17f58b8cd7a9f3d07f14a5b1d9054042c",
+      "alpha_sha256": "9d25be68d1c20a77cda40b82c490bbbf0f8e3dd2f46df7ea703b72190bb6a185",
+      "normalized_alpha_sha256": "919d9adf9477590d7f6d80c35744495c3183392811605c339e4423e553b6f85b"
+    },
+    "Mounted Slave Raider": {
+      "bbox": [
+        21,
+        23,
+        106,
+        110
+      ],
+      "w": 85,
+      "h": 87,
+      "coverage": 0.168823,
+      "bbox_coverage": 0.374037,
+      "rgba_sha256": "619b210376774b7f7ccccbd4919172d0f36a5837f428edea9f1d705817e8d569",
+      "alpha_sha256": "2770f2a9ec56ae580b7036971d92d3df3c855913a7f33bffc614b08b604799a4",
+      "normalized_alpha_sha256": "e8d8ddb19c20d346573eca20fa634080aa9fbf78bfbb36bad92fb565ad12b51d"
+    },
+    "Slave Hunter": {
+      "bbox": [
+        40,
+        22,
+        87,
+        110
+      ],
+      "w": 47,
+      "h": 88,
+      "coverage": 0.104309,
+      "bbox_coverage": 0.413201,
+      "rgba_sha256": "873b5812bac7867685f344bb31a876d7570f1f1694b0d55a3815532396038041",
+      "alpha_sha256": "18227fb9fdf618c7023aaab8205972f0b1ae4b949ad20d01e56ab8e7ecafa85e",
+      "normalized_alpha_sha256": "6f615e72984d8a80f47077b95e2fec51517301849f1dfb58dd4e44fcb157ae76"
+    },
+    "Industrial Slaver": {
+      "bbox": [
+        35,
+        22,
+        93,
+        110
+      ],
+      "w": 58,
+      "h": 88,
+      "coverage": 0.129456,
+      "bbox_coverage": 0.415556,
+      "rgba_sha256": "f1b884a04d23e5fce29c0a8bf7fd7df7eedd99fdb491de9c4976b491b57ecd23",
+      "alpha_sha256": "56b5cc523cd84ff0eb2eca8a0a587968528ef8b962ab156ac2b60680ec49e9cb",
+      "normalized_alpha_sha256": "e7ed49c515efdc8538435d9645e85bb27a5a8cda2d8a98f6443dac89d964c7d0"
+    },
+    "Continental Marines": {
+      "bbox": [
+        43,
+        22,
+        85,
+        110
+      ],
+      "w": 42,
+      "h": 88,
+      "coverage": 0.106934,
+      "bbox_coverage": 0.474026,
+      "rgba_sha256": "96d9d7b01cc59c42b1381a5822221a16455e49ad2c832f4e1cca0ab2fafea766",
+      "alpha_sha256": "696d552fc294a2dd4b1166965957effd8c27e57bf43675b27a919a89b34bb4d5",
+      "normalized_alpha_sha256": "08910516787bb1c76e21d419b1cf204e3fe97c3d5cecd3b209b63b610af60a00"
+    },
+    "Marine Riflemen": {
+      "bbox": [
+        24,
+        22,
+        103,
+        110
+      ],
+      "w": 79,
+      "h": 88,
+      "coverage": 0.14209,
+      "bbox_coverage": 0.334868,
+      "rgba_sha256": "a42be229545aae400c60ad14b344715c47f518a7719353717df08aff777c524e",
+      "alpha_sha256": "9602836be27e62218d38a45c386fa367f7417ac62ef329b945afb42ed537bf02",
+      "normalized_alpha_sha256": "06ad2313dcf762bced5d984bfbcc5529a838cd3551a34968b9baf1f1636ffc9c"
+    },
+    "Expeditionary Marines": {
+      "bbox": [
+        40,
+        22,
+        87,
+        110
+      ],
+      "w": 47,
+      "h": 88,
+      "coverage": 0.113525,
+      "bbox_coverage": 0.44971,
+      "rgba_sha256": "9b3fee5260770f643de6199c0e34bd6576736d2c91f28b342d6d95324b55278c",
+      "alpha_sha256": "229f325da996f1a3578d77655198b92eb0c0f09b9cb8e4d4be21a1b71db02b60",
+      "normalized_alpha_sha256": "56dca85a2029d470bc8356291d3ef98d6977556ea009e2ecd0d64c096eb04e4d"
+    },
+    "Fleet Marine Force": {
+      "bbox": [
+        40,
+        22,
+        87,
+        110
+      ],
+      "w": 47,
+      "h": 88,
+      "coverage": 0.104736,
+      "bbox_coverage": 0.414894,
+      "rgba_sha256": "c65ac6d5f4388af9b4072c39ec644f4d0b62c868bec994dc465761abfffcfbe9",
+      "alpha_sha256": "79298cd8e3fb2a663bbc07ee41bd670c095a7c2d1318ca95542e209ee5a04e63",
+      "normalized_alpha_sha256": "45bb4d0e21e3a16ffe6cb1fee72d933284d9e0a2f23de0a920e2867dcbe8489a"
+    },
+    "Marine Expeditionary Unit": {
+      "bbox": [
+        35,
+        22,
+        92,
+        110
+      ],
+      "w": 57,
+      "h": 88,
+      "coverage": 0.122925,
+      "bbox_coverage": 0.401515,
+      "rgba_sha256": "0e734d0634f75896326d991b62e9ffc77e793fb6cadbb6e4c423dbb51125539a",
+      "alpha_sha256": "2b8a2a343cffedd40ed264e4ddf6f9cfb1cf5535f19692dcb2e2a39b015ebbdb",
+      "normalized_alpha_sha256": "b8be2355c6e7ec5ce1572392a3e01382916c416a92a8a50c5ad58d144d513d21"
+    },
+    "Exo-Marine": {
+      "bbox": [
+        30,
+        22,
+        98,
+        110
+      ],
+      "w": 68,
+      "h": 88,
+      "coverage": 0.185669,
+      "bbox_coverage": 0.508356,
+      "rgba_sha256": "51adc69d657a277ae21199b8e18aca4457bd5400f1bf3ff79dc23a8d228e61a1",
+      "alpha_sha256": "f6b55daa9ec7d9ebff6e646a232a4ea1ce59df4b5a497bf467d6197145322dd1",
+      "normalized_alpha_sha256": "0be54a3f027876ad8831550946e075a5304979b805b29e497f6760d2b56a6584"
+    }
+  },
+  "map_sprite_metrics": {
+    "Slave": {
+      "bbox": [
+        56,
+        42,
+        71,
+        86
+      ],
+      "w": 15,
+      "h": 44,
+      "coverage": 0.022705,
+      "bbox_coverage": 0.563636,
+      "rgba_sha256": "9a0f2a7f8a75c5306d8564b04194d662755cc3277b582ab1d5f978b7dacdf7f8",
+      "alpha_sha256": "93efe7bbc85ce3d1eeecd695509b3064a58040cf3bbcc233810248f9be7ece85",
+      "normalized_alpha_sha256": "e6333664772bbc4cbbb3f5eaedd70dde8c7d7003b1d7a34a85f83da8ebe9482b"
+    },
+    "Slave Raider": {
+      "bbox": [
+        48,
+        45,
+        80,
+        86
+      ],
+      "w": 32,
+      "h": 41,
+      "coverage": 0.026978,
+      "bbox_coverage": 0.33689,
+      "rgba_sha256": "c0ab2bd9ef323163b1afc6c944c142e50670d55d7d9302da03af84f0a9030681",
+      "alpha_sha256": "b9e24ec3d7c1cba40e4015d92f4eee896ef97258710cc29ab4fa0b8b96352983",
+      "normalized_alpha_sha256": "8e20a16d2644e35ee6926717dffe4c0820ac7673adfa8499ea48c522e36f85cc"
+    },
+    "Mounted Slave Raider": {
+      "bbox": [
+        46,
+        50,
+        81,
+        86
+      ],
+      "w": 35,
+      "h": 36,
+      "coverage": 0.028931,
+      "bbox_coverage": 0.37619,
+      "rgba_sha256": "a2a53e0ebacddbea3b12a77327bf04f1bd55430a84e591fab68bbef7a4b6bf5e",
+      "alpha_sha256": "07bfd3316ca67b00fd4790cf21c311f4743cbca13202a78ba1cd7b919bbc80bd",
+      "normalized_alpha_sha256": "c291ba3643a7c6c9126117c5c7dbd9c60a425da6630c4e558b7eb83d8c444279"
+    },
+    "Slave Hunter": {
+      "bbox": [
+        52,
+        42,
+        75,
+        86
+      ],
+      "w": 23,
+      "h": 44,
+      "coverage": 0.025208,
+      "bbox_coverage": 0.408103,
+      "rgba_sha256": "8d38c4fdd3e8ce3b7a6fd0da7b9f273342c31d672260dcd7bd463e0435e76d74",
+      "alpha_sha256": "8593a590506404301ce8f1035d04506d16d5f2a7146504678d9dd3de2b2d0426",
+      "normalized_alpha_sha256": "0d2a7d5e3e132ed1aa8aa2eda26bc0b2a2679f10fd4b59888493ab67b3c7f2d3"
+    },
+    "Industrial Slaver": {
+      "bbox": [
+        49,
+        42,
+        78,
+        86
+      ],
+      "w": 29,
+      "h": 44,
+      "coverage": 0.032532,
+      "bbox_coverage": 0.417712,
+      "rgba_sha256": "c809044bc2224af47c68d6735d79a05fe5ca0af0452f723edde3b8364bdf2f50",
+      "alpha_sha256": "7ce8b6bb149c09789869e08041db5315e51600043d3a70b994dd7026da67f0c7",
+      "normalized_alpha_sha256": "8568b4d8196efffa321a989c6e090da34800617cdb1a7e726353053ba53d0e19"
+    },
+    "Continental Marines": {
+      "bbox": [
+        53,
+        43,
+        74,
+        86
+      ],
+      "w": 21,
+      "h": 43,
+      "coverage": 0.026489,
+      "bbox_coverage": 0.48062,
+      "rgba_sha256": "b3046115b37d96957d0e2f8c3b80fc7d61bb3f1187298b001f8abd733b40ed90",
+      "alpha_sha256": "1ac9c400635a7f454d80c94a6e4b7d53b85981c8ec572defbbb92242a9d4a5d8",
+      "normalized_alpha_sha256": "48c381a6552c6f32e1c94f1f1e3ff3de57a7221a5775285ee195de8668526e37"
+    },
+    "Marine Riflemen": {
+      "bbox": [
+        48,
+        51,
+        80,
+        86
+      ],
+      "w": 32,
+      "h": 35,
+      "coverage": 0.022705,
+      "bbox_coverage": 0.332143,
+      "rgba_sha256": "bc4e72d43a0e102844255657a5170e7153bafa031918f2dd7eff65b3833f58c8",
+      "alpha_sha256": "ea69120208d4a5beb6df724c3ea78ab7b0add982ba959de14b93023e3d48e94b",
+      "normalized_alpha_sha256": "1dc59ad9a680e27ff7f9c384103254bb24321785fbf893e7849de56a2a61453d"
+    },
+    "Expeditionary Marines": {
+      "bbox": [
+        52,
+        42,
+        76,
+        86
+      ],
+      "w": 24,
+      "h": 44,
+      "coverage": 0.029114,
+      "bbox_coverage": 0.451705,
+      "rgba_sha256": "6693c91c509d4aa436f3428ac50500b1b63b718e118323010d02afef1013ce5b",
+      "alpha_sha256": "8dccfa927846075ac84a9ee2d7de869a3cfe62c6d9b9f5e88020f206c956258b",
+      "normalized_alpha_sha256": "7ba2ce18d841a36f0021647177289b40479ce8f3bdda054e8eae729fa22c26b2"
+    },
+    "Fleet Marine Force": {
+      "bbox": [
+        52,
+        42,
+        76,
+        86
+      ],
+      "w": 24,
+      "h": 44,
+      "coverage": 0.026611,
+      "bbox_coverage": 0.412879,
+      "rgba_sha256": "5eb153530f364d26eab909d40530ccbcebced6f6d8652c4729a18af65e70ae5e",
+      "alpha_sha256": "c507363140b932cd3b10fbe52a222c11fef83a6d24c45ef82e5145b126e1b678",
+      "normalized_alpha_sha256": "618a7bc9219e2fe2cd1efc3a97df0265476770d731986aa1aee0bee1deecbb50"
+    },
+    "Marine Expeditionary Unit": {
+      "bbox": [
+        49,
+        42,
+        78,
+        86
+      ],
+      "w": 29,
+      "h": 44,
+      "coverage": 0.030884,
+      "bbox_coverage": 0.396552,
+      "rgba_sha256": "53e7fb916f0339b7850171e0e0b730b48ac2d2f4bac91863df68ee5388be2391",
+      "alpha_sha256": "c6c537012b1f8cbcd99ceabac86bb3f4b40c3ee49ba325b2a302c432eb890474",
+      "normalized_alpha_sha256": "f8f31bd320234e92667013ece9d9b871149789f6c6c7d7bf84613d0c60e4b983"
+    },
+    "Exo-Marine": {
+      "bbox": [
+        48,
+        44,
+        80,
+        86
+      ],
+      "w": 32,
+      "h": 42,
+      "coverage": 0.041382,
+      "bbox_coverage": 0.504464,
+      "rgba_sha256": "f9fc1977e355f78911b53450e199a5a889fe88b57f66ec67bd3646ccd8577045",
+      "alpha_sha256": "754fc24c3dc9e75999865875a3583b382540e564bc4a816ade0b61689120dd4d",
+      "normalized_alpha_sha256": "add64278c68552a1a1c8acc407fbba45e57cfda1ab8a06192eae746d50b664ac"
+    }
+  },
+  "source_png_count": 55,
+  "all_packed_regions_match_sources": true,
+  "v021_png_sha256": "6a3f474e6eeea82a1de270c0a194b3479e65645ed6a9047790c5c4b2ab29b637",
+  "v021_atlas_sha256": "9ee62b1dc292d4f224a2f61037cc1c6b73259cee5a495854329895c94ee39d73",
+  "legacy_file_sha256": {
+    "game.atlas": "10088140759b890646c24fbd78809eb99f4c3c59189eabbc7938236ba5cec3c4",
+    "game.png": "7699d0592664a23ed013d6b3f942d39b9bb15b9219ba69f29d7d66be96feb755",
+    "game2.png": "07cba0933f3e16b953caf718415430d8a43fcb57ef9b00d4bf160321de5759e0",
+    "game3.png": "d6c6e551810ebef2b659d73b3f38af2ee87a756f6f04f58255186dca878a5dc1",
+    "game4.png": "91da63aa99a65bb4527fb8feca667e80f214a56467e333117cac320cc445e8f7",
+    "game5.png": "91da63aa99a65bb4527fb8feca667e80f214a56467e333117cac320cc445e8f7",
+    "game6.png": "91da63aa99a65bb4527fb8feca667e80f214a56467e333117cac320cc445e8f7"
+  },
+  "baseline_manifest_sha256": "b49c4bcf23c29c3d9303461f596b2b19b8961ac006b93c0810592ecbe096ed24"
 }

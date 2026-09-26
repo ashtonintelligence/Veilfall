@@ -1,12 +1,12 @@
-# Veilfall v0.2.5 — Build Status
+# Veilfall v0.2.6 — Build Status
 
-**Version:** **v0.2.5 prerelease**  
+**Version:** **v0.2.6 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.5-art-integration`  
-**Predecessor:** **v0.2.4**  
-**Patch build date:** 2026-09-25
+**Source branch:** `veilfall-v0.2.6-art-integration`  
+**Predecessor:** **v0.2.5**  
+**Patch build date:** 2026-09-26
 
-**Current status:** v0.2.5 source-portrait repair passed automated verification and is deployed to `main` for in-game acceptance.
+**Current status:** v0.2.6 corrective art release. Automated status is recorded in ART_VERIFICATION.json; in-game acceptance remains pending. Deployment is established by Git refs and the workflow, not this document alone.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -242,72 +242,49 @@ v0.2.1 supplies packed game-ready assets for:
 
 These assets are packed into the supplemental `v021` atlas, loaded alongside the original `game` atlas.
 
-## Validation performed
-- GitHub Actions v0.2.1 build/verification workflow passed on 2026-09-25.
-- Supplemental `v021` atlas contains all 80 required logical entries with true transparency in the PNG sheet.
-- Slave Raider Doctrine is verified at 50% capture probability; no 25% rule remains in the patch.
-- Existing `game` atlas files are preserved and were not modified by the v0.2.1 patch.
-- All current mod JSON files on the development branch parse successfully.
-- No duplicate custom unit, promotion, building, or belief names were found.
-- Ashton, Knowledge, Rationalism, all six Marine units, all five slavery units, and the seven original supernatural Ashton units are present and cross-referenced.
-- Native Unciv unique syntax used in this pass was checked against the current Unciv source/documentation during implementation.
+## v0.2.6 automated release gates
 
-## Validation still required
-A real Unciv ruleset-validator/game load has **not yet been run** in this environment. The next acceptance gate is:
+The build recomputes evidence from the packed PNG/atlas rather than only in-memory
+source assets, and checks ART_VERIFICATION.json against those bytes. Gates cover
+80 exact nonoverlapping keys, 55 rebuilt regions, 25 pixel-identical unrelated
+regions, all repository JSON, version 0.2.6, transparent corners/borders,
+nonrectangular figure masks, white tint-safe icons, compact sprite bounds, and
+11 distinct normalized silhouettes for each asset class. Slave versus Slave
+Raider is explicitly compared without relying on color.
 
-1. install/load this development branch in Unciv;
-2. run **Locate mod errors**;
-3. start a new Gods & Kings game with Veilfall enabled;
-4. confirm Ashton appears and can found a city;
-5. inspect Knowledge in the resource UI;
-6. verify build menus, upgrade paths, promotions, Rationalism beliefs, and improvement times;
-7. capture any validator/runtime errors before proceeding into the engine hooks.
+The preservation manifest is generated from actual objects at predecessor commit
+`cd377c5a2ef04c9447656673e06c6a9fc4d47a97`. Protected gameplay files, the entire legacy
+game atlas including game2.png through game6.png, raw supernatural art, and old
+source data must remain byte-identical. Only ModOptions version/date metadata
+changes. All four capture-line units retain Slave Raider Doctrine and its exact
+50% Military-kill rule, with no new Barbarian exclusion.
 
+Original layered figures in tools/v026/artwork.py do not read predecessor unit
+crops. Portraits are intentionally stylized and isolated. All 55 source PNGs must
+match their packed regions pixel-for-pixel. The dependency is pinned to Pillow
+11.3.0 in Actions. The old builder entrypoint delegates to this new implementation.
 
-## v0.2.3 visual-QA repair
+The verifier is tested against deliberate corruptions; results are recorded in
+tools/v026/test_results.json. A full second build must reproduce every generated
+source PNG, the supplemental PNG/atlas, and the verification report byte-for-byte.
+The build job pushes artifacts to `veilfall-v0.2.6-art-integration`. Main advances
+separately after a successful run and artifact inspection. The same workflow
+performs a read-only check after main advances.
 
-Runtime testing of v0.2.1 confirmed that the supplemental atlas loads, but also exposed unacceptable generated substitute art. The Slave Raider map sprite rendered as an oversized white humanoid silhouette rather than the approved historical unit direction.
+## In-game acceptance still required
 
-v0.2.3 therefore treats atlas-key presence as necessary but not sufficient. Unit-art acceptance additionally requires:
-- source-derived or specifically approved unit artwork rather than generic substitute figures;
-- map sprites with genuine transparency and no rectangular poster background;
-- opaque sprite content scaled to a restrained footprint within its atlas region;
-- UnitIcons derived from recognizable unit silhouettes suitable for tinting;
-- distinct visual progression across the Marine and slavery lines;
-- runtime screenshot review before deployment to main.
+Automated results are not an Unciv runtime test or user art approval. Unciv has not
+been launched with these assets in the build environment. After updating, inspect
+Civilopedia isolation, Slave versus Raider under nation tint, all six Marine
+stages, map scale and mounting in all three tilesets, and the seven legacy
+supernatural units. Locate mod errors remains an engine-level check. Screenshots
+are only needed for runtime defects not captured in existing automated evidence;
+no manual transcription of logs or hashes is required.
 
-The full custom-unit set is being audited, not only Slave Raider.
+## Historical corrective-release context
 
-Runtime screenshot QA has now confirmed:
-- all six Marine unit icons use the same generic block-person treatment and require replacement;
-- all five slavery-line unit icons use effectively the same generic block-person treatment and require replacement;
-- the Industrial Slaver does not visually read as a distinct 19th-century/industrial unit;
-- Athenaeum, Strategic Analysis Center, The Great Archive, and Forum of Inquiry building artwork render cleanly and are accepted as-is;
-- Slave Raider Doctrine renders cleanly and is accepted as-is;
-- the Ashton civilization emblem artwork is accepted but requires optical recentering within its circular frame.
-
-
-- v0.2.3 automated art verification confirms 80/80 required atlas entries and 11 distinct custom unit icons.
-
-
-## v0.2.3 runtime-integration repair
-
-Runtime screenshots from v0.2.2 confirmed that the replacement atlas loads correctly and the detailed unit portraits are distinct, but the map sprites remained oversized and the circular unit-icon treatment was not sufficiently Unciv-native. v0.2.3 therefore:
-- preserves the accepted detailed portraits;
-- rebuilds all 11 UnitIcons as simplified tintable silhouettes;
-- constrains map-sprite opaque footprints to game-scale bounds;
-- keeps Mounted Slave Raider visibly mounted;
-- preserves all accepted non-unit artwork.
-
-
-- v0.2.3 automated verification passed: 80/80 atlas entries, 11 distinct UnitIcons, and constrained map-sprite footprints for all 11 custom units.
-
-
-## v0.2.4 runtime-art repair
-
-Runtime screenshots from v0.2.3 showed that atlas loading and key resolution were correct, but UnitPortraits still exposed labeled source-sheet crops and map sprites remained too large for the hex map. v0.2.4 replaces custom UnitPortraits with clean standalone transparent/circular compositions derived from the unit silhouettes and reduces map-sprite footprint limits to 36×48 px for infantry-style units and 50×40 px for Mounted Slave Raider. Ruleset behavior is unchanged.
-
-
-## v0.2.5 source-portrait repair
-
-Runtime screenshots from v0.2.4 confirmed the smaller map sprites are materially closer to the correct scale, but the replacement Civilopedia portraits were still overly generic. v0.2.5 restores the recovered source-derived unit artwork, crops away source-sheet labels, and enlarges the character within the UI portrait while preserving the v0.2.4 map-sprite sizing and all gameplay rules.
+v0.2.1 added the supplemental atlas; v0.2.3 repaired integration/icons; v0.2.4
+established smaller footprints but its generic portraits were not accepted. The
+predecessor v0.2.5 restored source-derived portraits that still exposed backgrounds.
+v0.2.6 replaces that approach. Broader gameplay implementation and deferred-work
+statements above are unchanged by this art-only release.

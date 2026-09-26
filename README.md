@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.5
+# Unciv: Veilfall v0.2.6
 
-**Version:** **v0.2.5 prerelease**  
+**Version:** **v0.2.6 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.5-art-integration`  
-**Predecessor:** **v0.2.4**  
-**Status:** v0.2.5 source-portrait corrective patch deployed for in-game acceptance  
+**Development/source branch:** `veilfall-v0.2.6-art-integration`  
+**Predecessor:** **v0.2.5**  
+**Status:** v0.2.6 corrective art release; automated evidence in ART_VERIFICATION.json; in-game visual acceptance pending  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,31 +111,64 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. Version **v0.2.5** is the current prerelease patch. The `veilfall-v0.2.3-art-integration` branch is the verified source branch for the deployed build.
+Install or update Veilfall from the repository's default `main` branch. The v0.2.6
+release source is `veilfall-v0.2.6-art-integration`. The main ref is advanced only
+after the integration workflow and independent artifact verification succeed.
 
+## v0.2.6 isolated-character art rebuild
 
-## v0.2.1 art assets
+This corrective release rebuilds all eleven Marine/slavery-line figures from
+original, layered game-asset illustrations, not crops of predecessor concept-art
+cards. The style is intentionally stylized and silhouette-led. Each unit receives
+a 256-pixel transparent portrait, white tint-safe UnitIcon, and compact transparent
+map sprite under Minimal, FantasyHex, and HexaRealm. The three tilesets deliberately
+share each unit's sprite. No scenery, card border, or text is part of a unit asset.
 
-v0.2.1 adds packed game-ready artwork for Ashton, Rationalism, Knowledge, the Ashton institutions, the complete Marine line, the Slave/Slave Raider line, and the custom v0.2 promotions. The new regions are carried in the supplemental `v021` atlas while the original Veilfall `game` atlas remains intact.
+The Slave is unarmed and narrow, with close arms and no combat equipment. Slave
+Raider has a lunging sword-and-net pose; Mounted Slave Raider has a horse/lance;
+Slave Hunter has a wide-brim hat, split coat, and long firearm; Industrial Slaver
+has a heavy coat, armored vest, cap, and shotgun. Marine silhouettes progress from
+tricorn/musket through a kneeling kepi rifleman, campaign-hat expedition kit, steel
+helmet/webbing, modern plate carrier/antenna, and broad powered armor with an
+energy weapon. Exo-Marine retains navy, black, gold, and scarlet accents.
 
+`Atlases.json` remains `["game","v021"]`. The 25 unrelated supplemental regions
+are pixel-identical to the predecessor. All legacy game atlas pages and source
+assets remain byte-identical. Gameplay JSON is unchanged except ModOptions
+version/date metadata. The capture rule remains exactly:
 
-## v0.2.3 visual-art correction
+```text
+Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>
+```
 
-v0.2.3 corrects the runtime visual defects found after v0.2.1 deployment. All six Marine units and all five slavery-line units now receive distinct unit silhouettes/map sprites, while detailed portraits are derived from the approved Marine lineage and historical art-bible source material. The accepted building, Knowledge, Rationalism, and promotion artwork is preserved. The Ashton emblem receives only an optical recentering adjustment.
+The Military filter is unchanged and no Barbarian exclusion has been added.
+This is preservation of the implementation, not a new engine-level probability test.
 
-The generated atlas has passed automated verification and v0.2.3 is deployed. Final visual acceptance remains an in-game runtime check.
+## Rebuild and acceptance evidence
 
+The workflow `.github/workflows/v021-art-build.yml` uses Pillow 11.3.0 and readable
+sources in `tools/v026/`. The legacy `tools/v021/build_assets.py` entrypoint now
+delegates to the new builder, not the retired crop pipeline. Old `tools/v022`
+inputs remain only as historical data and are not read by the new unit builder.
 
-## v0.2.3 visual integration correction
+Run `python3 tools/v026/build_assets.py` to rebuild, then
+`python3 tools/v026/build_assets.py --check` to verify files actually on disk.
+`ART_VERIFICATION.json` records the automated results and hashes, transparency,
+size bounds, normalized silhouette comparisons, and baseline preservation.
+`tools/v026/test_results.json` records adversarial tests of the verifier itself.
+The 55 source PNGs and packed-asset QA sheets are retained under `tools/v026/`.
+An automated pass does not establish manual in-game visual acceptance.
 
-v0.2.3 corrects the remaining runtime integration defects identified after v0.2.2. The detailed source-derived unit portraits are retained, while UnitIcons are rebuilt as simplified tintable silhouettes and map sprites are scaled to a restrained transparent footprint appropriate to Unciv hexes. The six Marine stages and five slavery-line stages remain visually distinct. Accepted building, promotion, Knowledge, Rationalism, and Ashton artwork is preserved.
+After updating, inspect all eleven portraits and tinted icons in Civilopedia,
+check small-scale sprites in each tileset, and spot-check the original supernatural
+units. Runtime observations are the remaining evidence; build logs, hashes, and
+rule text already exist in the automated record and need not be transcribed.
 
+## Historical art lineage
 
-## v0.2.4 runtime-art correction
-
-v0.2.4 corrects the remaining runtime presentation defects observed after v0.2.3: unit portraits no longer reuse labeled source-sheet crops, and custom map sprites use a substantially smaller transparent footprint appropriate to Unciv hexes. Gameplay rules are unchanged from v0.2.3, including the 50% Slave Raider capture chance.
-
-
-## v0.2.5 source-portrait correction
-
-v0.2.5 replaces the generic generated Civilopedia figures with enlarged crops of the recovered approved Marine-lineage and slavery artwork while retaining the corrected small v0.2.4 map-sprite footprints. Gameplay rules remain unchanged, including the 50% Slave Raider capture chance.
+v0.2.1 introduced the supplemental atlas. v0.2.2/v0.2.3 revised artwork and
+integration. v0.2.4 reduced map scale, but its generic portraits were not accepted.
+The predecessor v0.2.5 restored source-art crops; runtime screenshots still showed
+background and scenery/card remnants. v0.2.6 supersedes that crop pipeline while
+retaining small map footprints. These are historical notes, not current deployment
+claims. Actual deployment is established by Git refs and successful workflow runs.
