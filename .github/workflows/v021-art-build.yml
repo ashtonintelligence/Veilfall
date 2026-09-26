@@ -1,103 +1,32 @@
-name: Build Veilfall v0.2.5 art
-# Runtime visual-art corrective build
-# complete v0.2.5 branch trigger
+name: Stage Veilfall v0.2.6 build inputs
 
 on:
   push:
-    branches: [veilfall-v0.2.5-portrait-fix]
-    paths:
-      - '.github/workflows/v021-art-build.yml'
-      - 'tools/v021/**'
-      - 'tools/v022/**'
+    branches: [veilfall-v0.2.6-portrait-cleanup]
+    paths: ['.github/workflows/v021-art-build.yml']
   workflow_dispatch:
 
 permissions:
-  contents: write
-
-concurrency:
-  group: veilfall-v021-art-build
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  build-and-verify:
+  stage-inputs:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
-
-      - name: Install Pillow
-        run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
-
-      - name: Generate supplemental atlas
-        run: python3 tools/v021/build_assets.py
-
-      - name: Verify ruleset, versioning, and atlas contract
+      - name: Snapshot predecessor and current build sources
         shell: bash
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          import json, pathlib, re, hashlib
-          root=pathlib.Path('.')
-          for p in (root/'jsons').rglob('*.json'):
-              json.loads(p.read_text(encoding='utf-8'))
-          assert json.loads((root/'Atlases.json').read_text()) == ['game','v021']
-          opts=json.loads((root/'jsons/ModOptions.json').read_text())
-          assert opts.get('modVersion') == '0.2.5', opts
-          promos=json.loads((root/'jsons/UnitPromotions.json').read_text())
-          doctrine=next(x for x in promos if x.get('name')=='Slave Raider Doctrine')
-          assert any('with [50]% chance' in u for u in doctrine.get('uniques',[])), doctrine
-          assert not any('with [25]% chance' in u for u in doctrine.get('uniques',[])), doctrine
-          assert (root/'game.atlas').is_file() and (root/'game.png').is_file()
-          assert (root/'v021.atlas').is_file() and (root/'v021.png').is_file()
-          ver=json.loads((root/'ART_VERIFICATION.json').read_text())
-          assert ver['release']=='v0.2.5'
-          assert ver['entry_count']==80 and ver['missing_keys']==[]
-          assert ver['distinct_unit_icon_count']==11
-          metrics=ver['map_sprite_metrics']
-          assert set(metrics)==set(['Continental Marines','Marine Riflemen','Expeditionary Marines','Fleet Marine Force','Marine Expeditionary Unit','Exo-Marine','Slave','Slave Raider','Mounted Slave Raider','Slave Hunter','Industrial Slaver'])
-          for name,m in metrics.items():
-              if name=='Mounted Slave Raider':
-                  assert m['w']<=50 and m['h']<=40, (name,m)
-              else:
-                  assert m['w']<=36 and m['h']<=48, (name,m)
-          text=(root/'v021.atlas').read_text()
-          required=[
-            'NationIcons/Ashton','NationPortraits/Ashton',
-            'ReligionIcons/Rationalism','ReligionPortraits/Rationalism',
-            'ResourcePortraits/Knowledge',
-            'BuildingPortraits/Athenaeum','BuildingPortraits/Strategic Analysis Center',
-            'BuildingPortraits/The Great Archive','BuildingPortraits/Forum of Inquiry'
-          ]
-          units=['Continental Marines','Marine Riflemen','Expeditionary Marines','Fleet Marine Force','Marine Expeditionary Unit','Exo-Marine','Slave','Slave Raider','Mounted Slave Raider','Slave Hunter','Industrial Slaver']
-          for u in units:
-              required += [f'UnitPortraits/{u}',f'UnitIcons/{u}']
-              for ts in ['Minimal','FantasyHex','HexaRealm']:
-                  required.append(f'TileSets/{ts}/Units/{u}')
-          promos_req=['Operational Frontline','Operational Support','Marine Naval Integration','Marine Embarked Recon','Marine Expeditionary Endurance','MEU Combat Tempo','Exo-Marine Mobility','Slave Raider Doctrine']
-          for p in promos_req:
-              required += [f'UnitPromotionIcons/{p}',f'UnitPromotionPortraits/{p}']
-          missing=[k for k in required if ('\n'+k+'\n') not in ('\n'+text)]
-          assert not missing, missing
-          readme=(root/'README.md').read_text()
-          build=(root/'BUILD_STATUS.md').read_text()
-          assert 'v0.2.5' in readme and 'v0.2.5' in build
-          assert '**Predecessor:** **v0.2.4**' in readme and '**Predecessor:** **v0.2.4**' in build
-          assert 'veilfall-v0.2-build' not in readme
-          print('All v0.2.5 verification gates passed.')
-          PY
-
-      - name: Commit generated atlas artifacts
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "Veilfall v0.2.5 Builder"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- v021.atlas v021.png ART_VERIFICATION.json
-          if git diff --cached --quiet; then
-            echo "Generated assets already match repository."
-          else
-            git commit -m "Pack and verify Veilfall v0.2.5 artwork"
-            git push origin HEAD:veilfall-v0.2.5-art-integration
-          fi
+          git archive cd377c5a2ef04c9447656673e06c6a9fc4d47a97 -o /tmp/veilfall-v025-baseline.zip
+          sha256sum /tmp/veilfall-v025-baseline.zip
+      - name: Retain build inputs for verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: veilfall-v025-baseline
+          path: /tmp/veilfall-v025-baseline.zip
+          retention-days: 7
+          if-no-files-found: error
