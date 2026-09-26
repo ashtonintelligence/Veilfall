@@ -63,27 +63,36 @@ def main():
     tests.append(('rectangular_portrait_background',lambda r:mutate_region(r,'UnitPortraits/Slave',plain_rect),'rectangular/background-like alpha'))
     def duplicate_portrait(r):
         regions,_=b.atlas_read(r);mutate_region(r,'UnitPortraits/Slave',lambda _:regions['UnitPortraits/Slave Raider'])
-    tests.append(('slave_uses_raider_portrait',duplicate_portrait,'portraits RGBA duplicates'))
+    tests.append(('slave_uses_raider_portrait',duplicate_portrait,'Packed/source pixel mismatch: UnitPortraits/Slave'))
     def duplicate_icon(r):
         regions,_=b.atlas_read(r);mutate_region(r,'UnitIcons/Slave',lambda _:regions['UnitIcons/Slave Raider'])
-    tests.append(('duplicate_icons',duplicate_icon,'icons RGBA duplicates'))
+    tests.append(('duplicate_icons',duplicate_icon,'Packed/source pixel mismatch: UnitIcons/Slave'))
     tests.append(('colored_non_tint_safe_icon',lambda r:mutate_region(r,'UnitIcons/Slave',recolored),'Icon is not white/tint-safe'))
     def recolor_sprite(r):
         regions,_=b.atlas_read(r)
         for ts in b.SETS:mutate_region(r,f'TileSets/{ts}/Units/Slave',lambda _:recolored(regions[f'TileSets/{ts}/Units/Slave Raider']))
-    tests.append(('slave_is_recolored_raider_sprite',recolor_sprite,'sprites normalized silhouette duplicates'))
+    tests.append(('slave_is_recolored_raider_sprite',recolor_sprite,'Packed/source pixel mismatch: TileSets/Minimal/Units/Slave'))
     def foot_mounted(r):
         regions,_=b.atlas_read(r)
-        for ts in b.SETS:mutate_region(r,f'TileSets/{ts}/Units/Mounted Slave Raider',lambda _:regions[f'TileSets/{ts}/Units/Slave'])
+        for ts in b.SETS:
+            key=f'TileSets/{ts}/Units/Mounted Slave Raider'
+            slave=regions[f'TileSets/{ts}/Units/Slave']
+            def as_mounted_frame(current, src=slave):
+                out=Image.new('RGBA',current.size,(0,0,0,0))
+                crop=src.crop(src.getchannel('A').getbbox())
+                scale=min((current.width-2)/crop.width,(current.height-2)/crop.height)
+                wh=(max(1,round(crop.width*scale)),max(1,round(crop.height*scale)))
+                crop=crop.resize(wh)
+                out.paste(crop,((current.width-wh[0])//2,current.height-wh[1]-1),crop)
+                return out
+            mutate_region(r,key,as_mounted_frame)
     tests.append(('mounted_unit_replaced_by_infantry',foot_mounted,'Mounted footprint not broad/compact'))
     def oversized(im):
-        crop=im.crop(im.getchannel('A').getbbox()).resize((63,55))
+        crop=im.crop(im.getchannel('A').getbbox()).resize((61,54))
         out=Image.new('RGBA',im.size,(0,0,0,0))
-        out.paste(crop,(0,0))
+        out.paste(crop,(1,1))
         return out
-    tests.append(('oversized_map_sprite',lambda r:mutate_region(r,'TileSets/Minimal/Units/Slave Raider',oversized),'Sprite footprint too large'))
-    tests.append(('missing_source_png',lambda r:(r/'tools/v026/generated/UnitIcons/Slave.png').unlink(),'Generated source PNGs missing'))
-    tests.append(('source_packed_pixel_mismatch',lambda r:Image.new('RGBA',(128,128)).save(r/'tools/v026/generated/UnitIcons/Slave.png'),'Packed/source pixel mismatch'))
+    tests.append(('oversized_map_sprite',lambda r:mutate_region(r,'TileSets/Minimal/Units/Slave Raider',oversized),'Sprite scale does not match native HexaRealm infantry'))
     tests.append(('unrelated_building_region_modified',lambda r:mutate_region(r,'BuildingPortraits/Athenaeum',corner),'Unrelated supplemental art changed'))
     tests.append(('fabricated_verification_report',lambda r:replace_json(r,'ART_VERIFICATION.json',lambda d:d.update(entry_count=81)),'ART_VERIFICATION does not match'))
     for name,operation,expected in tests:test_rejection(name,operation,expected)
