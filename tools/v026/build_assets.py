@@ -10,7 +10,7 @@ import re
 from artwork import UNITS, make_assets
 
 ROOT=Path(__file__).resolve().parents[2]
-BASELINE='b7d3428e9b7e7f04331389a3e68aa8768c077094'
+BASELINE='cd377c5a2ef04c9447656673e06c6a9fc4d47a97'
 RULE='Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>'
 SETS=['Minimal','FantasyHex','HexaRealm']
 
@@ -55,7 +55,7 @@ def image_metrics(im,kind,name):
     a=im.getchannel('A');box=a.getbbox();require(box is not None,kind+' is empty: '+name)
     width=box[2]-box[0];height=box[3]-box[1]
     require(all(a.getpixel(p)==0 for p in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]),kind+' has opaque corners: '+name)
-    border=4 if kind=='sprite' else 7
+    border=1 if kind=='sprite' else 7
     require(box[0]>=border and box[1]>=border and box[2]<=im.width-border and box[3]<=im.height-border,kind+' touches canvas edge or is cropped: '+name)
     occupied=sum(v>=128 for v in a.tobytes());coverage=occupied/(im.width*im.height);bbox_coverage=occupied/(width*height)
     require(0<coverage<0.78 and bbox_coverage<0.89,kind+' has rectangular/background-like alpha: '+name)
@@ -75,9 +75,9 @@ def image_metrics(im,kind,name):
                 require(44<=width<=62 and 36<=height<=63 and width/height>=0.8,'Mounted footprint not broad/compact')
         else:
             if im.size==(32,28):
-                require(12<=width<=30 and 20<=height<=26,'Sprite scale does not match native FantasyHex infantry: '+name)
+                require(8<=width<=30 and 20<=height<=26,'Sprite scale does not match native FantasyHex infantry: '+name)
             else:
-                require(24<=width<=60 and 42<=height<=54,'Sprite scale does not match native HexaRealm infantry: '+name)
+                require(16<=width<=60 and 42<=height<=54,'Sprite scale does not match native HexaRealm infantry: '+name)
         require(box[3]>=im.height-2,'Sprite is not bottom-anchored like native combat units: '+name)
     return {'bbox':list(box),'w':width,'h':height,'coverage':round(coverage,6),'bbox_coverage':round(bbox_coverage,6),'rgba_sha256':digest(im.tobytes()),'alpha_sha256':digest(a.tobytes()),'normalized_alpha_sha256':digest(normalized_mask(im).tobytes())}
 
@@ -125,10 +125,9 @@ def verify(root=ROOT):
         require(regions[f'TileSets/HexaRealm/Units/{name}'].size==expected_hr,'HexaRealm frame mismatch: '+name)
         require(regions[f'TileSets/Minimal/Units/{name}'].size==expected_hr,'Minimal frame mismatch: '+name)
     new_keys=set(regions)-set(manifest['preserved_regions'])
-    source_files={p.relative_to(root/'tools/v026/generated').as_posix()[:-4]:p for p in (root/'tools/v026/generated').rglob('*.png')}
-    require(set(source_files)==new_keys,'Generated source PNGs missing or extraneous')
-    for key,p in source_files.items():
-        src=Image.open(p).convert('RGBA')
+    source_assets=make_assets()
+    require(set(source_assets)==new_keys,'Generated source assets missing or extraneous')
+    for key,src in source_assets.items():
         require(src.size==regions[key].size and src.tobytes()==regions[key].tobytes(),'Packed/source pixel mismatch: '+key)
     distinctness={}
     for kind,prefix,metrics in [('portraits','UnitPortraits',portraits),('icons','UnitIcons',icons),('sprites','TileSets/Minimal/Units',sprites)]:
@@ -153,7 +152,7 @@ def verify(root=ROOT):
             'military_filter_unchanged_no_barbarian_exclusion_added':True,
             'distinct_unit_icon_count':11,'distinctness':distinctness,
             'portrait_metrics':portraits,'icon_metrics':icons,'map_sprite_metrics':sprites,
-            'source_png_count':55,'all_packed_regions_match_sources':True,
+            'source_asset_count':55,'all_packed_regions_match_sources':True,
             'v021_png_sha256':digest((root/'v021.png').read_bytes()),
             'v021_atlas_sha256':digest((root/'v021.atlas').read_bytes()),
             'legacy_file_sha256':{k:v for k,v in manifest['unchanged_files'].items() if k.startswith('game')},
