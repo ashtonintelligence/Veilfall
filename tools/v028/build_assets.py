@@ -9,6 +9,7 @@ from PIL import Image
 import argparse, hashlib, json, re, subprocess
 
 ROOT=Path(__file__).resolve().parents[2]
+GIT_ROOT=ROOT
 BASELINE='183152c257d7e10fc1b4121059e4dfe6b3b7ff5f'
 RELEASE='v0.2.8'
 PREDECESSOR='v0.2.7'
@@ -29,7 +30,7 @@ def digest(data): return hashlib.sha256(data).hexdigest()
 def load_json(path): return json.loads(Path(path).read_text(encoding='utf-8'))
 
 def git_bytes(rel):
-    return subprocess.check_output(['git','show',BASELINE+':'+rel],cwd=ROOT)
+    return subprocess.check_output(['git','show',BASELINE+':'+rel],cwd=GIT_ROOT)
 
 def baseline_files():
     return subprocess.check_output(['git','ls-tree','-r','--name-only',BASELINE],cwd=ROOT,text=True).splitlines()
