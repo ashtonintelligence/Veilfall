@@ -195,8 +195,8 @@ TileSets/HexaRealm/Units/Marine Riflemen
 TileSets/HexaRealm/Units/Mounted Slave Raider
   rotate: false
   xy: 132, 1164
-  size: 64, 65
-  orig: 64, 65
+  size: 64, 66
+  orig: 64, 66
   offset: 0, 0
   index: -1
 TileSets/HexaRealm/Units/Slave
@@ -272,8 +272,8 @@ TileSets/Minimal/Units/Marine Riflemen
 TileSets/Minimal/Units/Mounted Slave Raider
   rotate: false
   xy: 198, 1164
-  size: 64, 65
-  orig: 64, 65
+  size: 64, 66
+  orig: 64, 66
   offset: 0, 0
   index: -1
 TileSets/Minimal/Units/Slave

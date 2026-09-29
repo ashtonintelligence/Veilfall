@@ -1,0 +1,46 @@
+{
+  "release": "v0.2.9",
+  "result": "PASS",
+  "test_count": 8,
+  "negative_test_count": 6,
+  "tests": [
+    {
+      "test": "valid_release",
+      "result": "PASS"
+    },
+    {
+      "test": "wrong_version",
+      "result": "PASS",
+      "expected_rejection": "Wrong modVersion"
+    },
+    {
+      "test": "marine_capture_workaround_missing",
+      "result": "PASS",
+      "expected_rejection": "Marine civilian-at-sea capture workaround missing"
+    },
+    {
+      "test": "centered_sprite",
+      "result": "PASS",
+      "expected_rejection": "Packed sprite differs from native-derived build"
+    },
+    {
+      "test": "soft_interpolation",
+      "result": "PASS",
+      "expected_rejection": "Packed sprite differs from native-derived build"
+    },
+    {
+      "test": "rationalism_solid_center",
+      "result": "PASS",
+      "expected_rejection": "Packed Rationalism city icon differs from corrective mask"
+    },
+    {
+      "test": "portrait_changed",
+      "result": "PASS",
+      "expected_rejection": "Preserved atlas region changed"
+    },
+    {
+      "test": "deterministic_rebuild",
+      "result": "PASS"
+    }
+  ]
+}
