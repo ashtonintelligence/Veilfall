@@ -239,7 +239,8 @@ def protected_baseline_check():
         'jsons/ModOptions.json','jsons/UnitPromotions.json',
         '.github/workflows/v021-art-build.yml','tools/v021/build_assets.py',
         'tools/v029/build_assets.py','tools/v029/preview_assets.py','tools/v029/test_verification.py',
-        'tools/v029/test_results.json'
+        'tools/v029/test_results.json','tools/v029/previews/native-comparison.png',
+        'tools/v029/previews/sprite-offset-inspection.png'
     }
     for rel in baseline_files():
         if rel in allowed: continue
