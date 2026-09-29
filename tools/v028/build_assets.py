@@ -33,7 +33,7 @@ def git_bytes(rel):
     return subprocess.check_output(['git','show',BASELINE+':'+rel],cwd=GIT_ROOT)
 
 def baseline_files():
-    return subprocess.check_output(['git','ls-tree','-r','--name-only',BASELINE],cwd=ROOT,text=True).splitlines()
+    return subprocess.check_output(['git','ls-tree','-r','--name-only',BASELINE],cwd=GIT_ROOT,text=True).splitlines()
 
 def atlas_read_from_bytes(atlas_bytes,png_bytes):
     from io import BytesIO
