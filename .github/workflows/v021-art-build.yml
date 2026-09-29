@@ -1,15 +1,15 @@
-name: Build and verify Veilfall v0.2.7 art
+name: Build and verify Veilfall v0.2.8 sprite rebuild
 
 on:
   push:
-    branches: [veilfall-v0.2.7-unit-scale, main]
+    branches: [veilfall-v0.2.8-sprite-rebuild, main]
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: veilfall-v027-art-${{ github.ref }}
+  group: veilfall-v028-sprites-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -24,68 +24,55 @@ jobs:
       - name: Install pinned Pillow
         run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
 
-      - name: Prepare branch release metadata
-        if: github.ref == 'refs/heads/veilfall-v0.2.7-unit-scale'
-        run: python3 tools/v026/prepare_release.py
+      - name: Build dedicated v0.2.8 map sprites
+        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
+        run: python3 tools/v028/build_assets.py
 
-      - name: Build native-scale unit art and supplemental atlas
-        run: python3 tools/v026/build_assets.py
+      - name: Verify packed atlas and preservation gates
+        run: python3 tools/v028/build_assets.py --check
 
-      - name: Run verifier corruption and reproducibility tests
-        run: python3 tools/v026/test_verification.py
+      - name: Run adversarial and deterministic verifier tests
+        run: python3 tools/v028/test_verification.py
 
-      - name: Render packed-asset QA sheets
-        run: python3 tools/v026/preview_assets.py
+      - name: Render packed sprite QA sheet
+        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
+        run: python3 tools/v028/preview_assets.py
 
-      - name: Remove generated source-cache PNGs
-        shell: bash
-        run: rm -rf tools/v026/generated tools/v026/__pycache__
+      - name: Recheck exact deployable bytes
+        run: python3 tools/v028/build_assets.py --check
 
-      - name: Verify exact deployable bytes
-        run: python3 tools/v026/build_assets.py --check
-
-      - name: Commit verified integration branch
-        if: github.ref == 'refs/heads/veilfall-v0.2.7-unit-scale'
+      - name: Commit verified integration output
+        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'Veilfall v0.2.7 Builder'
+          git config user.name 'Veilfall v0.2.8 Builder'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- tools/v026 tools/v021/build_assets.py README.md BUILD_STATUS.md jsons/ModOptions.json v021.atlas v021.png ART_VERIFICATION.json
+          git add -A -- tools/v028/generated tools/v028/previews tools/v028/test_results.json v021.atlas v021.png ART_VERIFICATION.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Pack and verify Veilfall v0.2.7 native-scale unit artwork'
+            git commit -m 'Pack and verify Veilfall v0.2.8 map-sprite rebuild'
           fi
-          git push origin HEAD:veilfall-v0.2.7-art-integration
+          git push --force-with-lease origin HEAD:veilfall-v0.2.8-art-integration
+          printf 'Integration commit: '
+          git rev-parse HEAD
 
-      - name: Finalize verified deployment on main
+      - name: Confirm main verification is read-only
         if: github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'Veilfall v0.2.7 Builder'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- tools/v026/generated tools/v026/previews tools/v026/test_results.json v021.atlas v021.png ART_VERIFICATION.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Pack and verify Veilfall v0.2.7 native-scale unit artwork'
-            git push origin HEAD:main
-          fi
-          git fetch origin main
-          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
-          python3 tools/v026/build_assets.py --check
+        run: git diff --exit-code
 
       - name: Archive exact verified commit
         shell: bash
         run: |
-          git archive HEAD -o /tmp/veilfall-v0.2.7-verified.zip
-          git rev-parse HEAD > /tmp/veilfall-v0.2.7-commit.txt
-          sha256sum /tmp/veilfall-v0.2.7-verified.zip
+          git archive HEAD -o /tmp/veilfall-v0.2.8-verified.zip
+          git rev-parse HEAD > /tmp/veilfall-v0.2.8-commit.txt
+          sha256sum /tmp/veilfall-v0.2.8-verified.zip
 
       - name: Retain verified release and evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: veilfall-v0.2.7-verified-${{ github.run_id }}
+          name: veilfall-v0.2.8-verified-${{ github.run_id }}
           path: |
-            /tmp/veilfall-v0.2.7-verified.zip
-            /tmp/veilfall-v0.2.7-commit.txt
+            /tmp/veilfall-v0.2.8-verified.zip
+            /tmp/veilfall-v0.2.8-commit.txt
           retention-days: 30
           if-no-files-found: error
