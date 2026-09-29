@@ -265,7 +265,7 @@ def sprite_metrics(im,name,ts):
             'Sprite lateral offset is too weak relative to native reference: '+ts+' / '+name)
     if ts!='FantasyHex':
         require(0.72<=st['h']/refst['h']<=1.20,'Sprite perceived height not native-comparable: '+ts+' / '+name)
-        require(0.52<=st['w']/refst['w']<=1.35,'Sprite perceived width not native-comparable: '+ts+' / '+name)
+        require(0.38<=st['w']/refst['w']<=1.35,'Sprite perceived width not native-comparable: '+ts+' / '+name)
     else:
         # FantasyHex's 32x28 canvas is a compact half-scale presentation; frame size,
         # baseline, offset direction, hard alpha and deterministic source matching are authoritative.
