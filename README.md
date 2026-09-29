@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.7
+# Unciv: Veilfall v0.2.8
 
-**Version:** **v0.2.7 prerelease**  
+**Version:** **v0.2.8 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.7-art-integration`  
-**Predecessor:** **v0.2.6**  
-**Status:** v0.2.6 corrective art release; automated evidence in ART_VERIFICATION.json; in-game visual acceptance pending  
+**Development/source branch:** `veilfall-v0.2.8-sprite-rebuild`  
+**Predecessor:** **v0.2.7**  
+**Status:** v0.2.8 dedicated map-sprite rebuild; automated verification required before deployment; in-game visual acceptance pending  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,9 +111,9 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. The v0.2.6
-release source is `veilfall-v0.2.6-art-integration`. The main ref is advanced only
-after the integration workflow and independent artifact verification succeed.
+Install or update Veilfall from the repository's default `main` branch. The v0.2.8
+release source is `veilfall-v0.2.8-sprite-rebuild`; verified generated outputs are
+staged on `veilfall-v0.2.8-art-integration` before `main` advances.
 
 ## v0.2.6 isolated-character art rebuild
 
@@ -178,3 +178,28 @@ claims. Actual deployment is established by Git refs and successful workflow run
 Runtime screenshots from v0.2.6 showed the rebuilt figures were too small inside their map-sprite frames compared with adjacent vanilla combat units. v0.2.7 keeps the accepted character designs and transparent portraits/icons, but rescales and bottom-anchors map sprites to native Unciv tileset frames. FantasyHex uses 32x28 frames; HexaRealm uses 64x56 infantry frames and a taller 64x65 mounted frame. Minimal uses the HexaRealm-sized framing for consistent readability.
 
 The Continental Marines calibration target is the adjacent vanilla Spearman shown in the acceptance screenshot: comparable apparent height, grounded foot position, and native in-frame placement. Infantry is normalized against infantry; Mounted Slave Raider is normalized against mounted-unit framing. No gameplay rules change.
+
+
+## v0.2.8 dedicated map-sprite rebuild
+
+Runtime acceptance of v0.2.7 showed that native frame dimensions alone did not
+produce acceptable custom map units: figures still read too softly, too centrally,
+and too weakly at normal map scale. v0.2.8 therefore replaces the actual map-sprite
+art for all eleven Marine/slavery-line units with purpose-built, transparent,
+silhouette-led game sprites. The improved v0.2.7 portraits and UnitIcons are
+preserved byte-for-byte.
+
+The rebuild covers Slave, Slave Raider, Mounted Slave Raider, Slave Hunter,
+Industrial Slaver, Continental Marines, Marine Riflemen, Expeditionary Marines,
+Fleet Marine Force, Marine Expeditionary Unit, and Exo-Marine in Minimal,
+FantasyHex, and HexaRealm: 33 atlas regions total. Figures are larger, lower in
+their frames, and rendered with simplified high-contrast forms intended to survive
+small-scale display. Slave is explicitly civilian/unarmed; Slave Raider is an
+armed raider; Mounted Slave Raider is unmistakably mounted; later slavery-line
+units use distinct later-era equipment. The Marine line retains a clear era
+progression through the futuristic Exo-Marine.
+
+No gameplay rule changes are part of this patch. The exact 50% Slave Raider
+capture rule remains unchanged. Automated evidence is recorded in
+`ART_VERIFICATION.json`; packed-asset preview output is retained under
+`tools/v028/previews/`. Final visual acceptance remains an in-game check.
