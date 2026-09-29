@@ -41,7 +41,7 @@ def main():
         regions,_=b.atlas_read(r)
         for ts in b.SETS:
             mutate_region(r,f'TileSets/{ts}/Units/Slave',lambda _,ts=ts:regions[f'TileSets/{ts}/Units/Slave Raider'])
-    tests.append(('slave_raider_duplicate',duplicate_slave,'Duplicate map sprites'))
+    tests.append(('slave_raider_duplicate',duplicate_slave,'Generated/packed sprite mismatch'))
     def float_sprite(r):
         def op(im):
             box=im.getchannel('A').getbbox(); crop=im.crop(box)
