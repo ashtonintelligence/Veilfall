@@ -56,10 +56,14 @@ def main():
 
     with TemporaryDirectory(prefix='veilfall-v028-rebuild-') as tmp:
         root=Path(tmp)/'repo'; shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-        old=b.ROOT
+        old_root,old_source,old_generated=b.ROOT,b.SOURCE_DIR,b.GENERATED
         try:
-            b.ROOT=root; b.build()
-        finally: b.ROOT=old
+            b.ROOT=root
+            b.SOURCE_DIR=root/'tools/v028/sprite_sources'
+            b.GENERATED=root/'tools/v028/generated'
+            b.build()
+        finally:
+            b.ROOT,b.SOURCE_DIR,b.GENERATED=old_root,old_source,old_generated
         for rel in ['v021.png','v021.atlas','ART_VERIFICATION.json']:
             b.require((ROOT/rel).read_bytes()==(root/rel).read_bytes(),'Nondeterministic rebuild: '+rel)
         RESULTS.append({'test':'deterministic_rebuild','result':'PASS'}); print('PASS: deterministic_rebuild')
