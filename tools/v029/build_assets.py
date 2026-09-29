@@ -213,7 +213,13 @@ def make_rationalism_city_icon(base):
         keep=a>=48 and d>=34
         dst.append((255,255,255,255 if keep else 0))
     out.putdata(dst)
-    # Ensure the city icon is never a solid badge: center/background must remain transparent.
+    # The full-size badge has a central star; for the tiny city overlay that center mass
+    # can collapse into a disc after tinting. Punch a small transparent core so the
+    # rendered marker remains recognizably open at city-map scale.
+    px=out.load(); cx=out.width//2; cy=out.height//2; rr=max(3,round(min(out.size)*0.055))
+    for yy in range(cy-rr,cy+rr+1):
+        for xx in range(cx-rr,cx+rr+1):
+            if (xx-cx)**2+(yy-cy)**2<=rr*rr: px[xx,yy]=(255,255,255,0)
     return out
 
 def make_assets():
