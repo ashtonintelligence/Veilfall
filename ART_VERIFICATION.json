@@ -1,16 +1,17 @@
 {
-  "release": "v0.2.8",
-  "predecessor": "v0.2.7",
-  "baseline_commit": "183152c257d7e10fc1b4121059e4dfe6b3b7ff5f",
+  "release": "v0.2.9",
+  "predecessor": "v0.2.8",
+  "baseline_commit": "a4cc93578b92a75844eafde6ff605b5303a61630",
   "status": "automated_checks_passed",
   "manual_in_game_acceptance": "pending",
   "entry_count": 80,
   "rebuilt_map_sprite_region_count": 33,
-  "preserved_region_count": 47,
+  "corrected_religion_icon_region_count": 1,
+  "changed_region_count": 34,
+  "preserved_region_count": 46,
   "all_repository_json_valid": true,
-  "gameplay_files_byte_identical": true,
   "legacy_art_byte_identical": true,
-  "portraits_and_icons_preserved_from_v0.2.7": true,
+  "portraits_and_unit_icons_preserved_from_v0.2.8": true,
   "atlas_names": [
     "game",
     "v021"
@@ -18,6 +19,66 @@
   "exact_capture_rule": "Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>",
   "capture_chance_percent": 50,
   "military_filter_unchanged_no_barbarian_exclusion_added": true,
+  "marine_capture_workaround": "May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>",
+  "native_reference_repo": "yairm210/Unciv",
+  "native_reference_commit": "eba5356202ea101c696f34be1cffee8373eb109a",
+  "native_reference_selection": {
+    "Slave": {
+      "Minimal": "Great Prophet",
+      "FantasyHex": "Great Prophet",
+      "HexaRealm": "Great Prophet"
+    },
+    "Slave Raider": {
+      "Minimal": "Swordsman",
+      "FantasyHex": "Swordsman",
+      "HexaRealm": "Swordsman"
+    },
+    "Mounted Slave Raider": {
+      "Minimal": "Knight",
+      "FantasyHex": "Knight",
+      "HexaRealm": "Knight"
+    },
+    "Slave Hunter": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Industrial Slaver": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Continental Marines": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Marine Riflemen": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Expeditionary Marines": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Fleet Marine Force": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Marine Expeditionary Unit": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    },
+    "Exo-Marine": {
+      "Minimal": "Infantry",
+      "FantasyHex": "Infantry",
+      "HexaRealm": "Infantry"
+    }
+  },
   "sprite_source_sha256": {
     "Slave": "b0d589544c697e1f22c0a6d56da191829db6e508a241a0f071678f54d4452818",
     "Slave Raider": "e2eb869ea496a38ab91d932b6c0efd3151497890be2e0d3c5eae0213dd863cd2",
@@ -39,15 +100,26 @@
           56
         ],
         "bbox": [
-          21,
-          1,
-          42,
-          55
+          6,
+          0,
+          23,
+          42
         ],
-        "w": 21,
-        "h": 54,
-        "coverage": 0.191964,
-        "rgba_sha256": "e00e9a413e0ad89735e9c377985da9b0a5fde2e20982aa44ce57c86b0bececc1"
+        "w": 17,
+        "h": 42,
+        "coverage": 0.120815,
+        "center_delta_x": -17.401,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Great Prophet",
+        "native_reference_key": "TileSets/HexaRealm/Units/Great Prophet",
+        "native_bbox": [
+          1,
+          0,
+          28,
+          42
+        ],
+        "native_center_delta_x": -16.994,
+        "rgba_sha256": "49e69264be472cd803101f69e8e528f957e24a7c0e461ce3dcd4735db8d69be2"
       },
       "FantasyHex": {
         "frame": [
@@ -55,15 +127,26 @@
           28
         ],
         "bbox": [
-          11,
-          1,
-          20,
-          27
+          4,
+          6,
+          10,
+          21
         ],
-        "w": 9,
-        "h": 26,
-        "coverage": 0.168527,
-        "rgba_sha256": "54239de91591de4a5acebf2c28441adc1b0aec4843d34085e49fa01f596a3468"
+        "w": 6,
+        "h": 15,
+        "coverage": 0.060268,
+        "center_delta_x": -8.907,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Great Prophet",
+        "native_reference_key": "TileSets/FantasyHex/Units/Great Prophet",
+        "native_bbox": [
+          2,
+          6,
+          13,
+          21
+        ],
+        "native_center_delta_x": -8.541,
+        "rgba_sha256": "830734d66c5f53be6b047147417c02a17182bedcf1876136ed36dd54cc7e56fe"
       },
       "HexaRealm": {
         "frame": [
@@ -71,15 +154,26 @@
           56
         ],
         "bbox": [
-          21,
-          1,
-          42,
-          55
+          6,
+          0,
+          23,
+          42
         ],
-        "w": 21,
-        "h": 54,
-        "coverage": 0.191964,
-        "rgba_sha256": "e00e9a413e0ad89735e9c377985da9b0a5fde2e20982aa44ce57c86b0bececc1"
+        "w": 17,
+        "h": 42,
+        "coverage": 0.120815,
+        "center_delta_x": -17.401,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Great Prophet",
+        "native_reference_key": "TileSets/HexaRealm/Units/Great Prophet",
+        "native_bbox": [
+          1,
+          0,
+          28,
+          42
+        ],
+        "native_center_delta_x": -16.994,
+        "rgba_sha256": "49e69264be472cd803101f69e8e528f957e24a7c0e461ce3dcd4735db8d69be2"
       }
     },
     "Slave Raider": {
@@ -89,15 +183,26 @@
           56
         ],
         "bbox": [
-          6,
-          1,
-          57,
-          55
+          27,
+          5,
+          64,
+          42
         ],
-        "w": 51,
-        "h": 54,
-        "coverage": 0.272042,
-        "rgba_sha256": "327ea7953f2f93c5b7cab1e354e39a8e953e2984e26a76cfd52e6247ed9251ce"
+        "w": 37,
+        "h": 37,
+        "coverage": 0.143694,
+        "center_delta_x": 13.617,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Swordsman",
+        "native_reference_key": "TileSets/HexaRealm/Units/Swordsman",
+        "native_bbox": [
+          38,
+          3,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.485,
+        "rgba_sha256": "dabbac39e4344e9f3f8b5e4abea200e2ff1fc3340a00a2dd33a9ae1488e0d2a1"
       },
       "FantasyHex": {
         "frame": [
@@ -105,15 +210,26 @@
           28
         ],
         "bbox": [
-          3,
-          1,
-          28,
-          27
+          17,
+          5,
+          32,
+          21
         ],
-        "w": 25,
-        "h": 26,
-        "coverage": 0.261161,
-        "rgba_sha256": "d7d90213fab274955ce71dc9d33609c86af9a06c0cc7aa8c01a6ae685f372b6b"
+        "w": 15,
+        "h": 16,
+        "coverage": 0.103795,
+        "center_delta_x": 8.586,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Swordsman",
+        "native_reference_key": "TileSets/FantasyHex/Units/Swordsman",
+        "native_bbox": [
+          19,
+          5,
+          31,
+          21
+        ],
+        "native_center_delta_x": 8.857,
+        "rgba_sha256": "1c4e90425f16e9513e0d826528749dec44953c6a4ba9c4b09081d02c0c3b0afe"
       },
       "HexaRealm": {
         "frame": [
@@ -121,33 +237,55 @@
           56
         ],
         "bbox": [
-          6,
-          1,
-          57,
-          55
+          27,
+          5,
+          64,
+          42
         ],
-        "w": 51,
-        "h": 54,
-        "coverage": 0.272042,
-        "rgba_sha256": "327ea7953f2f93c5b7cab1e354e39a8e953e2984e26a76cfd52e6247ed9251ce"
+        "w": 37,
+        "h": 37,
+        "coverage": 0.143694,
+        "center_delta_x": 13.617,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Swordsman",
+        "native_reference_key": "TileSets/HexaRealm/Units/Swordsman",
+        "native_bbox": [
+          38,
+          3,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.485,
+        "rgba_sha256": "dabbac39e4344e9f3f8b5e4abea200e2ff1fc3340a00a2dd33a9ae1488e0d2a1"
       }
     },
     "Mounted Slave Raider": {
       "Minimal": {
         "frame": [
           64,
-          65
+          66
         ],
         "bbox": [
-          3,
-          1,
-          60,
-          64
+          17,
+          0,
+          64,
+          52
         ],
-        "w": 57,
-        "h": 63,
-        "coverage": 0.33726,
-        "rgba_sha256": "b13e101484d474f0ed8cac3291d90b4e93a2840432b18025333ef52cac5e547a"
+        "w": 47,
+        "h": 52,
+        "coverage": 0.226326,
+        "center_delta_x": 7.724,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Knight",
+        "native_reference_key": "TileSets/HexaRealm/Units/Knight",
+        "native_bbox": [
+          32,
+          0,
+          64,
+          52
+        ],
+        "native_center_delta_x": 16.857,
+        "rgba_sha256": "c2fe9f62f66e4a68478879051f0c85b5349dd87fab99c6b72ef6ef4accf83803"
       },
       "FantasyHex": {
         "frame": [
@@ -155,31 +293,53 @@
           28
         ],
         "bbox": [
-          4,
-          1,
-          27,
-          27
+          13,
+          0,
+          32,
+          21
         ],
-        "w": 23,
-        "h": 26,
-        "coverage": 0.273438,
-        "rgba_sha256": "b2d8d8a3a4744665a2a1fe43af88eaff36a6dba991a041810b9559b9fd0a1f01"
+        "w": 19,
+        "h": 21,
+        "coverage": 0.18192,
+        "center_delta_x": 6.126,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Knight",
+        "native_reference_key": "TileSets/FantasyHex/Units/Knight",
+        "native_bbox": [
+          15,
+          0,
+          32,
+          21
+        ],
+        "native_center_delta_x": 7.964,
+        "rgba_sha256": "487f48e2b66e8abfe1cfe856552c65cda33d69d476d3e88d322fbbce22c2d5eb"
       },
       "HexaRealm": {
         "frame": [
           64,
-          65
+          66
         ],
         "bbox": [
-          3,
-          1,
-          60,
-          64
+          17,
+          0,
+          64,
+          52
         ],
-        "w": 57,
-        "h": 63,
-        "coverage": 0.33726,
-        "rgba_sha256": "b13e101484d474f0ed8cac3291d90b4e93a2840432b18025333ef52cac5e547a"
+        "w": 47,
+        "h": 52,
+        "coverage": 0.226326,
+        "center_delta_x": 7.724,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Knight",
+        "native_reference_key": "TileSets/HexaRealm/Units/Knight",
+        "native_bbox": [
+          32,
+          0,
+          64,
+          52
+        ],
+        "native_center_delta_x": 16.857,
+        "rgba_sha256": "c2fe9f62f66e4a68478879051f0c85b5349dd87fab99c6b72ef6ef4accf83803"
       }
     },
     "Slave Hunter": {
@@ -189,15 +349,26 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          37,
+          7,
+          63,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.23019,
-        "rgba_sha256": "c52209ffbf96206a819a06cca3e11a7d748873f0c25421915a5fc3b05c34ed69"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.099888,
+        "center_delta_x": 13.883,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "252d6703d427d096c69792b062574ec340a4268cdc16342f56c665b5d2b6db5a"
       },
       "FantasyHex": {
         "frame": [
@@ -205,15 +376,26 @@
           28
         ],
         "bbox": [
+          21,
           6,
-          1,
-          26,
-          27
+          31,
+          21
         ],
-        "w": 20,
-        "h": 26,
-        "coverage": 0.225446,
-        "rgba_sha256": "fa5424d9aa1f627cd44be6952f6b79fadab9173dfa8f16b740351648d3b3feae"
+        "w": 10,
+        "h": 15,
+        "coverage": 0.071429,
+        "center_delta_x": 8.734,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "a31de8789c3eb5e3c86b76ffcc2f52334209fba0c806953865720d69a5d39715"
       },
       "HexaRealm": {
         "frame": [
@@ -221,15 +403,26 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          37,
+          7,
+          63,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.23019,
-        "rgba_sha256": "c52209ffbf96206a819a06cca3e11a7d748873f0c25421915a5fc3b05c34ed69"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.099888,
+        "center_delta_x": 13.883,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "252d6703d427d096c69792b062574ec340a4268cdc16342f56c665b5d2b6db5a"
       }
     },
     "Industrial Slaver": {
@@ -239,15 +432,26 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          37,
+          7,
+          63,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.227121,
-        "rgba_sha256": "e2e3840cb3e5bb3267d42c0a3106ac932c95f1230cd934d37262594f8098384f"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.100725,
+        "center_delta_x": 14.627,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "105cf2786404f66338ad4a402af90d5403c31ca0d3a92ac9dfa8c84d70b76814"
       },
       "FantasyHex": {
         "frame": [
@@ -255,15 +459,26 @@
           28
         ],
         "bbox": [
+          21,
           6,
-          1,
-          26,
-          27
+          32,
+          21
         ],
-        "w": 20,
-        "h": 26,
-        "coverage": 0.222098,
-        "rgba_sha256": "74e4326a5f6dc637c51a97de6c8cab1013b60b7d3648f58e4b18332388fde1c0"
+        "w": 11,
+        "h": 15,
+        "coverage": 0.070312,
+        "center_delta_x": 9.119,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "a8183cb3ffa31140a2621000f50b896930046539ff18c2e121c5e15a701c402e"
       },
       "HexaRealm": {
         "frame": [
@@ -271,15 +486,26 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          37,
+          7,
+          63,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.227121,
-        "rgba_sha256": "e2e3840cb3e5bb3267d42c0a3106ac932c95f1230cd934d37262594f8098384f"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.100725,
+        "center_delta_x": 14.627,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "105cf2786404f66338ad4a402af90d5403c31ca0d3a92ac9dfa8c84d70b76814"
       }
     },
     "Continental Marines": {
@@ -289,15 +515,26 @@
           56
         ],
         "bbox": [
-          20,
-          1,
-          43,
-          55
+          44,
+          7,
+          58,
+          42
         ],
-        "w": 23,
-        "h": 54,
-        "coverage": 0.166853,
-        "rgba_sha256": "e9edbfaa65b9c20d9dc82d2512e774e630846e1be448d3ff670db998040ab5a7"
+        "w": 14,
+        "h": 35,
+        "coverage": 0.074777,
+        "center_delta_x": 19.269,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "900d4210a2a0a04b4a6fe540edcf91394bb91705d281a7948963ae3082126c7b"
       },
       "FantasyHex": {
         "frame": [
@@ -305,15 +542,26 @@
           28
         ],
         "bbox": [
-          10,
-          1,
-          21,
-          27
+          23,
+          9,
+          29,
+          21
         ],
-        "w": 11,
-        "h": 26,
-        "coverage": 0.164062,
-        "rgba_sha256": "091109e750ebab47c0c5f01f159223bed420b66716eb57de07a795204f636e4c"
+        "w": 6,
+        "h": 12,
+        "coverage": 0.046875,
+        "center_delta_x": 9.81,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "dd5c66bd1596262969770bc524898d9f5d1c00e677ff7ab20b647f82c8568bd8"
       },
       "HexaRealm": {
         "frame": [
@@ -321,15 +569,26 @@
           56
         ],
         "bbox": [
-          20,
-          1,
-          43,
-          55
+          44,
+          7,
+          58,
+          42
         ],
-        "w": 23,
-        "h": 54,
-        "coverage": 0.166853,
-        "rgba_sha256": "e9edbfaa65b9c20d9dc82d2512e774e630846e1be448d3ff670db998040ab5a7"
+        "w": 14,
+        "h": 35,
+        "coverage": 0.074777,
+        "center_delta_x": 19.269,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "900d4210a2a0a04b4a6fe540edcf91394bb91705d281a7948963ae3082126c7b"
       }
     },
     "Marine Riflemen": {
@@ -339,15 +598,26 @@
           56
         ],
         "bbox": [
-          4,
-          1,
-          60,
-          55
+          28,
+          8,
+          64,
+          42
         ],
-        "w": 56,
-        "h": 54,
-        "coverage": 0.257812,
-        "rgba_sha256": "8b5c1164b2df0f7ade018377b94811dbe1aee73845d2657e0ce2ecc5c6eec0bd"
+        "w": 36,
+        "h": 34,
+        "coverage": 0.111328,
+        "center_delta_x": 9.212,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "e971ab18ecf5acb4e00c3cb6c019c7ba422c5ac40b5d844d7bdf2c07a3a6a4d0"
       },
       "FantasyHex": {
         "frame": [
@@ -355,15 +625,26 @@
           28
         ],
         "bbox": [
-          2,
-          1,
-          29,
-          27
+          16,
+          6,
+          32,
+          21
         ],
-        "w": 27,
-        "h": 26,
-        "coverage": 0.252232,
-        "rgba_sha256": "3194395086cc53a2a280f1fd6701ddbb6c09532b3adb5b1d47fbff481174c58e"
+        "w": 16,
+        "h": 15,
+        "coverage": 0.080357,
+        "center_delta_x": 5.944,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "633c83cee8b6a08db6055273cfac6926a92acbe44f83b62d9061636a750d7a68"
       },
       "HexaRealm": {
         "frame": [
@@ -371,15 +652,26 @@
           56
         ],
         "bbox": [
-          4,
-          1,
-          60,
-          55
+          28,
+          8,
+          64,
+          42
         ],
-        "w": 56,
-        "h": 54,
-        "coverage": 0.257812,
-        "rgba_sha256": "8b5c1164b2df0f7ade018377b94811dbe1aee73845d2657e0ce2ecc5c6eec0bd"
+        "w": 36,
+        "h": 34,
+        "coverage": 0.111328,
+        "center_delta_x": 9.212,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "e971ab18ecf5acb4e00c3cb6c019c7ba422c5ac40b5d844d7bdf2c07a3a6a4d0"
       }
     },
     "Expeditionary Marines": {
@@ -389,15 +681,26 @@
           56
         ],
         "bbox": [
-          17,
-          1,
-          47,
-          55
+          42,
+          6,
+          62,
+          42
         ],
-        "w": 30,
-        "h": 54,
-        "coverage": 0.218192,
-        "rgba_sha256": "8ecf805538d297fdd9f06672b43b6731a954daf76e8b60f5dae13b6786a3b157"
+        "w": 20,
+        "h": 36,
+        "coverage": 0.09933,
+        "center_delta_x": 19.379,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "853a36d08e195ed14fc116421d338ce8b0bbe1afec4fcfb77aab3d7f71fd4774"
       },
       "FantasyHex": {
         "frame": [
@@ -405,15 +708,26 @@
           28
         ],
         "bbox": [
-          9,
-          1,
-          23,
-          27
+          22,
+          7,
+          30,
+          21
         ],
-        "w": 14,
-        "h": 26,
-        "coverage": 0.203125,
-        "rgba_sha256": "0ffa6b94cbdf81ac8447f44abe54d685c3793dd00a119f32349e0a30e176831c"
+        "w": 8,
+        "h": 14,
+        "coverage": 0.064732,
+        "center_delta_x": 9.776,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "5fa2b57bbba66d03b26d5652f5a9e2501228b0ee6c934ddf59ede8cbb35026a8"
       },
       "HexaRealm": {
         "frame": [
@@ -421,15 +735,26 @@
           56
         ],
         "bbox": [
-          17,
-          1,
-          47,
-          55
+          42,
+          6,
+          62,
+          42
         ],
-        "w": 30,
-        "h": 54,
-        "coverage": 0.218192,
-        "rgba_sha256": "8ecf805538d297fdd9f06672b43b6731a954daf76e8b60f5dae13b6786a3b157"
+        "w": 20,
+        "h": 36,
+        "coverage": 0.09933,
+        "center_delta_x": 19.379,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "853a36d08e195ed14fc116421d338ce8b0bbe1afec4fcfb77aab3d7f71fd4774"
       }
     },
     "Fleet Marine Force": {
@@ -439,15 +764,26 @@
           56
         ],
         "bbox": [
-          12,
-          1,
-          52,
-          55
+          38,
+          7,
+          64,
+          42
         ],
-        "w": 40,
-        "h": 54,
-        "coverage": 0.248884,
-        "rgba_sha256": "6a43ebe1ccdd8b364029de191eafc92050c5c324ab1834e7d397e2cbeefc368b"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.112723,
+        "center_delta_x": 14.901,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "3da4506a6e9f1b07806e6b300477f325f6c0a9c361b967b9fd900dcb45c4d770"
       },
       "FantasyHex": {
         "frame": [
@@ -455,15 +791,26 @@
           28
         ],
         "bbox": [
+          21,
           6,
-          1,
-          26,
-          27
+          32,
+          21
         ],
-        "w": 20,
-        "h": 26,
-        "coverage": 0.243304,
-        "rgba_sha256": "a5b691c2900f48f3c3b1094f494d9dac858c264478cfb1d805c2af580cec7f0c"
+        "w": 11,
+        "h": 15,
+        "coverage": 0.075893,
+        "center_delta_x": 9.074,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "404e13d6f81d6c7957f6f79b89a902b532bd6e255bb0e9d9ba2f4b40437916b2"
       },
       "HexaRealm": {
         "frame": [
@@ -471,15 +818,26 @@
           56
         ],
         "bbox": [
-          12,
-          1,
-          52,
-          55
+          38,
+          7,
+          64,
+          42
         ],
-        "w": 40,
-        "h": 54,
-        "coverage": 0.248884,
-        "rgba_sha256": "6a43ebe1ccdd8b364029de191eafc92050c5c324ab1834e7d397e2cbeefc368b"
+        "w": 26,
+        "h": 35,
+        "coverage": 0.112723,
+        "center_delta_x": 14.901,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "3da4506a6e9f1b07806e6b300477f325f6c0a9c361b967b9fd900dcb45c4d770"
       }
     },
     "Marine Expeditionary Unit": {
@@ -489,15 +847,26 @@
           56
         ],
         "bbox": [
-          13,
-          1,
-          50,
-          55
+          40,
+          6,
+          64,
+          42
         ],
-        "w": 37,
-        "h": 54,
-        "coverage": 0.253627,
-        "rgba_sha256": "3d62e61f1abe08718316c0bb475ef018a7225791ab50a99354b3e93d7269eb45"
+        "w": 24,
+        "h": 36,
+        "coverage": 0.112723,
+        "center_delta_x": 17.017,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "8bb662457ee001adbafb7f2c23edeabbb190b98fe6ac5bcca94fa043f76015c2"
       },
       "FantasyHex": {
         "frame": [
@@ -505,15 +874,26 @@
           28
         ],
         "bbox": [
-          7,
-          1,
-          24,
-          27
+          22,
+          6,
+          32,
+          21
         ],
-        "w": 17,
-        "h": 26,
-        "coverage": 0.243304,
-        "rgba_sha256": "8864a9b5c0d06a86c4231f91c93282926981e2ce77042ab391820b17f3dd1c0c"
+        "w": 10,
+        "h": 15,
+        "coverage": 0.080357,
+        "center_delta_x": 9.792,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "5b09e914160ac49f302825e44ab9e2719d44438c86f4fd951591526058071569"
       },
       "HexaRealm": {
         "frame": [
@@ -521,15 +901,26 @@
           56
         ],
         "bbox": [
-          13,
-          1,
-          50,
-          55
+          40,
+          6,
+          64,
+          42
         ],
-        "w": 37,
-        "h": 54,
-        "coverage": 0.253627,
-        "rgba_sha256": "3d62e61f1abe08718316c0bb475ef018a7225791ab50a99354b3e93d7269eb45"
+        "w": 24,
+        "h": 36,
+        "coverage": 0.112723,
+        "center_delta_x": 17.017,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "8bb662457ee001adbafb7f2c23edeabbb190b98fe6ac5bcca94fa043f76015c2"
       }
     },
     "Exo-Marine": {
@@ -539,15 +930,26 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          36,
+          6,
+          64,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.309431,
-        "rgba_sha256": "190e555e057a1986e4463512f13cf7eb4aaef6b749dae114b873bc0fcea3eb76"
+        "w": 28,
+        "h": 36,
+        "coverage": 0.143973,
+        "center_delta_x": 15.295,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "76092a18d96cf3257a16f2a48deabb0d7cf64e84b18ac0c31bcc7b3d21a2a137"
       },
       "FantasyHex": {
         "frame": [
@@ -555,15 +957,26 @@
           28
         ],
         "bbox": [
+          21,
           6,
-          1,
-          26,
-          27
+          32,
+          21
         ],
-        "w": 20,
-        "h": 26,
-        "coverage": 0.276786,
-        "rgba_sha256": "f50b5fcad13871a5bab954fdb65119d83be768ece1943625199588c4f169e5f5"
+        "w": 11,
+        "h": 15,
+        "coverage": 0.095982,
+        "center_delta_x": 9.477,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
+        "native_bbox": [
+          20,
+          6,
+          31,
+          21
+        ],
+        "native_center_delta_x": 10.066,
+        "rgba_sha256": "39b8681e9100a9288851c4cad17541fc7fee1c28ecab5d5ef5bb8dbe083bac17"
       },
       "HexaRealm": {
         "frame": [
@@ -571,18 +984,40 @@
           56
         ],
         "bbox": [
-          11,
-          1,
-          52,
-          55
+          36,
+          6,
+          64,
+          42
         ],
-        "w": 41,
-        "h": 54,
-        "coverage": 0.309431,
-        "rgba_sha256": "190e555e057a1986e4463512f13cf7eb4aaef6b749dae114b873bc0fcea3eb76"
+        "w": 28,
+        "h": 36,
+        "coverage": 0.143973,
+        "center_delta_x": 15.295,
+        "soft_alpha_ratio": 0.0,
+        "native_reference": "Infantry",
+        "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
+        "native_bbox": [
+          38,
+          6,
+          63,
+          42
+        ],
+        "native_center_delta_x": 18.893,
+        "rgba_sha256": "76092a18d96cf3257a16f2a48deabb0d7cf64e84b18ac0c31bcc7b3d21a2a137"
       }
     }
   },
-  "v021_png_sha256": "cecbb7ebf32cf1f96ae28bcedc66c7b3e8df1615465a0068e7d92e6d09ed731c",
-  "v021_atlas_sha256": "de95166c18042cb3990d2a8db2e01d220233a5f7ed7b39be233488a63c2ad5b7"
+  "rationalism_city_icon": {
+    "bbox": [
+      12,
+      12,
+      116,
+      116
+    ],
+    "coverage": 0.210205,
+    "center_alpha": 0,
+    "rgba_sha256": "290b8ef6ada492f594e6a78dfa406128ae68414dfb350937679da39686b38059"
+  },
+  "v021_png_sha256": "f3aeaec9fedc453c2b5e8aa4a4c875dde5e2b614389761c4a41ce94fb758025b",
+  "v021_atlas_sha256": "5096668b591a56e4106cfa387133fb647567b55af230eff4768111d02aa41235"
 }

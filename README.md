@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.8
+# Unciv: Veilfall v0.2.9
 
-**Version:** **v0.2.8 prerelease**  
+**Version:** **v0.2.9 prerelease**  
 **Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.8-sprite-rebuild`  
-**Predecessor:** **v0.2.7**  
-**Status:** v0.2.8 dedicated map-sprite rebuild; automated verification required before deployment; in-game visual acceptance pending  
+**Development/source branch:** `veilfall-v0.2.9-corrective`  
+**Predecessor:** **v0.2.8**  
+**Status:** v0.2.9 corrective patch for native-comparable map-sprite placement, Rationalism city-map rendering, and Marine capture of adjacent embarked civilians; automated verification required before deployment; in-game acceptance pending  
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -114,6 +114,14 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 Install or update Veilfall from the repository's default `main` branch. The v0.2.8
 release source is `veilfall-v0.2.8-sprite-rebuild`; verified generated outputs are
 staged on `veilfall-v0.2.8-art-integration` before `main` advances.
+
+## v0.2.9 corrective patch
+
+- Rebuilds all 33 Marine/slavery-line map sprites against actual upstream Unciv unit-sprite canvases and native reference silhouettes, with native-derived baseline and lateral placement rather than geometric centering.
+- Uses nearest-neighbor sprite resampling and binary alpha to eliminate interpolation softness/halo artifacts.
+- Replaces the packed `ReligionIcons/Rationalism` opaque full-color badge with a transparent tint-safe mask so the city-map religion marker cannot collapse into a solid disc.
+- Adds a narrowly scoped Marine water-capture compatibility workaround: Marines may temporarily be treated as water-capable only while adjacent to a civilian. This bypasses Unciv's explicit prohibition on embarked land units capturing civilians on water while preserving normal embarkation away from civilians.
+- The existing `May attack when embarked` behavior and all other Marine abilities remain in place.
 
 ## v0.2.6 isolated-character art rebuild
 

@@ -129,6 +129,7 @@
       "[1] Movement point cost to embark",
       "[1] Movement point cost to disembark",
       "May attack when embarked",
+      "May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>",
       "[+50]% Strength <when defending> <when [Embarked]>",
       "Unavailable"
     ],

@@ -1,14 +1,21 @@
-# Veilfall v0.2.8 — Build Status
+# Veilfall v0.2.9 — Build Status
 
-**Version:** **v0.2.8 prerelease**  
+**Version:** **v0.2.9 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.8-sprite-rebuild`  
-**Predecessor:** **v0.2.7**  
+**Source branch:** `veilfall-v0.2.9-corrective`  
+**Predecessor:** **v0.2.8**  
 **Patch build date:** 2026-09-28
 
-**Current status:** v0.2.8 dedicated map-sprite rebuild. The v0.2.7 portraits/icons are preserved; 33 map-sprite regions are replaced and must pass automated verification before deployment. In-game visual acceptance remains pending.
+**Current status:** v0.2.9 corrective patch. The v0.2.8 portraits/icons and unrelated artwork are preserved; 33 map-sprite regions are rebuilt against native Unciv references, the Rationalism city-map icon is corrected, and Marine capture of adjacent embarked civilians receives a targeted compatibility workaround. Automated verification is required before deployment; in-game acceptance remains pending.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
+
+## v0.2.9 corrective scope
+
+- 33 Marine/slavery map sprites: native Unciv frame dimensions, native-derived bottom anchoring, native-derived lateral offset, nearest-neighbor scaling, binary alpha.
+- Rationalism city-map marker: transparent tint-safe mask replaces the opaque full-color atlas region used by the city religion overlay.
+- Marine embarked civilian capture: Unciv explicitly blocks embarked land units from entering/capturing civilian-occupied water tiles even when `May attack when embarked` is present. `Marine Naval Integration` therefore adds `May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>` as a narrow engine-compatibility workaround. This changes the unit out of embarked state only while adjacent to a civilian, allowing the normal melee capture path without making Marine water travel globally unconditional.
+- Existing Marine abilities, v0.2.8 portrait/icon art, gameplay values, slavery capture rule, and unrelated systems are preserved.
 
 ## Implemented in JSON
 
