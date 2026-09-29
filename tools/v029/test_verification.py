@@ -59,7 +59,7 @@ def main():
             out.alpha_composite(crop,((im.width-crop.width)//2,im.height-crop.height-1))
             return out
         mutate_region(r,'TileSets/HexaRealm/Units/Continental Marines',op)
-    tests.append(('centered_sprite',center_sprite,'Sprite lateral offset not native-aligned'))
+    tests.append(('centered_sprite',center_sprite,'Packed sprite differs from native-derived build'))
 
     def soften_sprite(r):
         def op(im):
