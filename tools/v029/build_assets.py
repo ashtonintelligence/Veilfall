@@ -180,7 +180,7 @@ def make_sprite(name,ts):
     # Native units are often broad silhouettes. Match both perceived height and native width
     # as far as the source aspect ratio allows, then cap to the atlas frame.
     scale=max(target_h/crop.height,target_w/crop.width)
-    scale=min(scale,(frame[0]-2)/crop.width,(frame[1]-2)/crop.height)
+    scale=min(scale,(frame[0]-2)/crop.width,refst['bbox'][3]/crop.height)
     wh=(max(1,round(crop.width*scale)),max(1,round(crop.height*scale)))
     crop=crop.resize(wh,Image.Resampling.NEAREST)
     # Fully quantize alpha after nearest-neighbor scaling: no interpolation halo survives.
