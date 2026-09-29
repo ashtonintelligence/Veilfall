@@ -2,7 +2,7 @@ name: Build and verify Veilfall v0.2.9 sprite rebuild
 
 on:
   push:
-    branches: [veilfall-v0.2.9-corrective, main]
+    branches: [veilfall-v0.2.9-corrective, veilfall-v0.2.9-art-integration, main]
   workflow_dispatch:
 
 permissions:
