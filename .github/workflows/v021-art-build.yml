@@ -1,8 +1,8 @@
-name: Build and verify Veilfall v0.2.8 sprite rebuild
+name: Build and verify Veilfall v0.2.9 sprite rebuild
 
 on:
   push:
-    branches: [veilfall-v0.2.8-sprite-rebuild, main]
+    branches: [veilfall-v0.2.9-corrective, main]
   workflow_dispatch:
 
 permissions:
@@ -24,35 +24,35 @@ jobs:
       - name: Install pinned Pillow
         run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
 
-      - name: Build dedicated v0.2.8 map sprites
-        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
-        run: python3 tools/v028/build_assets.py
+      - name: Build dedicated v0.2.9 map sprites
+        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
+        run: python3 tools/v029/build_assets.py
 
       - name: Verify packed atlas and preservation gates
-        run: python3 tools/v028/build_assets.py --check
+        run: python3 tools/v029/build_assets.py --check
 
       - name: Run adversarial and deterministic verifier tests
-        run: python3 tools/v028/test_verification.py
+        run: python3 tools/v029/test_verification.py
 
       - name: Render packed sprite QA sheet
-        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
-        run: python3 tools/v028/preview_assets.py
+        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
+        run: python3 tools/v029/preview_assets.py
 
       - name: Recheck exact deployable bytes
-        run: python3 tools/v028/build_assets.py --check
+        run: python3 tools/v029/build_assets.py --check
 
       - name: Commit verified integration output
-        if: github.ref == 'refs/heads/veilfall-v0.2.8-sprite-rebuild'
+        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'Veilfall v0.2.8 Builder'
+          git config user.name 'Veilfall v0.2.9 Builder'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- tools/v028/generated tools/v028/previews tools/v028/test_results.json v021.atlas v021.png ART_VERIFICATION.json
+          git add -A -- tools/v029/generated tools/v029/previews tools/v029/test_results.json v021.atlas v021.png ART_VERIFICATION.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Pack and verify Veilfall v0.2.8 map-sprite rebuild'
+            git commit -m 'Pack and verify Veilfall v0.2.9 map-sprite rebuild'
           fi
-          git push --force-with-lease origin HEAD:veilfall-v0.2.8-art-integration
+          git push --force-with-lease origin HEAD:veilfall-v0.2.9-art-integration
           printf 'Integration commit: '
           git rev-parse HEAD
 
@@ -63,16 +63,16 @@ jobs:
       - name: Archive exact verified commit
         shell: bash
         run: |
-          git archive HEAD -o /tmp/veilfall-v0.2.8-verified.zip
-          git rev-parse HEAD > /tmp/veilfall-v0.2.8-commit.txt
-          sha256sum /tmp/veilfall-v0.2.8-verified.zip
+          git archive HEAD -o /tmp/veilfall-v0.2.9-verified.zip
+          git rev-parse HEAD > /tmp/veilfall-v0.2.9-commit.txt
+          sha256sum /tmp/veilfall-v0.2.9-verified.zip
 
       - name: Retain verified release and evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: veilfall-v0.2.8-verified-${{ github.run_id }}
+          name: veilfall-v0.2.9-verified-${{ github.run_id }}
           path: |
-            /tmp/veilfall-v0.2.8-verified.zip
-            /tmp/veilfall-v0.2.8-commit.txt
+            /tmp/veilfall-v0.2.9-verified.zip
+            /tmp/veilfall-v0.2.9-commit.txt
           retention-days: 30
           if-no-files-found: error
