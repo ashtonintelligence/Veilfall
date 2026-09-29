@@ -1,0 +1,41 @@
+{
+  "release": "v0.2.8",
+  "result": "PASS",
+  "test_count": 7,
+  "negative_test_count": 5,
+  "tests": [
+    {
+      "test": "valid_release",
+      "result": "PASS"
+    },
+    {
+      "test": "capture_probability_regression",
+      "result": "PASS",
+      "expected_rejection": "Protected baseline file changed"
+    },
+    {
+      "test": "wrong_version",
+      "result": "PASS",
+      "expected_rejection": "Wrong modVersion"
+    },
+    {
+      "test": "slave_raider_duplicate",
+      "result": "PASS",
+      "expected_rejection": "Generated/packed sprite mismatch"
+    },
+    {
+      "test": "sprite_not_bottom_anchored",
+      "result": "PASS",
+      "expected_rejection": "Sprite not bottom anchored"
+    },
+    {
+      "test": "portrait_changed",
+      "result": "PASS",
+      "expected_rejection": "Preserved atlas region changed"
+    },
+    {
+      "test": "deterministic_rebuild",
+      "result": "PASS"
+    }
+  ]
+}
