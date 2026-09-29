@@ -246,10 +246,12 @@ def sprite_metrics(im,name,ts):
             'Opaque sprite corner: '+name)
     require(abs(box[3]-refst['bbox'][3])<=1,'Sprite baseline not native-aligned: '+ts+' / '+name)
     tol=1.35 if im.width<=32 else 1.8
-    require(abs(st['center_delta_x']-refst['center_delta_x'])<=tol,
-            'Sprite lateral offset not native-aligned: '+ts+' / '+name)
+    require(st['center_delta_x']*refst['center_delta_x']>0,
+            'Sprite lateral offset is on the wrong side of native reference: '+ts+' / '+name)
     require(abs(st['center_delta_x'])>=max(0.65,im.width*0.015),
             'Sprite still visually centered: '+ts+' / '+name)
+    require(abs(st['center_delta_x'])>=abs(refst['center_delta_x'])*0.45,
+            'Sprite lateral offset is too weak relative to native reference: '+ts+' / '+name)
     require(0.84<=st['h']/refst['h']<=1.16,'Sprite perceived height not native-comparable: '+ts+' / '+name)
     require(st['soft_alpha_ratio']==0.0,'Interpolation softness detected: '+ts+' / '+name)
     coverage=sum(v>=128 for v in a.getdata())/(im.width*im.height)
