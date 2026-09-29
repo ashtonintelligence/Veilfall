@@ -217,7 +217,9 @@ def protected_baseline_check():
     allowed={
         'README.md','BUILD_STATUS.md','ART_VERIFICATION.json','v021.atlas','v021.png',
         'jsons/ModOptions.json','jsons/UnitPromotions.json',
-        '.github/workflows/v021-art-build.yml','tools/v021/build_assets.py'
+        '.github/workflows/v021-art-build.yml','tools/v021/build_assets.py',
+        'tools/v029/build_assets.py','tools/v029/preview_assets.py','tools/v029/test_verification.py',
+        'tools/v029/test_results.json'
     }
     for rel in baseline_files():
         if rel in allowed: continue
