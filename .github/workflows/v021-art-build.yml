@@ -25,7 +25,7 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
 
       - name: Build dedicated v0.2.9 map sprites
-        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
+        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective' || github.ref == 'refs/heads/veilfall-v0.2.9-art-integration'
         run: python3 tools/v029/build_assets.py
 
       - name: Verify packed atlas and preservation gates
@@ -35,7 +35,7 @@ jobs:
         run: python3 tools/v029/test_verification.py
 
       - name: Render packed sprite QA sheet
-        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
+        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective' || github.ref == 'refs/heads/veilfall-v0.2.9-art-integration'
         run: python3 tools/v029/preview_assets.py
 
       - name: Recheck exact deployable bytes
