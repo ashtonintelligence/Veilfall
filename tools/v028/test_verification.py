@@ -45,7 +45,7 @@ def main():
     def float_sprite(r):
         def op(im):
             box=im.getchannel('A').getbbox(); crop=im.crop(box)
-            out=Image.new('RGBA',im.size,(0,0,0,0)); out.alpha_composite(crop,((im.width-crop.width)//2,1)); return out
+            out=Image.new('RGBA',im.size,(0,0,0,0)); y=max(1,im.height-crop.height-8); out.alpha_composite(crop,((im.width-crop.width)//2,y)); return out
         mutate_region(r,'TileSets/Minimal/Units/Continental Marines',op)
     tests.append(('sprite_not_bottom_anchored',float_sprite,'Sprite not bottom anchored'))
     def alter_portrait(r):
