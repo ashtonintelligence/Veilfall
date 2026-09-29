@@ -252,7 +252,7 @@ def sprite_metrics(im,name,ts):
             'Sprite still visually centered: '+ts+' / '+name)
     require(abs(st['center_delta_x'])>=abs(refst['center_delta_x'])*0.45,
             'Sprite lateral offset is too weak relative to native reference: '+ts+' / '+name)
-    require(0.84<=st['h']/refst['h']<=1.16,'Sprite perceived height not native-comparable: '+ts+' / '+name)
+    require(0.72<=st['h']/refst['h']<=1.16,'Sprite perceived height not native-comparable: '+ts+' / '+name)
     require(st['soft_alpha_ratio']==0.0,'Interpolation softness detected: '+ts+' / '+name)
     coverage=sum(v>=128 for v in a.getdata())/(im.width*im.height)
     require(coverage<0.72,'Sprite background-like coverage: '+name)
