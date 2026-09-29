@@ -1,12 +1,12 @@
-# Veilfall v0.2.7 — Build Status
+# Veilfall v0.2.8 — Build Status
 
-**Version:** **v0.2.7 prerelease**  
+**Version:** **v0.2.8 prerelease**  
 **Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.7-art-integration`  
-**Predecessor:** **v0.2.6**  
-**Patch build date:** 2026-09-26
+**Source branch:** `veilfall-v0.2.8-sprite-rebuild`  
+**Predecessor:** **v0.2.7**  
+**Patch build date:** 2026-09-28
 
-**Current status:** v0.2.6 corrective art release. Automated status is recorded in ART_VERIFICATION.json; in-game acceptance remains pending. Deployment is established by Git refs and the workflow, not this document alone.
+**Current status:** v0.2.8 dedicated map-sprite rebuild. The v0.2.7 portraits/icons are preserved; 33 map-sprite regions are replaced and must pass automated verification before deployment. In-game visual acceptance remains pending.
 
 This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
 
@@ -292,3 +292,37 @@ statements above are unchanged by this art-only release.
 ## v0.2.7 unit-scale/framing corrective pass
 
 The v0.2.6 isolated figures remain the source art. This pass changes only map-sprite scale and transparent-frame placement so custom combat units read like neighboring vanilla units at runtime. FantasyHex assets use the native 32x28 unit frame. HexaRealm infantry uses 64x56 and mounted art uses 64x65. Figures are bottom-anchored with a one-pixel safety margin instead of centered in a 128x128 transparent canvas.
+
+
+## v0.2.8 dedicated map-sprite rebuild
+
+This patch responds to v0.2.7 runtime evidence that custom map units remained too
+soft, centered, and visually small despite corrected frame dimensions. It rebuilds
+the actual map sprites for all eleven Marine/slavery-line units rather than
+continuing incremental scaling of the v0.2.6 figure renders.
+
+Rebuilt units:
+- Slave
+- Slave Raider
+- Mounted Slave Raider
+- Slave Hunter
+- Industrial Slaver
+- Continental Marines
+- Marine Riflemen
+- Expeditionary Marines
+- Fleet Marine Force
+- Marine Expeditionary Unit
+- Exo-Marine
+
+Each receives new Minimal, FantasyHex, and HexaRealm map art. The patch preserves
+all v0.2.7 portraits and UnitIcons, all unrelated supplemental-atlas regions, and
+the original `game` atlas. Verification explicitly checks transparent corners,
+native frame sizes, lower/bottom anchoring, distinct sprite hashes and normalized
+silhouettes, Slave versus Slave Raider differentiation, mounted differentiation,
+all repository JSON, the `["game","v021"]` atlas contract, and the exact 50%
+Slave Raider Military-kill capture rule.
+
+The build source is `tools/v028/`. Purpose-built canonical sprite artwork is
+retained under `tools/v028/sprite_sources/`; generated tileset images and preview
+evidence are produced by the build workflow. Automated pass does not substitute
+for final in-game visual acceptance.
