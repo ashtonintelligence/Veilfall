@@ -1,8 +1,8 @@
 {
-  "release": "v0.2.10",
+  "release": "v0.2.11",
   "result": "PASS",
-  "test_count": 8,
-  "negative_test_count": 6,
+  "test_count": 10,
+  "negative_test_count": 8,
   "tests": [
     {
       "test": "valid_release",
@@ -17,6 +17,16 @@
       "test": "unsafe_marine_capture_workaround_reintroduced",
       "result": "PASS",
       "expected_rejection": "Unsafe Marine capture workaround reintroduced"
+    },
+    {
+      "test": "missing_movement_bonus",
+      "result": "PASS",
+      "expected_rejection": "Marine universal movement bonus missing or duplicated"
+    },
+    {
+      "test": "old_tall_narrow_proportion",
+      "result": "PASS",
+      "expected_rejection": "Packed sprite differs from native-derived build"
     },
     {
       "test": "centered_sprite",

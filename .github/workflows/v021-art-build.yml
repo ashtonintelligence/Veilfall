@@ -1,15 +1,15 @@
-name: Verify Veilfall v0.2.10 save-load hotfix
+name: Verify Veilfall v0.2.11 Marine polish
 
 on:
   push:
-    branches: [veilfall-v0.2.10-save-load-hotfix, main]
+    branches: [veilfall-v0.2.11-marine-polish, main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: veilfall-v0210-${{ github.ref }}
+  group: veilfall-v0211-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -27,6 +27,7 @@ jobs:
           python3 tools/v029/build_assets.py --check
           python3 tools/v029/test_verification.py
           python3 tools/v0210/verify_hotfix.py
+          python3 tools/v0211/verify_release.py
           git diff --exit-code
 
   unciv-save-load:
@@ -53,20 +54,23 @@ jobs:
             unciv/gradle/wrapper/gradle-wrapper.properties
       - name: Prepare exact predecessor and runtime test
         run: |
-          mkdir baseline
+          mkdir baseline previous
           git -C candidate archive 75331685057bcdb676c72a1a622c93912ed2c096 | tar -x -C baseline
+          git -C candidate archive 29ab0a98eb8443810b91d41a07ad221f2b1f953e | tar -x -C previous
+          cp candidate/tools/v0211/VeilfallMovementTest.kt unciv/tests/src/com/unciv/logic/
           cp candidate/tools/v0210/VeilfallSaveLoadTest.kt unciv/tests/src/com/unciv/logic/
       - name: Run Unciv 4.22.4 ruleset validation and save-load regression
         working-directory: unciv
         env:
           VEILFALL_BASELINE: ${{ github.workspace }}/baseline
+          VEILFALL_V0210: ${{ github.workspace }}/previous
           VEILFALL_CANDIDATE: ${{ github.workspace }}/candidate
-        run: env -u ANDROID_HOME -u ANDROID_SDK_ROOT ./gradlew :tests:test --rerun --tests com.unciv.logic.VeilfallSaveLoadTest --no-daemon --max-workers=2
+        run: env -u ANDROID_HOME -u ANDROID_SDK_ROOT ./gradlew :tests:test --rerun --tests com.unciv.logic.VeilfallSaveLoadTest --tests com.unciv.logic.VeilfallMovementTest --no-daemon --max-workers=2
       - name: Retain actual runtime evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: veilfall-v0210-runtime-${{ github.sha }}
+          name: veilfall-v0211-runtime-${{ github.sha }}
           path: |
             unciv/tests/build/test-results/test/
             unciv/tests/build/reports/tests/test/

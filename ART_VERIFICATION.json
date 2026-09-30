@@ -1,6 +1,6 @@
 {
-  "release": "v0.2.10",
-  "predecessor": "v0.2.9",
+  "release": "v0.2.11",
+  "predecessor": "v0.2.10",
   "baseline_commit": "a4cc93578b92a75844eafde6ff605b5303a61630",
   "status": "automated_checks_passed",
   "manual_in_game_acceptance": "pending",
@@ -20,6 +20,11 @@
   "capture_chance_percent": 50,
   "military_filter_unchanged_no_barbarian_exclusion_added": true,
   "marine_capture_workaround": null,
+  "marine_movement_unique": "[+1] Movement",
+  "current_patch_baseline": "29ab0a98eb8443810b91d41a07ad221f2b1f953e",
+  "current_patch_changed_map_sprite_regions": 6,
+  "current_patch_preserved_atlas_regions": 74,
+  "current_patch_preservation_gate": "tools/v0211/verify_release.py",
   "native_reference_repo": "yairm210/Unciv",
   "native_reference_commit": "eba5356202ea101c696f34be1cffee8373eb109a",
   "native_reference_selection": {
@@ -515,15 +520,15 @@
           56
         ],
         "bbox": [
-          42,
-          1,
-          60,
+          39,
+          7,
+          63,
           42
         ],
-        "w": 18,
-        "h": 41,
-        "coverage": 0.106027,
-        "center_delta_x": 18.589,
+        "w": 24,
+        "h": 35,
+        "coverage": 0.127232,
+        "center_delta_x": 19.061,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
@@ -534,7 +539,7 @@
           42
         ],
         "native_center_delta_x": 18.893,
-        "rgba_sha256": "05fbe8389e9be2ae00527ddf9f97e6a620ee53c8f32431d09054aeaa0e81435e"
+        "rgba_sha256": "9a58b22449c0b3d9844d40cbe05e7a16d0005c413de3285bf819c2fa2b3e82db"
       },
       "FantasyHex": {
         "frame": [
@@ -542,15 +547,15 @@
           28
         ],
         "bbox": [
-          22,
-          0,
-          31,
+          20,
+          4,
+          32,
           21
         ],
-        "w": 9,
-        "h": 21,
-        "coverage": 0.104911,
-        "center_delta_x": 10.234,
+        "w": 12,
+        "h": 17,
+        "coverage": 0.112723,
+        "center_delta_x": 9.837,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
@@ -561,7 +566,7 @@
           21
         ],
         "native_center_delta_x": 10.066,
-        "rgba_sha256": "569b2703f962e1ef0ef391d213ff23ca7151f33c34c65b9b11740845aa2c7044"
+        "rgba_sha256": "b0198f699ba3bf060ae1983ef473dc2035bc6f7c360a1579119e1ae092b267a3"
       },
       "HexaRealm": {
         "frame": [
@@ -569,15 +574,15 @@
           56
         ],
         "bbox": [
-          42,
-          1,
-          60,
+          39,
+          7,
+          63,
           42
         ],
-        "w": 18,
-        "h": 41,
-        "coverage": 0.106027,
-        "center_delta_x": 18.589,
+        "w": 24,
+        "h": 35,
+        "coverage": 0.127232,
+        "center_delta_x": 19.061,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
@@ -588,7 +593,7 @@
           42
         ],
         "native_center_delta_x": 18.893,
-        "rgba_sha256": "05fbe8389e9be2ae00527ddf9f97e6a620ee53c8f32431d09054aeaa0e81435e"
+        "rgba_sha256": "9a58b22449c0b3d9844d40cbe05e7a16d0005c413de3285bf819c2fa2b3e82db"
       }
     },
     "Marine Riflemen": {
@@ -681,15 +686,15 @@
           56
         ],
         "bbox": [
-          41,
-          0,
-          63,
+          39,
+          6,
+          64,
           42
         ],
-        "w": 22,
-        "h": 42,
-        "coverage": 0.134208,
-        "center_delta_x": 18.901,
+        "w": 25,
+        "h": 36,
+        "coverage": 0.122489,
+        "center_delta_x": 18.707,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
@@ -700,7 +705,7 @@
           42
         ],
         "native_center_delta_x": 18.893,
-        "rgba_sha256": "df6fee610f229c808fba0dacec77112086fdd732784e6fbb4f65b13225e51904"
+        "rgba_sha256": "141577fa2fbf0366385124070c3b2b6851137684ebce7e45be573c1647a1a1a8"
       },
       "FantasyHex": {
         "frame": [
@@ -708,15 +713,15 @@
           28
         ],
         "bbox": [
-          21,
-          2,
+          20,
+          5,
           32,
           21
         ],
-        "w": 11,
-        "h": 19,
-        "coverage": 0.123884,
-        "center_delta_x": 10.113,
+        "w": 12,
+        "h": 16,
+        "coverage": 0.112723,
+        "center_delta_x": 9.688,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/FantasyHex/Units/Infantry",
@@ -727,7 +732,7 @@
           21
         ],
         "native_center_delta_x": 10.066,
-        "rgba_sha256": "869a38d18551e20d4eaa99ccf1588e076511788f7b68f29b3b0ff79bc8fdee69"
+        "rgba_sha256": "bca7f05deb230c51a934ca117aa19873864c18c6e98c88ee694430facc46c534"
       },
       "HexaRealm": {
         "frame": [
@@ -735,15 +740,15 @@
           56
         ],
         "bbox": [
-          41,
-          0,
-          63,
+          39,
+          6,
+          64,
           42
         ],
-        "w": 22,
-        "h": 42,
-        "coverage": 0.134208,
-        "center_delta_x": 18.901,
+        "w": 25,
+        "h": 36,
+        "coverage": 0.122489,
+        "center_delta_x": 18.707,
         "soft_alpha_ratio": 0.0,
         "native_reference": "Infantry",
         "native_reference_key": "TileSets/HexaRealm/Units/Infantry",
@@ -754,7 +759,7 @@
           42
         ],
         "native_center_delta_x": 18.893,
-        "rgba_sha256": "df6fee610f229c808fba0dacec77112086fdd732784e6fbb4f65b13225e51904"
+        "rgba_sha256": "141577fa2fbf0366385124070c3b2b6851137684ebce7e45be573c1647a1a1a8"
       }
     },
     "Fleet Marine Force": {
@@ -1018,6 +1023,6 @@
     "center_alpha": 0,
     "rgba_sha256": "290b8ef6ada492f594e6a78dfa406128ae68414dfb350937679da39686b38059"
   },
-  "v021_png_sha256": "04a40fcb04faf23468c42b37ddfa26bb9d27184a369b90ffd8d368f5e02780ed",
+  "v021_png_sha256": "38d3d80dc0493234d455d3d42824fb4392b376246d483b43330e9249f0b09927",
   "v021_atlas_sha256": "5096668b591a56e4106cfa387133fb647567b55af230eff4768111d02aa41235"
 }

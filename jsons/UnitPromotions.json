@@ -129,6 +129,7 @@
       "[1] Movement point cost to embark",
       "[1] Movement point cost to disembark",
       "May attack when embarked",
+      "[+1] Movement",
       "[+50]% Strength <when defending> <when [Embarked]>",
       "Unavailable"
     ],

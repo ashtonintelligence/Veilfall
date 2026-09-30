@@ -1,23 +1,48 @@
-# Veilfall v0.2.10 — Build Status
+# Veilfall v0.2.11 — Build Status
 
-**Version:** **v0.2.10 prerelease**\
+**Version:** **v0.2.11 prerelease**\
 **Deployment branch:** `main`\
-**Source branch:** `veilfall-v0.2.10-save-load-hotfix`\
-**Predecessor:** **v0.2.9**\
+**Source branch:** `veilfall-v0.2.11-marine-polish`\
+**Predecessor:** **v0.2.10**\
 **Patch build date:** 2026-09-30
 
-**Current status:** Save-load safety hotfix. The only gameplay change removes the
-unsafe adjacent-civilian water-travel unique from Marine Naval Integration.
-All v0.2.9 sprite and Rationalism atlas outputs remain byte-identical.
-Actual Unciv 4.22.4 save-load regressions, semantic validation and deterministic
-preservation checks passed on the hotfix branch.
-Manual acceptance of Paul's previously failing save remains pending.
-See `tools/v0210/VERIFICATION.md` for automated gates and runtime evidence.
+**Current status:** Candidate for exactly two objectives: Marine map-sprite
+proportions and one universal Marine movement point. Automated gates are pending;
+v0.2.11 manual in-game acceptance is pending. No Special Forces, slavery, civilian
+capture or unrelated systems are added.
 
-This file is the implementation truth for the current build. A locked design does
-not imply that the Unciv extension ruleset implements it completely.
+## Accepted v0.2.10 baseline
 
-## v0.2.10 scope and confirmed source diagnosis
+Paul confirmed that the previously failing game resumes, the Rationalism city
+marker is correct, and sprite sharpness and lateral placement are accepted.
+These accepted properties must remain intact. The unsafe adjacent-civilian
+CanMoveOnWater rule remains absent. Its original runtime regression test source
+is unchanged and continues to run against Unciv 4.22.4 with `--rerun`.
+
+## v0.2.11 implementation
+
+- Add `[+1] Movement` once to Marine Naval Integration, after the existing embarked
+  attack unique. Every Marine already receives this promotion. No Units.json
+  property or other promotion is changed.
+- Expected neutral maximums: Continental / Riflemen / Expeditionary / Fleet
+  Marines 3 land, MEU 4 land, Exo-Marine 5 land; all six 3 embarked. Existing
+  technology and policy movement bonuses remain additive. Serialized remaining
+  movement is preserved during load, not replenished in the middle of a turn.
+- Correct only Continental and Expeditionary map sprites in Minimal, HexaRealm
+  and FantasyHex. A review against native Infantry found the second unit also
+  materially tall/narrow (22×42 versus 25×36). Other Marines did not show that same
+  paired defect and remain unchanged. All slavery sprites remain unchanged.
+- Keep original canonical character sources, portraits, UnitIcons and atlas
+  frames. Render the two corrected silhouettes using independent nearest-neighbor
+  pixel dimensions, preserving the v0.2.10 lateral centroid within 0.5 pixel and
+  the exact bottom anchor. No softened filtering or character redesign.
+- Six atlas regions change; the other 74, including Rationalism, are byte-identical
+  as decoded RGBA. Atlas layout is byte-identical; its shared PNG necessarily
+  changes because it contains the six corrected regions.
+
+See `tools/v0211/VERIFICATION.md` and its comparison image for release evidence.
+
+## v0.2.10 source diagnosis (historical; fix retained)
 
 Unciv 4.22.4, upstream commit `3318515bfca2609a9edb127b59cfadbab6d58d38`:
 `UncivFiles.loadGameFromFile` calls `GameInfo.setTransients`, then
@@ -61,7 +86,8 @@ can also contribute. It is an additive adjustment, not inheritance of naval unit
 stats or recognition by naval filters. No amount is selected by this hotfix.
 `Transfer Movement to [mapUnitFilter]` needs a suitable same-tile supporting unit;
 it is not automatic naval classification. The locked full naval movement/combat
-classification requires engine-level handling. No movement rule is changed.
+classification requires engine-level handling. v0.2.11 implements the separately approved universal +1 Movement compensation;
+the full naval-classification limitation remains.
 
 ## Slavery — separately tracked
 

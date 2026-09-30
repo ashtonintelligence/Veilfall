@@ -1,4 +1,4 @@
-"""Strict v0.2.9-to-v0.2.10 diff and load-safety guard; not a runtime test."""
+"""Inherited save-load and ruleset guard, extended for v0.2.11; not a runtime test."""
 from pathlib import Path
 import json
 import re
@@ -12,8 +12,15 @@ ALLOWED = {
     'ART_VERIFICATION.json', 'tools/v029/build_assets.py', 'tools/v029/test_verification.py',
     'tools/v029/test_results.json', '.github/workflows/v021-art-build.yml',
     'tools/v0210/verify_hotfix.py', 'tools/v0210/VeilfallSaveLoadTest.kt',
-    'tools/v0210/VERIFICATION.md',
+    'tools/v0210/VERIFICATION.md', 'v021.png',
+    'tools/v0211/verify_release.py','tools/v0211/VeilfallMovementTest.kt',
+    'tools/v0211/preview.py','tools/v0211/proportion-comparison.png',
+    'tools/v0211/VERIFICATION.md',
 }
+
+ALLOWED.update(f'tools/v029/generated/{ts}/{name}.png'
+               for ts in ['Minimal','HexaRealm','FantasyHex']
+               for name in ['Continental Marines','Expeditionary Marines'])
 
 def old(path):
     return subprocess.check_output(['git', 'show', BASELINE + ':' + path], cwd=ROOT)
@@ -36,10 +43,11 @@ def main():
     marine = next(p for p in expected if p['name'] == 'Marine Naval Integration')
     assert marine['uniques'].count(UNSAFE) == 1
     marine['uniques'].remove(UNSAFE)
+    marine['uniques'].insert(marine['uniques'].index('May attack when embarked')+1,'[+1] Movement')
     actual = json.loads((ROOT / 'jsons/UnitPromotions.json').read_text())
-    assert actual == expected, 'Only the unsafe unique may change in promotions'
+    assert actual == expected, 'Only the unsafe-rule removal and shared movement bonus may differ from v0.2.9'
     options = json.loads(old('jsons/ModOptions.json'))
-    options.update(modVersion='0.2.10', lastUpdated='2026-09-30')
+    options.update(modVersion='0.2.11', lastUpdated='2026-09-30')
     assert json.loads((ROOT / 'jsons/ModOptions.json').read_text()) == options
     # Review all ruleset occurrences, not just Marine Naval Integration. In this
     # exact hotfix, adjacency is permitted only on existing combat Strength or
@@ -60,10 +68,10 @@ def main():
                 assert '<' not in value, ('Conditional CanMoveOnWater requires load review', path, value)
     for file in (ROOT / 'jsons').glob('*.json'):
         walk(json.loads(file.read_text()), file.name)
-    print(json.dumps({'release': 'v0.2.10', 'result': 'PASS',
+    print(json.dumps({'release': 'v0.2.11', 'result': 'PASS',
         'actual_runtime_executed_by_this_script': False,
-        'all_v029_art_bytes_unchanged': True,
-        'only_gameplay_change': 'Remove unsafe Marine Naval Integration unique',
+        'v0211_art_preservation_gate': 'tools/v0211/verify_release.py',
+        'gameplay_delta_from_v029': 'Remove unsafe unique; add one universal Marine movement point',
         'marine_upgrade_chain_and_stats_unchanged': True,
         'slave_raider_50_percent_rule_unchanged': True,
         'remaining_adjacency_uniques_reviewed': reviewed}, indent=2))

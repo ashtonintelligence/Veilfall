@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.10
+# Unciv: Veilfall v0.2.11
 
-**Version:** **v0.2.10 prerelease**\
+**Version:** **v0.2.11 prerelease**\
 **Deployment branch:** `main`\
-**Development/source branch:** `veilfall-v0.2.10-save-load-hotfix`\
-**Predecessor:** **v0.2.9**\
-**Status:** Save-load safety hotfix; actual Unciv 4.22.4 regression, semantic and preservation tests passed. Manual in-game acceptance pending.\
+**Development/source branch:** `veilfall-v0.2.11-marine-polish`\
+**Predecessor:** **v0.2.10**\
+**Status:** Marine proportion and universal movement correction; candidate verification in progress. v0.2.10 save loading, Rationalism marker, sprite offset and sharpness accepted in-game.\
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -38,7 +38,7 @@ The v0.2/v0.2.1 content set includes:
 
 ## Marine lineage
 
-| Unit | Tech | Strength | Movement | Cost |
+| Unit | Tech | Strength | Base land movement | Cost |
 | --- | --- | ---: | ---: | ---: |
 | Continental Marines | Gunpowder | 27 | 2 | 140 |
 | Marine Riflemen | Rifling | 38 | 2 | 208 |
@@ -111,11 +111,40 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. The v0.2.10
-hotfix is developed and tested on `veilfall-v0.2.10-save-load-hotfix`; `main` advances
+Install or update Veilfall from the repository's default `main` branch. The v0.2.11
+correction is developed and tested on `veilfall-v0.2.11-marine-polish`; `main` advances
 only after the candidate passes the available automated gates.
 
-## v0.2.10 save-load hotfix
+## v0.2.11 Marine polish
+
+Marine Naval Integration adds exactly one unconditional `[+1] Movement` unique.
+Base movement values, names, stats and upgrade chains are unchanged. Existing
+saved Marines carrying that promotion inherit the rule when the ruleset reloads.
+The intended calculated maximums before other movement bonuses are:
+
+| Unit | Land | Embarked |
+| --- | ---: | ---: |
+| Continental Marines | 3 | 3 |
+| Marine Riflemen | 3 | 3 |
+| Expeditionary Marines | 3 | 3 |
+| Fleet Marine Force | 3 | 3 |
+| Marine Expeditionary Unit | 4 | 3 |
+| Exo-Marine | 5 | 3 |
+
+Existing technology/policy bonuses still add normally; these are not movement
+caps. Loading a mid-turn save does not refill already-spent movement points.
+The change raises maximum movement and normal next-turn replenishment.
+
+Continental and Expeditionary Marine map silhouettes are shortened and broadened
+against native Infantry geometry. All six affected regions keep the same frames,
+bottom anchors, accepted lateral placement (within half a pixel), hard alpha and
+nearest-neighbor treatment. The other four Marine units, every slavery sprite,
+portraits, UnitIcons and Rationalism region remain unchanged.
+
+See `tools/v0211/VERIFICATION.md` for checks, measured proportions and remaining
+manual acceptance. Marine enemy-civilian capture on water remains unresolved.
+
+## v0.2.10 save-load hotfix (historical; accepted in-game)
 
 - Removes the adjacent-civilian water-travel rule from Marine Naval Integration.
   Unciv 4.22.4 evaluates it during transient reconstruction before all neighboring
@@ -126,9 +155,9 @@ only after the candidate passes the available automated gates.
 - Embarked naval movement/classification and the larger slavery system remain
   separate unfinished work; this release assigns no new movement value.
 - First acceptance step: update the mod, then Resume the previously failing save.
-  Reaching the map must be confirmed before broader gameplay testing.
+  Paul subsequently confirmed successful Resume under v0.2.10.
 
-See `tools/v0210/VERIFICATION.md` for the exact automated evidence and limits.
+See `tools/v0210/VERIFICATION.md` for the historical automated evidence and limits.
 
 ## v0.2.9 corrective patch (historical; art preserved in v0.2.10)
 

@@ -1,4 +1,4 @@
-"""Adversarial checks for preserved v0.2.9 art and the v0.2.10 hotfix."""
+"""Adversarial checks for v0.2.11 art and inherited save-load safety."""
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from PIL import Image,ImageDraw,ImageFilter
@@ -40,7 +40,7 @@ def main():
 
     tests=[]
     tests.append(('wrong_version',
-        lambda r:(r/'jsons/ModOptions.json').write_text((r/'jsons/ModOptions.json').read_text().replace('0.2.10','0.2.9')),
+        lambda r:(r/'jsons/ModOptions.json').write_text((r/'jsons/ModOptions.json').read_text().replace('0.2.11','0.2.10')),
         'Wrong modVersion'))
 
     def restore_marine_workaround(r):
@@ -51,6 +51,19 @@ def main():
         p.write_text(json.dumps(data,indent=2)+'\n')
     tests.append(('unsafe_marine_capture_workaround_reintroduced',restore_marine_workaround,
                   'Unsafe Marine capture workaround reintroduced'))
+
+    def remove_movement(r):
+        p=r/'jsons/UnitPromotions.json'
+        data=json.loads(p.read_text())
+        marine=next(x for x in data if x['name']=='Marine Naval Integration')
+        marine['uniques'].remove('[+1] Movement')
+        p.write_text(json.dumps(data,indent=2)+'\n')
+    tests.append(('missing_movement_bonus',remove_movement,'Marine universal movement bonus missing or duplicated'))
+
+    def revert_proportion(r):
+        mutate_region(r,'TileSets/HexaRealm/Units/Continental Marines',
+                      lambda im:b.make_sprite_v029('Continental Marines','HexaRealm'))
+    tests.append(('old_tall_narrow_proportion',revert_proportion,'Packed sprite differs from native-derived build'))
 
     def center_sprite(r):
         def op(im):
@@ -97,7 +110,7 @@ def main():
             b.require((ROOT/rel).read_bytes()==(root/rel).read_bytes(),'Nondeterministic rebuild: '+rel)
         RESULTS.append({'test':'deterministic_rebuild','result':'PASS'}); print('PASS: deterministic_rebuild')
 
-    report={'release':'v0.2.10','result':'PASS','test_count':len(RESULTS),
+    report={'release':'v0.2.11','result':'PASS','test_count':len(RESULTS),
             'negative_test_count':len(tests),'tests':RESULTS}
     (ROOT/'tools/v029/test_results.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='tests'},indent=2))

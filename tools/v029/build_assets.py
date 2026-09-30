@@ -1,4 +1,4 @@
-"""Build and verify the preserved v0.2.9 artwork for v0.2.10.
+"""Build and verify the preserved v0.2.9 artwork for v0.2.11.
 
 v0.2.9 preserves v0.2.8 portraits/icons and unrelated artwork while correcting:
 - native-derived lateral map-sprite anchoring and crisp pixel treatment,
@@ -16,8 +16,8 @@ import argparse, hashlib, json, math, re, subprocess
 ROOT=Path(__file__).resolve().parents[2]
 GIT_ROOT=ROOT
 BASELINE='a4cc93578b92a75844eafde6ff605b5303a61630'
-RELEASE='v0.2.10'
-PREDECESSOR='v0.2.9'
+RELEASE='v0.2.11'
+PREDECESSOR='v0.2.10'
 UNCIV_REF='eba5356202ea101c696f34be1cffee8373eb109a'
 UNCIV_BASE=f'https://raw.githubusercontent.com/yairm210/Unciv/{UNCIV_REF}/android/assets'
 RULE='Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>'
@@ -169,7 +169,7 @@ def similarity(a,b):
     union=sum(1 for x,y in zip(aa,bb) if x or y)
     return common/union if union else 1.0
 
-def make_sprite(name,ts):
+def make_sprite_v029(name,ts):
     source=Image.open(SOURCE_DIR/(name+'.png')).convert('RGBA')
     sbox=source.getchannel('A').getbbox(); require(sbox is not None,'Empty source: '+name)
     crop=source.crop(sbox)
@@ -202,6 +202,32 @@ def make_sprite(name,ts):
             candidate=Image.new('RGBA',frame,(0,0,0,0)); candidate.alpha_composite(crop,(nx,y))
             if abs(alpha_stats(candidate)['center_delta_x']-refst['center_delta_x']) < abs(st['center_delta_x']-refst['center_delta_x']):
                 out=candidate
+    return out
+
+# v0.2.11 changes only these two map silhouettes, never their portraits/icons.
+PROPORTION_UNITS={'Continental Marines','Expeditionary Marines'}
+
+def make_sprite(name,ts):
+    accepted=make_sprite_v029(name,ts)
+    if name not in PROPORTION_UNITS:
+        return accepted
+    old=alpha_stats(accepted)
+    _,ref,refst,_=choose_native_reference(name,ts)
+    source=Image.open(SOURCE_DIR/(name+'.png')).convert('RGBA')
+    crop=source.crop(source.getchannel('A').getbbox())
+    # Render from the unchanged canonical source with independent pixel dimensions.
+    # Match native Infantry proportions; allow two pixels of extra height in the
+    # compact FantasyHex presentation to retain the historical equipment detail.
+    height=refst['h']+(2 if ref.width<=32 else 0)
+    width=round(height*refst['w']/refst['h'])
+    crop=crop.resize((width,height),Image.Resampling.NEAREST)
+    crop.putalpha(crop.getchannel('A').point(lambda v:255 if v>=96 else 0))
+    st=alpha_stats(crop)
+    # Preserve the accepted v0.2.10 lateral anchor, not geometric frame centering.
+    x=max(0,min(ref.width-crop.width,round(old['centroid_x']-st['centroid_x'])))
+    y=old['bbox'][3]-st['bbox'][3]
+    out=Image.new('RGBA',accepted.size,(0,0,0,0))
+    out.alpha_composite(crop,(x,y))
     return out
 
 def make_rationalism_city_icon(base):
@@ -299,7 +325,7 @@ def verify():
     for p in ROOT.rglob('*.json'):
         if '.git' not in p.parts: load_json(p)
     opts=load_json(ROOT/'jsons/ModOptions.json')
-    require(opts.get('modVersion')=='0.2.10','Wrong modVersion')
+    require(opts.get('modVersion')=='0.2.11','Wrong modVersion')
     require(opts.get('lastUpdated')=='2026-09-30','Wrong lastUpdated')
     require(load_json(ROOT/'Atlases.json')==['game','v021'],'Atlases.json changed')
 
@@ -309,6 +335,7 @@ def verify():
     require(not any('[25]%' in s for s in doctrine.get('uniques',[])),'25% capture regression')
     marine=next(p for p in promos if p['name']=='Marine Naval Integration')
     mus=marine.get('uniques',[])
+    require(mus.count('[+1] Movement')==1,'Marine universal movement bonus missing or duplicated')
     require('May attack when embarked' in mus,'Marine embarked attack unique missing')
     require(MARINE_CAPTURE_WORKAROUND not in mus,'Unsafe Marine capture workaround reintroduced')
     require('May travel on Water tiles without embarking' not in mus,
@@ -362,10 +389,10 @@ def verify():
     readme=(ROOT/'README.md').read_text(encoding='utf-8')
     status=(ROOT/'BUILD_STATUS.md').read_text(encoding='utf-8')
     workflow=(ROOT/'.github/workflows/v021-art-build.yml').read_text(encoding='utf-8')
-    require(readme.startswith('# Unciv: Veilfall v0.2.10'),'README version wrong')
-    require('**Predecessor:** **v0.2.9**' in readme,'README predecessor wrong')
-    require(status.startswith('# Veilfall v0.2.10'),'BUILD_STATUS version wrong')
-    require('veilfall-v0.2.10-save-load-hotfix' in workflow,
+    require(readme.startswith('# Unciv: Veilfall v0.2.11'),'README version wrong')
+    require('**Predecessor:** **v0.2.10**' in readme,'README predecessor wrong')
+    require(status.startswith('# Veilfall v0.2.11'),'BUILD_STATUS version wrong')
+    require('veilfall-v0.2.11-marine-polish' in workflow,
             'Workflow branch names wrong')
 
     return {
@@ -378,6 +405,11 @@ def verify():
         'atlas_names':['game','v021'],'exact_capture_rule':RULE,'capture_chance_percent':50,
         'military_filter_unchanged_no_barbarian_exclusion_added':True,
         'marine_capture_workaround':None,
+        'marine_movement_unique':'[+1] Movement',
+        'current_patch_baseline':'29ab0a98eb8443810b91d41a07ad221f2b1f953e',
+        'current_patch_changed_map_sprite_regions':6,
+        'current_patch_preserved_atlas_regions':74,
+        'current_patch_preservation_gate':'tools/v0211/verify_release.py',
         'native_reference_repo':'yairm210/Unciv','native_reference_commit':UNCIV_REF,
         'native_reference_selection':native_refs,
         'sprite_source_sha256':source_hashes,'map_sprite_metrics':metrics,
