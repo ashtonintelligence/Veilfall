@@ -66,6 +66,8 @@ class VeilfallSaveLoadTest {
             neighbor.baseTerrain = "Coast"; neighbor.setTerrainTransients()
         }
         val marine = test.addUnit("Continental Marines", civ, first)
+        for (promotion in marine.baseUnit.promotions)
+            marine.promotions.addPromotion(promotion, isFree = true)
         test.addUnit("Worker", if (foreignNeighbor) other else civ, neighbor)
         assertTrue(marine.promotions.promotions.contains("Marine Naval Integration"))
         val serialized = json().toJson(test.gameInfo)

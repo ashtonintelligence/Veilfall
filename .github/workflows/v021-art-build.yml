@@ -46,6 +46,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+          cache: gradle
+          cache-dependency-path: |
+            unciv/**/*.gradle.kts
+            unciv/gradle/libs.versions.toml
+            unciv/gradle/wrapper/gradle-wrapper.properties
       - name: Prepare exact predecessor and runtime test
         run: |
           mkdir baseline
