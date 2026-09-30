@@ -27,6 +27,8 @@
 
 The repository workflow runs these gates on the development branch and main.
 It has read-only contents permission and never rebuilds/commits art on main.
+The test task uses `--rerun` so runtime results cannot be reused from Gradle cache
+when external mod JSON changes; compiled engine dependencies can still be cached.
 Local Gradle execution was blocked by the environment's Java network access;
 GitHub Actions executed the actual runtime tests successfully, as recorded below.
 
