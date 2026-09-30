@@ -44,8 +44,9 @@ that does not substitute for Paul's final in-game acceptance.
   all six Marines serialized under v0.2.10 on land and Coast loaded unchanged
   under v0.2.11; and additive stacking with Astronomy.
 - Exercise actual `MapUnit.getMaxMovement()`. Expected neutral maximums:
-  land 3/3/3/3/4/5, embarked 3/3/3/3/3/3; Astronomy yields 4 for the tested
-  Continental Marine. Names, IDs, owner, promotion set, remaining movement and
+  land 3/3/3/3/4/5, neutral coastal embarked 3/3/3/3/3/3. Ocean fixtures
+  grant Astronomy for legal entry and expect 4 for all six; a separate Continental
+  coastal case also verifies Astronomy stacking. Names, IDs, owner, promotion set, remaining movement and
   serialized save bytes must remain unchanged through loading.
 - Keep `--rerun`: tests must execute, while compiled engine dependencies may cache.
 - Existing art verifier and deterministic rebuild; adversarial checks additionally
@@ -57,7 +58,11 @@ that does not substitute for Paul's final in-game acceptance.
 
 ## Automated results
 
-Pending. No deployment until all available gates pass.
+First run: the five inherited tests and five of six new test methods passed.
+The Ocean fixture was rejected before movement calculation because it lacked
+Astronomy. The fixture now grants that technology and checks its existing +1
+bonus as well; no gameplay rule changed. Full corrected rerun pending.
+No deployment until all available gates pass.
 
 ## Manual acceptance
 

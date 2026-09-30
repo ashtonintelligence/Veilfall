@@ -39,7 +39,8 @@ class VeilfallMovementTest {
         game.gameInfo.setGlobalTransients()
         game.makeHexagonalMap(2)
         val civ = game.addCiv(game.ruleset.nations["Ashton"]!!, isPlayer = true)
-        civ.tech.addTechnology("Optics") // Embarkation, without Astronomy's movement bonus.
+        civ.tech.addTechnology("Optics") // Neutral coastal embarkation.
+        if (terrain == "Ocean") civ.tech.addTechnology("Astronomy") // Legal ocean entry adds its existing +1.
         game.gameInfo.currentPlayer = civ.civID
         game.gameInfo.currentPlayerCiv = civ
         val tile = game.tileMap.tileList.first()
@@ -56,7 +57,7 @@ class VeilfallMovementTest {
             val (_, unit) = fixture(name, terrain, false)
             assertEquals("Base movement changed: $name", base, unit.baseUnit.movement)
             assertEquals("Embarkation: $name on $terrain", water, unit.isEmbarked())
-            assertEquals("Calculated movement: $name on $terrain", if (water) 3 else base + 1, unit.getMaxMovement())
+            assertEquals("Calculated movement: $name on $terrain", if (terrain == "Ocean") 4 else if (water) 3 else base + 1, unit.getMaxMovement())
             assertFalse(unit.cache.canMoveOnWater)
         }
     }
