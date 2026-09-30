@@ -9,6 +9,8 @@
 **Current status:** Save-load safety hotfix. The only gameplay change removes the
 unsafe adjacent-civilian water-travel unique from Marine Naval Integration.
 All v0.2.9 sprite and Rationalism atlas outputs remain byte-identical.
+Actual Unciv 4.22.4 save-load regressions, semantic validation and deterministic
+preservation checks passed on the hotfix branch.
 Manual acceptance of Paul's previously failing save remains pending.
 See `tools/v0210/VERIFICATION.md` for automated gates and runtime evidence.
 

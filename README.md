@@ -4,7 +4,7 @@
 **Deployment branch:** `main`\
 **Development/source branch:** `veilfall-v0.2.10-save-load-hotfix`\
 **Predecessor:** **v0.2.9**\
-**Status:** Save-load safety hotfix; removes the unsafe Marine adjacency workaround. Automated release gates apply; manual in-game acceptance pending.\
+**Status:** Save-load safety hotfix; actual Unciv 4.22.4 regression, semantic and preservation tests passed. Manual in-game acceptance pending.\
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
