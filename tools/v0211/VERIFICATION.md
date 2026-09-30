@@ -58,11 +58,70 @@ that does not substitute for Paul's final in-game acceptance.
 
 ## Automated results
 
-First run: the five inherited tests and five of six new test methods passed.
-The Ocean fixture was rejected before movement calculation because it lacked
-Astronomy. The fixture now grants that technology and checks its existing +1
-bonus as well; no gameplay rule changed. Full corrected rerun pending.
-No deployment until all available gates pass.
+**PASS — 2026-09-30**, candidate
+`949a3a9a32170f356b82d47bd82b60d35208de6b`.
+[Successful workflow](https://github.com/ashtonintelligence/Veilfall/actions/runs/36759120157).
+
+- **11 runtime tests passed:** five unchanged semantic/save-load tests plus six
+  new movement methods covering 31 Marine movement scenarios.
+- All six units calculate land maximums **3/3/3/3/4/5**, neutral coastal embarked
+  maximums **3/3/3/3/3/3**, and legal Ocean maximums **4/4/4/4/4/4** with Astronomy.
+  A separate coastal Astronomy case also returns 4. These are additive bonuses,
+  not fixed caps; no terrain movement cost or naval classification is changed.
+- All 12 existing-save fixtures (six units × land/Coast) gain exactly one maximum
+  movement point when loaded under the candidate. Names, unit IDs, owners,
+  promotions, remaining movement and serialized save bytes are preserved.
+- The four original load-order fixtures still reproduce the v0.2.9 exception and
+  successfully load under the candidate. The full combined ruleset passes the
+  pinned engine's semantic validator with no Error-severity findings.
+- **10 deterministic/adversarial tests passed** and both strict preservation
+  gates passed. Exactly six map regions change; 74 regions and all outside pixels
+  are preserved. Rationalism, portraits, icons, slavery sprites, original source
+  art, atlas layout, Units.json and all unrelated gameplay are unchanged.
+- The first run failed only its Ocean fixture setup: Optics does not permit Ocean
+  entry. The corrected fixture grants Astronomy and includes that technology's
+  pre-existing +1 movement in its expected value. No gameplay workaround was added.
+- Actual tests executed with `--rerun`; this is not a JSON-only/static result.
+  The final documentation commit is also gated before main advances.
+
+[Raw JUnit/HTML evidence](https://github.com/ashtonintelligence/Veilfall/actions/runs/36759120157/artifacts/11116823615)
+ZIP SHA-256: `b9e39873a55cad939dda2b3b6ab87316ce583f2abd66d55c08044ca7f16228ff`.
+GitHub retains that artifact for 30 days; this report and the test source persist.
+
+### Remaining regression risk and limits
+
+No additional regression was observed in the scoped automated checks. Movement
+maximums increase; mid-turn remaining points do not refill. Technology/policy
+bonuses can make displayed maximums exceed the neutral values above. Visual QA
+covers the packed artifacts, not Paul's device rendering. His actual save and
+v0.2.11 appearance still require the narrow manual check below. Water civilian
+capture remains unresolved; Special Forces and the larger slavery system remain
+out of scope.
+
+### Exact changed files
+
+- `.github/workflows/v021-art-build.yml`
+- `ART_VERIFICATION.json`
+- `BUILD_STATUS.md`
+- `README.md`
+- `jsons/ModOptions.json`
+- `jsons/UnitPromotions.json`
+- `tools/v0210/verify_hotfix.py`
+- `tools/v0211/VERIFICATION.md`
+- `tools/v0211/VeilfallMovementTest.kt`
+- `tools/v0211/preview.py`
+- `tools/v0211/proportion-comparison.png`
+- `tools/v0211/verify_release.py`
+- `tools/v029/build_assets.py`
+- `tools/v029/generated/FantasyHex/Continental Marines.png`
+- `tools/v029/generated/FantasyHex/Expeditionary Marines.png`
+- `tools/v029/generated/HexaRealm/Continental Marines.png`
+- `tools/v029/generated/HexaRealm/Expeditionary Marines.png`
+- `tools/v029/generated/Minimal/Continental Marines.png`
+- `tools/v029/generated/Minimal/Expeditionary Marines.png`
+- `tools/v029/test_results.json`
+- `tools/v029/test_verification.py`
+- `v021.png`
 
 ## Manual acceptance
 

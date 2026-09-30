@@ -4,7 +4,7 @@
 **Deployment branch:** `main`\
 **Development/source branch:** `veilfall-v0.2.11-marine-polish`\
 **Predecessor:** **v0.2.10**\
-**Status:** Marine proportion and universal movement correction; candidate verification in progress. v0.2.10 save loading, Rationalism marker, sprite offset and sharpness accepted in-game.\
+**Status:** Marine proportion and universal movement correction; automated Unciv runtime, movement and preservation gates passed; v0.2.11 manual acceptance pending. v0.2.10 save loading, Rationalism marker, sprite offset and sharpness accepted in-game.\
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -120,7 +120,7 @@ only after the candidate passes the available automated gates.
 Marine Naval Integration adds exactly one unconditional `[+1] Movement` unique.
 Base movement values, names, stats and upgrade chains are unchanged. Existing
 saved Marines carrying that promotion inherit the rule when the ruleset reloads.
-The intended calculated maximums before other movement bonuses are:
+The runtime-verified calculated maximums before other movement bonuses are:
 
 | Unit | Land | Embarked |
 | --- | ---: | ---: |

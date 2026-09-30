@@ -7,8 +7,8 @@
 **Patch build date:** 2026-09-30
 
 **Current status:** Candidate for exactly two objectives: Marine map-sprite
-proportions and one universal Marine movement point. Automated gates are pending;
-v0.2.11 manual in-game acceptance is pending. No Special Forces, slavery, civilian
+proportions and one universal Marine movement point. All 11 Unciv runtime tests, 10 deterministic/adversarial tests and strict
+preservation gates passed; v0.2.11 manual in-game acceptance is pending. No Special Forces, slavery, civilian
 capture or unrelated systems are added.
 
 ## Accepted v0.2.10 baseline
@@ -24,7 +24,7 @@ is unchanged and continues to run against Unciv 4.22.4 with `--rerun`.
 - Add `[+1] Movement` once to Marine Naval Integration, after the existing embarked
   attack unique. Every Marine already receives this promotion. No Units.json
   property or other promotion is changed.
-- Expected neutral maximums: Continental / Riflemen / Expeditionary / Fleet
+- Runtime-verified neutral maximums: Continental / Riflemen / Expeditionary / Fleet
   Marines 3 land, MEU 4 land, Exo-Marine 5 land; all six 3 embarked. Existing
   technology and policy movement bonuses remain additive. Serialized remaining
   movement is preserved during load, not replenished in the middle of a turn.
