@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Marine Riflemen",
+    "prompt": "Recommended model: built-in image-generation model; recommended effort: high visual fidelity. Use case: precise-object-edit. Edit only this unit's pose and rifle placement. Preserve the nineteenth-century Marine identity, navy kepi, blue coat, tan crossbody strap, gray-blue trousers, black boots, detailed painted miniature style and transparent background. Replace the very wide aiming pose with a compact standing ready pose, feet about shoulder-width apart and knees slightly bent. Hold rifle diagonally across torso with both hands, butt near left hip and muzzle at upper right at about head height. Overall full figure including rifle should be about 55-60 percent as wide as tall. Natural proportions, no stretching or squeezing. Complete figure and all equipment visible. No background, glow, floor, shadow, badge, text, watermark or additional figure. Genuine transparent alpha."
+  },
+  {
+    "name": "Mounted Slave Raider",
+    "prompt": "Recommended model: built-in image-generation model; recommended effort: high visual fidelity. Use case: precise-object-edit. Preserve this exact brown horse, mounted preindustrial raider, dark green/brown clothing, conical helmet, red/gold saddle cloth, reins, short spear and detailed shaded miniature style. Change viewpoint and compactness only: horse and rider seen from an OBLIQUE FRONT THREE-QUARTER angle, facing slightly right, horse chest prominent and body receding to left rear, NOT broad side-on profile. Horse walking with anatomically coherent four legs, complete hooves visible. Keep spear compact, its point only slightly above rider head, tip fully inside canvas. Total silhouette about 60 percent as wide as tall; do not deform anatomy to get width. Compact readable map unit silhouette. Exactly one mounted rider on one horse, no other figures, no text/badge/base/floor/shadow/glow. Genuine transparent alpha background, small transparent margin on all sides."
+  }
+]

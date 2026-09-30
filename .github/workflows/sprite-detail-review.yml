@@ -1,0 +1,70 @@
+name: Verify sprite detail review candidate
+
+on:
+  push:
+    branches: [veilfall-sprite-detail-repair]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  packed-art:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Verify preservation and reproduce packed textures
+        run: |
+          python3 tools/sprite_detail_repair/build.py --check
+          python3 tools/sprite_detail_repair/build.py
+          git diff --exit-code
+  unciv-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          path: candidate
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: yairm210/Unciv
+          ref: 3318515bfca2609a9edb127b59cfadbab6d58d38
+          path: unciv
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+          cache-dependency-path: |
+            unciv/**/*.gradle.kts
+            unciv/gradle/libs.versions.toml
+            unciv/gradle/wrapper/gradle-wrapper.properties
+      - name: Prepare fixtures
+        run: |
+          mkdir baseline previous
+          git -C candidate archive 75331685057bcdb676c72a1a622c93912ed2c096 | tar -x -C baseline
+          git -C candidate archive 29ab0a98eb8443810b91d41a07ad221f2b1f953e | tar -x -C previous
+          cp candidate/tools/v0210/VeilfallSaveLoadTest.kt unciv/tests/src/com/unciv/logic/
+          cp candidate/tools/v0211/VeilfallMovementTest.kt unciv/tests/src/com/unciv/logic/
+          cp candidate/tools/sprite_detail_repair/VeilfallSpriteAtlasTest.kt unciv/tests/src/com/unciv/logic/
+      - name: Exercise production asset loading and inherited gameplay regression tests
+        working-directory: unciv
+        env:
+          VEILFALL_BASELINE: ${{ github.workspace }}/baseline
+          VEILFALL_V0210: ${{ github.workspace }}/previous
+          VEILFALL_CANDIDATE: ${{ github.workspace }}/candidate
+        run: env -u ANDROID_HOME -u ANDROID_SDK_ROOT ./gradlew :tests:test --rerun --tests com.unciv.logic.VeilfallSpriteAtlasTest --tests com.unciv.logic.VeilfallSaveLoadTest --tests com.unciv.logic.VeilfallMovementTest --no-daemon --max-workers=2
+      - name: Retain runtime evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sprite-detail-runtime-${{ github.sha }}
+          path: |
+            unciv/tests/build/test-results/test/
+            unciv/tests/build/reports/tests/test/
+          retention-days: 30

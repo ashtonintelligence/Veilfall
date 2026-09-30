@@ -1,0 +1,922 @@
+{
+  "status": "PASS",
+  "baseline_commit": "de02479f97a367e8a12c40a8feb14beb9428ba27",
+  "engine_reference": "3318515bfca2609a9edb127b59cfadbab6d58d38",
+  "candidate_only": true,
+  "deployed": false,
+  "visual_acceptance": "pending",
+  "preview_kind": "CPU simulation, not actual Unciv graphical rendering",
+  "effective_changed_regions": 33,
+  "effective_preserved_v021_regions": 47,
+  "protected_predecessor_files": 187,
+  "all_gameplay_json_byte_identical": true,
+  "all_original_atlas_files_byte_identical": true,
+  "source_sha256": {
+    "Slave": "ce380f1565458d77d08f9cbd5ef53755046abe19430976c6424559218ba024d6",
+    "Slave Raider": "b1aed6efa8cfddc76d70e9d31aa182a69c4f5693f4004eb78354674e58066872",
+    "Mounted Slave Raider": "f1aad7739d6205ed10cd00ebe8c91ec075da71ce0f5edb267dffd807da12d9e2",
+    "Slave Hunter": "38499da53c5ef2308ff906904277c43c6b51d0f71498007135f604529fb53961",
+    "Industrial Slaver": "f33bdcc561c9e0395ea8fbf2ed320498aaecfd7132baefc55a018714f8c7b143",
+    "Continental Marines": "942f335c05cfb5eca784d1a315cfe89c87a96b83db5128937a9ad6690bcb6326",
+    "Marine Riflemen": "e2b5c482d546a448a4e96934dee989b80d53331fb49fe6a0847e042299dd7486",
+    "Expeditionary Marines": "7549051be155f7f0b82d36f0d20785d16c923a59fb69de1a4fc22b59da02f98a",
+    "Fleet Marine Force": "11214ac11d8652564cb929197f0a45d91a3092e1dfe5ce36c9551ee38f1ceefd",
+    "Marine Expeditionary Unit": "a20aae932dd5bbd05927e5d3eb7198a692e63986365ddcaa41024ae20f609d98",
+    "Exo-Marine": "3bb15aa809b1edb2444af20afb19615040652b4cd7abc1d5cf7c2c5808312f0c"
+  },
+  "atlas_sha256": "732f8add2f07a221ac6683518f3fa6af505466c35269b2bbd484fab8e530bc5e",
+  "png_sha256": "8f0cff6ef74bcc29765614c28698bb090c1b658eb69ffa562a025894c9bc2d63",
+  "geometry": [
+    {
+      "region": "TileSets/FantasyHex/Units/Continental Marines",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        20,
+        4,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        21.5,
+        6.625,
+        31.75,
+        21.0
+      ],
+      "native_reference": "Musketman",
+      "native_height_ratio": 0.958,
+      "lateral_shift_in_old_pixels": -0.0618,
+      "rgba_sha256": "d0106e422fb7a9d38a002351e2a5937a1a480849328edfd1b6020d45832eaf2f"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Exo-Marine",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        21,
+        6,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        21.375,
+        6.625,
+        31.75,
+        21.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 0.958,
+      "lateral_shift_in_old_pixels": 0.49456,
+      "rgba_sha256": "37e2c6864af361a3b29067a42c2f292597b8d7086be755ba433550cd18a0e83a"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Expeditionary Marines",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        20,
+        5,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        22.25,
+        5.25,
+        31.0,
+        21.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 1.05,
+      "lateral_shift_in_old_pixels": 0.40664,
+      "rgba_sha256": "c002c62c01cacfc43ebd203d35c1b2eded838c430811b45ff773a7717bb3d57b"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Fleet Marine Force",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        21,
+        6,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        22.0,
+        6.0,
+        31.5,
+        21.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 0.85275,
+      "rgba_sha256": "e0a7d4a8b31be55be436de2b5329a08773a5500db9f5c93b4d5cc77f280f35aa"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Industrial Slaver",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        21,
+        6,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        22.625,
+        7.625,
+        31.75,
+        21.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 0.892,
+      "lateral_shift_in_old_pixels": 0.9209,
+      "rgba_sha256": "7301645932cf17497a8ed0a172fbbe71e80d7ef86c6f89068f434ba98a888948"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Marine Expeditionary Unit",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        21,
+        5,
+        31,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        22.125,
+        5.25,
+        30.875,
+        21.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 1.05,
+      "lateral_shift_in_old_pixels": 1.10062,
+      "rgba_sha256": "7437ef7475f606b6d213c8d68364cae9ae9f05bff75668492cf93ca842f3c103"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Marine Riflemen",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        16,
+        6,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        21.75,
+        6.0,
+        31.0,
+        21.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 3.47679,
+      "rgba_sha256": "6046389c32515376f8d6bd0c003fec77d24d8ccf1d922c61963e561566fe9897"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Mounted Slave Raider",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        13,
+        0,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        17.75,
+        0.25,
+        29.375,
+        21.0
+      ],
+      "native_reference": "Knight",
+      "native_height_ratio": 0.988,
+      "lateral_shift_in_old_pixels": 1.80415,
+      "rgba_sha256": "8e3848edd18288173ef85b2e806d3af46e74bc0f4415f7cfbd33b32e2ca29598"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Slave",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        3,
+        0,
+        11,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        5.25,
+        5.25,
+        10.125,
+        21.0
+      ],
+      "native_reference": "Worker",
+      "native_height_ratio": 1.05,
+      "lateral_shift_in_old_pixels": 0.50874,
+      "rgba_sha256": "da73f806dbaed7c3f2e0d7d7183b9a61e552ed7eacc0bf45610dd104d04c5049"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Slave Hunter",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        21,
+        6,
+        31,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        21.75,
+        6.0,
+        30.875,
+        21.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 0.59657,
+      "rgba_sha256": "3d6572797fc7f7a2359e405d2f770558cde69bc4283b6b03fa45d9d230c1c121"
+    },
+    {
+      "region": "TileSets/FantasyHex/Units/Slave Raider",
+      "old_frame": [
+        32,
+        28
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        17,
+        5,
+        32,
+        21
+      ],
+      "new_occupied_in_old_coordinates": [
+        19.25,
+        5.0,
+        31.125,
+        21.0
+      ],
+      "native_reference": "Swordsman",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 0.26262,
+      "rgba_sha256": "0a4903acbe5a239abaeb7e8b149c876c49034bfa38f14309ed96c6d03375a60a"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Continental Marines",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        11.75,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Musketman",
+      "native_height_ratio": 0.818,
+      "lateral_shift_in_old_pixels": -0.09718,
+      "rgba_sha256": "427c5ce1afd73cc87fffae73748483215e85874ab160adae4d474763f2243606"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Exo-Marine",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        36,
+        6,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        40.25,
+        9.75,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 0.896,
+      "lateral_shift_in_old_pixels": 3.23842,
+      "rgba_sha256": "192b2c92c7f82748a607ed8f4e0dd74e159b8e3a5d82a7a04050f71a830f943d"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Expeditionary Marines",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        6,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        6.0,
+        62.0,
+        42.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 0.09455,
+      "rgba_sha256": "65c93139a02fe09d80e8c277de45db8bc910a2f510e21b5d379690ae8a6151c1"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Fleet Marine Force",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        38,
+        7,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.5,
+        7.0,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 0.972,
+      "lateral_shift_in_old_pixels": 3.6781,
+      "rgba_sha256": "929ca8111ce63af6b0ddf0c013fcba73b40980b56bafb4c2e614daff49971f83"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Industrial Slaver",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        37,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        43.25,
+        12.25,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 0.826,
+      "lateral_shift_in_old_pixels": 4.19961,
+      "rgba_sha256": "80d70c439db5ff497c3e774588d6fa3866a57bc6ec1124dbaae3586880bd89f6"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Marine Expeditionary Unit",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        5,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.25,
+        5.0,
+        62.0,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 1.028,
+      "lateral_shift_in_old_pixels": 2.28234,
+      "rgba_sha256": "7affff5eb2917c3c10fd4c29e602bb24bb1d019617f1d570bbfce985e84cfb88"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Marine Riflemen",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        28,
+        8,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        8.0,
+        62.75,
+        42.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 0.971,
+      "lateral_shift_in_old_pixels": 9.00263,
+      "rgba_sha256": "4584ee1836c67178c11f9691cfa0968a836c4c84a773088d1e73b1bcbabacb11"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Mounted Slave Raider",
+      "old_frame": [
+        64,
+        66
+      ],
+      "new_frame": [
+        256,
+        264
+      ],
+      "old_occupied": [
+        17,
+        0,
+        64,
+        52
+      ],
+      "new_occupied_in_old_coordinates": [
+        33.5,
+        0.5,
+        62.25,
+        52.0
+      ],
+      "native_reference": "Knight",
+      "native_height_ratio": 0.99,
+      "lateral_shift_in_old_pixels": 9.06835,
+      "rgba_sha256": "1f13d6b25860d3d8f649498172129076f9b4a1cd3743997fa8b2fb684279aae4"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Slave",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        6,
+        0,
+        23,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        9.75,
+        1.0,
+        22.5,
+        42.0
+      ],
+      "native_reference": "Worker",
+      "native_height_ratio": 1.051,
+      "lateral_shift_in_old_pixels": 1.36418,
+      "rgba_sha256": "ad9068868f96e499a401f1439ee213773683e4dbad2ae699b7c7826f193d9795"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Slave Hunter",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        37,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.75,
+        7.0,
+        63.0,
+        42.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 4.21303,
+      "rgba_sha256": "2a74e7af47fb908cf5ec6bf7757ce00fc397061bc111fabcf9bcb58c69cc9169"
+    },
+    {
+      "region": "TileSets/HexaRealm/Units/Slave Raider",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        27,
+        5,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        38.75,
+        8.5,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Swordsman",
+      "native_height_ratio": 0.859,
+      "lateral_shift_in_old_pixels": 4.79818,
+      "rgba_sha256": "5de1376d87c3d5bacae1585be4c92bfe19a295d1c43a27641dc74d681c2f2da9"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Continental Marines",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        11.75,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Musketman",
+      "native_height_ratio": 0.818,
+      "lateral_shift_in_old_pixels": -0.09718,
+      "rgba_sha256": "427c5ce1afd73cc87fffae73748483215e85874ab160adae4d474763f2243606"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Exo-Marine",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        36,
+        6,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        40.25,
+        9.75,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 0.896,
+      "lateral_shift_in_old_pixels": 3.23842,
+      "rgba_sha256": "192b2c92c7f82748a607ed8f4e0dd74e159b8e3a5d82a7a04050f71a830f943d"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Expeditionary Marines",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        6,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        6.0,
+        62.0,
+        42.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 0.09455,
+      "rgba_sha256": "65c93139a02fe09d80e8c277de45db8bc910a2f510e21b5d379690ae8a6151c1"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Fleet Marine Force",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        38,
+        7,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.5,
+        7.0,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 0.972,
+      "lateral_shift_in_old_pixels": 3.6781,
+      "rgba_sha256": "929ca8111ce63af6b0ddf0c013fcba73b40980b56bafb4c2e614daff49971f83"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Industrial Slaver",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        37,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        43.25,
+        12.25,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Infantry",
+      "native_height_ratio": 0.826,
+      "lateral_shift_in_old_pixels": 4.19961,
+      "rgba_sha256": "80d70c439db5ff497c3e774588d6fa3866a57bc6ec1124dbaae3586880bd89f6"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Marine Expeditionary Unit",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        39,
+        5,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.25,
+        5.0,
+        62.0,
+        42.0
+      ],
+      "native_reference": "Marine",
+      "native_height_ratio": 1.028,
+      "lateral_shift_in_old_pixels": 2.28234,
+      "rgba_sha256": "7affff5eb2917c3c10fd4c29e602bb24bb1d019617f1d570bbfce985e84cfb88"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Marine Riflemen",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        28,
+        8,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        42.0,
+        8.0,
+        62.75,
+        42.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 0.971,
+      "lateral_shift_in_old_pixels": 9.00263,
+      "rgba_sha256": "4584ee1836c67178c11f9691cfa0968a836c4c84a773088d1e73b1bcbabacb11"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Mounted Slave Raider",
+      "old_frame": [
+        64,
+        66
+      ],
+      "new_frame": [
+        256,
+        264
+      ],
+      "old_occupied": [
+        17,
+        0,
+        64,
+        52
+      ],
+      "new_occupied_in_old_coordinates": [
+        33.5,
+        0.5,
+        62.25,
+        52.0
+      ],
+      "native_reference": "Knight",
+      "native_height_ratio": 0.99,
+      "lateral_shift_in_old_pixels": 9.06835,
+      "rgba_sha256": "1f13d6b25860d3d8f649498172129076f9b4a1cd3743997fa8b2fb684279aae4"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Slave",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        6,
+        0,
+        23,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        9.75,
+        1.0,
+        22.5,
+        42.0
+      ],
+      "native_reference": "Worker",
+      "native_height_ratio": 1.051,
+      "lateral_shift_in_old_pixels": 1.36418,
+      "rgba_sha256": "ad9068868f96e499a401f1439ee213773683e4dbad2ae699b7c7826f193d9795"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Slave Hunter",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        37,
+        7,
+        63,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        41.75,
+        7.0,
+        63.0,
+        42.0
+      ],
+      "native_reference": "Rifleman",
+      "native_height_ratio": 1.0,
+      "lateral_shift_in_old_pixels": 4.21303,
+      "rgba_sha256": "2a74e7af47fb908cf5ec6bf7757ce00fc397061bc111fabcf9bcb58c69cc9169"
+    },
+    {
+      "region": "TileSets/Minimal/Units/Slave Raider",
+      "old_frame": [
+        64,
+        56
+      ],
+      "new_frame": [
+        256,
+        224
+      ],
+      "old_occupied": [
+        27,
+        5,
+        64,
+        42
+      ],
+      "new_occupied_in_old_coordinates": [
+        38.75,
+        8.5,
+        63.5,
+        42.0
+      ],
+      "native_reference": "Swordsman",
+      "native_height_ratio": 0.859,
+      "lateral_shift_in_old_pixels": 4.79818,
+      "rgba_sha256": "5de1376d87c3d5bacae1585be4c92bfe19a295d1c43a27641dc74d681c2f2da9"
+    }
+  ]
+}

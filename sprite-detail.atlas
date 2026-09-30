@@ -1,0 +1,236 @@
+sprite-detail.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+TileSets/FantasyHex/Units/Continental Marines
+  rotate: false
+  xy: 4, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Exo-Marine
+  rotate: false
+  xy: 268, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Expeditionary Marines
+  rotate: false
+  xy: 532, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Fleet Marine Force
+  rotate: false
+  xy: 796, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Industrial Slaver
+  rotate: false
+  xy: 1060, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Marine Expeditionary Unit
+  rotate: false
+  xy: 1324, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Marine Riflemen
+  rotate: false
+  xy: 1588, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Mounted Slave Raider
+  rotate: false
+  xy: 4, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Slave
+  rotate: false
+  xy: 268, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Slave Hunter
+  rotate: false
+  xy: 532, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Slave Raider
+  rotate: false
+  xy: 796, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Continental Marines
+  rotate: false
+  xy: 1060, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Exo-Marine
+  rotate: false
+  xy: 1324, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Expeditionary Marines
+  rotate: false
+  xy: 1588, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Fleet Marine Force
+  rotate: false
+  xy: 4, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Industrial Slaver
+  rotate: false
+  xy: 268, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Marine Expeditionary Unit
+  rotate: false
+  xy: 532, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Marine Riflemen
+  rotate: false
+  xy: 796, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Mounted Slave Raider
+  rotate: false
+  xy: 1060, 468
+  size: 256, 264
+  orig: 256, 264
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Slave
+  rotate: false
+  xy: 1324, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Slave Hunter
+  rotate: false
+  xy: 1588, 468
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Slave Raider
+  rotate: false
+  xy: 4, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Continental Marines
+  rotate: false
+  xy: 268, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Exo-Marine
+  rotate: false
+  xy: 532, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Expeditionary Marines
+  rotate: false
+  xy: 796, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Fleet Marine Force
+  rotate: false
+  xy: 1060, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Industrial Slaver
+  rotate: false
+  xy: 1324, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Marine Expeditionary Unit
+  rotate: false
+  xy: 1588, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Marine Riflemen
+  rotate: false
+  xy: 4, 972
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Mounted Slave Raider
+  rotate: false
+  xy: 268, 972
+  size: 256, 264
+  orig: 256, 264
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Slave
+  rotate: false
+  xy: 532, 972
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Slave Hunter
+  rotate: false
+  xy: 796, 972
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Slave Raider
+  rotate: false
+  xy: 1060, 972
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1

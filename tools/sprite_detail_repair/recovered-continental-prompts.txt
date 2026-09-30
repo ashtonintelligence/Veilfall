@@ -1,0 +1,18 @@
+Generation method: built-in image-generation tool. Actual underlying model/version and effort controls are not exposed by the tool.
+Recommended model: built-in image-generation model. Recommended effort: high visual fidelity.
+
+FIRST SOURCE PROMPT
+Recommended model: built-in image-generation model; effort: high visual fidelity.
+Use case: stylized-concept.
+Asset type: transparent full-body character source for a small strategy-game map sprite.
+Primary request: Rebuild ONE Continental Marine with the coherent detailed painted strategy-game rendering quality of reference image 1 (Veilwarden), and the historical visual identity/uniform of reference image 2 (Continental Marine portrait). Reference 1 is STYLE ONLY; do not copy its fantasy armor or sword. Reference 2 is IDENTITY and COLOR reference, not composition.
+Subject: late eighteenth-century Continental Marine, black tricorn hat with restrained gold edging, navy blue coat with red facings and cuffs, cream crossbelts and waistcoat, off-white breeches, dark gaiters and black boots. Brown wood flintlock musket with steel barrel and bayonet, held upright along his right side. Natural adult human proportions with a broad readable stance, both boots solidly planted and separated. Three-quarter view facing slightly right, face visible. Simple coherent masses and crisp dark contour, broad navy torso, minimal tiny decoration, legible hands and weapon.
+Style/medium: richly shaded, clean miniature game character illustration matching reference 1's dimensional detail. Fine clean silhouette, restrained highlights, coherent fabric and anatomy. NOT chunky pixel art, NOT dithering, NOT mosaic blocks, NOT photorealistic photography. Build real detail that can survive reduction.
+Composition/framing: exactly one isolated full-body figure including full hat, bayonet and both feet, occupying most of the image height with a modest transparent margin on every side. Compact overall silhouette, total width including weapon roughly 60-70 percent of total height. No frame, no badge, no circle, no border. Do not make an extremely thin elongated figure.
+Background: genuinely transparent alpha, no floor, no ground patch, no shadow outside character, no scenery.
+No text, labels, watermark, extra character, fantasy element, huge equipment, glow, or decorative platform.
+
+TARGETED POSE CORRECTION (SELECTED SOURCE)
+Recommended model: built-in image-generation model; effort: high visual fidelity.
+Use case: precise-object-edit.
+Edit this Continental Marine into a compact readable map-unit combat pose. Preserve his face, black tricorn, navy coat with red facings, cream crossbelts and breeches, dark gaiters and boots, painted detailed rendering style. Change pose and weapon placement only: both knees bent slightly in a broad grounded combat stance, feet substantially separated sideways, torso three-quarter view facing right; hold the musket diagonally across the torso with BOTH hands, butt at left hip and muzzle pointing up toward the right at roughly shoulder/head height. The bayonet tip must not extend above the hat. Overall full-body silhouette including weapon should be approximately 65% as wide as it is tall. Natural adult anatomy with compact stance, not a tall parade pose. Precisely one complete full-body figure, with full hat and both feet visible, no crop. Genuine transparent alpha background. No backdrop, shadow, base, platform, glow, labels, text, extra figure, or mosaic/pixel-art effect. Clean crisp contours and coherent shaded color masses that read well in a small strategy-game sprite.
