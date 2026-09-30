@@ -1,4 +1,4 @@
-"""Adversarial checks for the v0.2.9 corrective verifier."""
+"""Adversarial checks for preserved v0.2.9 art and the v0.2.10 hotfix."""
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from PIL import Image,ImageDraw,ImageFilter
@@ -40,17 +40,17 @@ def main():
 
     tests=[]
     tests.append(('wrong_version',
-        lambda r:(r/'jsons/ModOptions.json').write_text((r/'jsons/ModOptions.json').read_text().replace('0.2.9','0.2.8')),
+        lambda r:(r/'jsons/ModOptions.json').write_text((r/'jsons/ModOptions.json').read_text().replace('0.2.10','0.2.9')),
         'Wrong modVersion'))
 
-    def remove_marine_workaround(r):
+    def restore_marine_workaround(r):
         p=r/'jsons/UnitPromotions.json'
         data=json.loads(p.read_text())
         marine=next(x for x in data if x['name']=='Marine Naval Integration')
-        marine['uniques']=[u for u in marine['uniques'] if u!=b.MARINE_CAPTURE_WORKAROUND]
+        marine['uniques'].append(b.MARINE_CAPTURE_WORKAROUND)
         p.write_text(json.dumps(data,indent=2)+'\n')
-    tests.append(('marine_capture_workaround_missing',remove_marine_workaround,
-                  'Marine civilian-at-sea capture workaround missing'))
+    tests.append(('unsafe_marine_capture_workaround_reintroduced',restore_marine_workaround,
+                  'Unsafe Marine capture workaround reintroduced'))
 
     def center_sprite(r):
         def op(im):
@@ -97,7 +97,7 @@ def main():
             b.require((ROOT/rel).read_bytes()==(root/rel).read_bytes(),'Nondeterministic rebuild: '+rel)
         RESULTS.append({'test':'deterministic_rebuild','result':'PASS'}); print('PASS: deterministic_rebuild')
 
-    report={'release':'v0.2.9','result':'PASS','test_count':len(RESULTS),
+    report={'release':'v0.2.10','result':'PASS','test_count':len(RESULTS),
             'negative_test_count':len(tests),'tests':RESULTS}
     (ROOT/'tools/v029/test_results.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='tests'},indent=2))

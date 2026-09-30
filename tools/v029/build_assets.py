@@ -1,9 +1,9 @@
-"""Build and verify Veilfall v0.2.9 corrective release.
+"""Build and verify the preserved v0.2.9 artwork for v0.2.10.
 
 v0.2.9 preserves v0.2.8 portraits/icons and unrelated artwork while correcting:
 - native-derived lateral map-sprite anchoring and crisp pixel treatment,
 - the Rationalism city-map icon's opaque filled-disc behavior,
-- Marine capture of adjacent embarked civilian units via a narrowly scoped Unciv workaround.
+The unsafe v0.2.9 Marine capture rule must remain absent.
 """
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -16,8 +16,8 @@ import argparse, hashlib, json, math, re, subprocess
 ROOT=Path(__file__).resolve().parents[2]
 GIT_ROOT=ROOT
 BASELINE='a4cc93578b92a75844eafde6ff605b5303a61630'
-RELEASE='v0.2.9'
-PREDECESSOR='v0.2.8'
+RELEASE='v0.2.10'
+PREDECESSOR='v0.2.9'
 UNCIV_REF='eba5356202ea101c696f34be1cffee8373eb109a'
 UNCIV_BASE=f'https://raw.githubusercontent.com/yairm210/Unciv/{UNCIV_REF}/android/assets'
 RULE='Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>'
@@ -299,8 +299,8 @@ def verify():
     for p in ROOT.rglob('*.json'):
         if '.git' not in p.parts: load_json(p)
     opts=load_json(ROOT/'jsons/ModOptions.json')
-    require(opts.get('modVersion')=='0.2.9','Wrong modVersion')
-    require(opts.get('lastUpdated')=='2026-09-28','Wrong lastUpdated')
+    require(opts.get('modVersion')=='0.2.10','Wrong modVersion')
+    require(opts.get('lastUpdated')=='2026-09-30','Wrong lastUpdated')
     require(load_json(ROOT/'Atlases.json')==['game','v021'],'Atlases.json changed')
 
     promos=load_json(ROOT/'jsons/UnitPromotions.json')
@@ -310,7 +310,7 @@ def verify():
     marine=next(p for p in promos if p['name']=='Marine Naval Integration')
     mus=marine.get('uniques',[])
     require('May attack when embarked' in mus,'Marine embarked attack unique missing')
-    require(MARINE_CAPTURE_WORKAROUND in mus,'Marine civilian-at-sea capture workaround missing')
+    require(MARINE_CAPTURE_WORKAROUND not in mus,'Unsafe Marine capture workaround reintroduced')
     require('May travel on Water tiles without embarking' not in mus,
             'Marine water-travel workaround became unconditional')
 
@@ -362,10 +362,10 @@ def verify():
     readme=(ROOT/'README.md').read_text(encoding='utf-8')
     status=(ROOT/'BUILD_STATUS.md').read_text(encoding='utf-8')
     workflow=(ROOT/'.github/workflows/v021-art-build.yml').read_text(encoding='utf-8')
-    require(readme.startswith('# Unciv: Veilfall v0.2.9'),'README version wrong')
-    require('**Predecessor:** **v0.2.8**' in readme,'README predecessor wrong')
-    require(status.startswith('# Veilfall v0.2.9'),'BUILD_STATUS version wrong')
-    require('veilfall-v0.2.9-corrective' in workflow and 'veilfall-v0.2.9-art-integration' in workflow,
+    require(readme.startswith('# Unciv: Veilfall v0.2.10'),'README version wrong')
+    require('**Predecessor:** **v0.2.9**' in readme,'README predecessor wrong')
+    require(status.startswith('# Veilfall v0.2.10'),'BUILD_STATUS version wrong')
+    require('veilfall-v0.2.10-save-load-hotfix' in workflow,
             'Workflow branch names wrong')
 
     return {
@@ -377,7 +377,7 @@ def verify():
         'portraits_and_unit_icons_preserved_from_v0.2.8':True,
         'atlas_names':['game','v021'],'exact_capture_rule':RULE,'capture_chance_percent':50,
         'military_filter_unchanged_no_barbarian_exclusion_added':True,
-        'marine_capture_workaround':MARINE_CAPTURE_WORKAROUND,
+        'marine_capture_workaround':None,
         'native_reference_repo':'yairm210/Unciv','native_reference_commit':UNCIV_REF,
         'native_reference_selection':native_refs,
         'sprite_source_sha256':source_hashes,'map_sprite_metrics':metrics,

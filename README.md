@@ -1,10 +1,10 @@
-# Unciv: Veilfall v0.2.9
+# Unciv: Veilfall v0.2.10
 
-**Version:** **v0.2.9 prerelease**  
-**Deployment branch:** `main`  
-**Development/source branch:** `veilfall-v0.2.9-corrective`  
-**Predecessor:** **v0.2.8**  
-**Status:** v0.2.9 corrective patch for native-comparable map-sprite placement, Rationalism city-map rendering, and Marine capture of adjacent embarked civilians; automated verification required before deployment; in-game acceptance pending  
+**Version:** **v0.2.10 prerelease**\
+**Deployment branch:** `main`\
+**Development/source branch:** `veilfall-v0.2.10-save-load-hotfix`\
+**Predecessor:** **v0.2.9**\
+**Status:** Save-load safety hotfix; removes the unsafe Marine adjacency workaround. Automated release gates apply; manual in-game acceptance pending.\
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
@@ -111,16 +111,31 @@ See **BUILD_STATUS.md** for the exact division between implemented JSON behavior
 
 ## Installation
 
-Install or update Veilfall from the repository's default `main` branch. The v0.2.8
-release source is `veilfall-v0.2.8-sprite-rebuild`; verified generated outputs are
-staged on `veilfall-v0.2.8-art-integration` before `main` advances.
+Install or update Veilfall from the repository's default `main` branch. The v0.2.10
+hotfix is developed and tested on `veilfall-v0.2.10-save-load-hotfix`; `main` advances
+only after the candidate passes the available automated gates.
 
-## v0.2.9 corrective patch
+## v0.2.10 save-load hotfix
+
+- Removes the adjacent-civilian water-travel rule from Marine Naval Integration.
+  Unciv 4.22.4 evaluates it during transient reconstruction before all neighboring
+  units have an initialized `civ`, causing existing games to fail on Resume.
+- Preserves all v0.2.9 artwork byte-for-byte and every other gameplay rule.
+- Marine capture of enemy civilians on water is unresolved pending engine work.
+  `May attack when embarked` remains, but does not bypass the civilian-entry block.
+- Embarked naval movement/classification and the larger slavery system remain
+  separate unfinished work; this release assigns no new movement value.
+- First acceptance step: update the mod, then Resume the previously failing save.
+  Reaching the map must be confirmed before broader gameplay testing.
+
+See `tools/v0210/VERIFICATION.md` for the exact automated evidence and limits.
+
+## v0.2.9 corrective patch (historical; art preserved in v0.2.10)
 
 - Rebuilds all 33 Marine/slavery-line map sprites against actual upstream Unciv unit-sprite canvases and native reference silhouettes, with native-derived baseline and lateral placement rather than geometric centering.
 - Uses nearest-neighbor sprite resampling and binary alpha to eliminate interpolation softness/halo artifacts.
 - Replaces the packed `ReligionIcons/Rationalism` opaque full-color badge with a transparent tint-safe mask so the city-map religion marker cannot collapse into a solid disc.
-- Adds a narrowly scoped Marine water-capture compatibility workaround: Marines may temporarily be treated as water-capable only while adjacent to a civilian. This bypasses Unciv's explicit prohibition on embarked land units capturing civilians on water while preserving normal embarkation away from civilians.
+- Added an adjacent-civilian water-travel workaround. **Reverted in v0.2.10:** it caused a save-load crash and its adjacency filter checks friendly, not enemy, units. The intended enemy-civilian capture behavior was not reliably implemented.
 - The existing `May attack when embarked` behavior and all other Marine abilities remain in place.
 
 ## v0.2.6 isolated-character art rebuild

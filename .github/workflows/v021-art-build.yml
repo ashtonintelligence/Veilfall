@@ -1,86 +1,69 @@
-name: Build and verify Veilfall v0.2.9 sprite rebuild
+name: Verify Veilfall v0.2.10 save-load hotfix
 
 on:
   push:
-    branches: [veilfall-v0.2.9-corrective, veilfall-v0.2.9-art-integration, main]
+    branches: [veilfall-v0.2.10-save-load-hotfix, main]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: veilfall-v028-sprites-${{ github.ref }}
+  group: veilfall-v0210-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  build-and-verify:
+  art-and-preservation:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
-
       - name: Install pinned Pillow
         run: python3 -m pip install --disable-pip-version-check Pillow==11.3.0
-
-      - name: Build dedicated v0.2.9 map sprites
-        run: python3 tools/v029/build_assets.py
-
-      - name: Verify packed atlas and preservation gates
-        run: python3 tools/v029/build_assets.py --check
-
-      - name: Run adversarial and deterministic verifier tests
-        run: python3 tools/v029/test_verification.py
-
-      - name: Render packed sprite QA sheet
-        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective' || github.ref == 'refs/heads/veilfall-v0.2.9-art-integration'
-        run: python3 tools/v029/preview_assets.py
-
-      - name: Recheck exact deployable bytes
-        run: python3 tools/v029/build_assets.py --check
-
-      - name: Commit verified integration output
-        if: github.ref == 'refs/heads/veilfall-v0.2.9-corrective'
-        shell: bash
+      - name: Verify preserved art and adversarial checks
         run: |
-          set -euo pipefail
-          git config user.name 'Veilfall v0.2.9 Builder'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- tools/v029/generated tools/v029/previews tools/v029/test_results.json v021.atlas v021.png ART_VERIFICATION.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Pack and verify Veilfall v0.2.9 map-sprite rebuild'
-          fi
-          git push --force-with-lease origin HEAD:veilfall-v0.2.9-art-integration
-          printf 'Integration commit: '
-          git rev-parse HEAD
+          python3 tools/v029/build_assets.py --check
+          python3 tools/v029/test_verification.py
+          python3 tools/v0210/verify_hotfix.py
+          git diff --exit-code
 
-      - name: Commit verified main output
-        if: github.ref == 'refs/heads/main'
-        shell: bash
+  unciv-save-load:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          path: candidate
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: yairm210/Unciv
+          ref: 3318515bfca2609a9edb127b59cfadbab6d58d38
+          path: unciv
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Prepare exact predecessor and runtime test
         run: |
-          set -euo pipefail
-          git config user.name 'Veilfall v0.2.9 Builder'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- tools/v029/generated tools/v029/test_results.json v021.atlas v021.png ART_VERIFICATION.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Pack final Veilfall v0.2.9 native-scale atlas'
-            git push origin HEAD:main
-          fi
-
-      - name: Archive exact verified commit
-        shell: bash
-        run: |
-          git archive HEAD -o /tmp/veilfall-v0.2.9-verified.zip
-          git rev-parse HEAD > /tmp/veilfall-v0.2.9-commit.txt
-          sha256sum /tmp/veilfall-v0.2.9-verified.zip
-
-      - name: Retain verified release and evidence
+          mkdir baseline
+          git -C candidate archive 75331685057bcdb676c72a1a622c93912ed2c096 | tar -x -C baseline
+          cp candidate/tools/v0210/VeilfallSaveLoadTest.kt unciv/tests/src/com/unciv/logic/
+      - name: Run Unciv 4.22.4 ruleset validation and save-load regression
+        working-directory: unciv
+        env:
+          VEILFALL_BASELINE: ${{ github.workspace }}/baseline
+          VEILFALL_CANDIDATE: ${{ github.workspace }}/candidate
+        run: env -u ANDROID_HOME -u ANDROID_SDK_ROOT ./gradlew :tests:test --tests com.unciv.logic.VeilfallSaveLoadTest --no-daemon --max-workers=2
+      - name: Retain actual runtime evidence
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: veilfall-v0.2.9-verified-${{ github.run_id }}
+          name: veilfall-v0210-runtime-${{ github.sha }}
           path: |
-            /tmp/veilfall-v0.2.9-verified.zip
-            /tmp/veilfall-v0.2.9-commit.txt
+            unciv/tests/build/test-results/test/
+            unciv/tests/build/reports/tests/test/
+          if-no-files-found: warn
           retention-days: 30
-          if-no-files-found: error

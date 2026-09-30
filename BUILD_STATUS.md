@@ -1,21 +1,72 @@
-# Veilfall v0.2.9 — Build Status
+# Veilfall v0.2.10 — Build Status
 
-**Version:** **v0.2.9 prerelease**  
-**Deployment branch:** `main`  
-**Source branch:** `veilfall-v0.2.9-corrective`  
-**Predecessor:** **v0.2.8**  
-**Patch build date:** 2026-09-28
+**Version:** **v0.2.10 prerelease**\
+**Deployment branch:** `main`\
+**Source branch:** `veilfall-v0.2.10-save-load-hotfix`\
+**Predecessor:** **v0.2.9**\
+**Patch build date:** 2026-09-30
 
-**Current status:** v0.2.9 corrective patch. The v0.2.8 portraits/icons and unrelated artwork are preserved; 33 map-sprite regions are rebuilt against native Unciv references, the Rationalism city-map icon is corrected, and Marine capture of adjacent embarked civilians receives a targeted compatibility workaround. Automated verification is required before deployment; in-game acceptance remains pending.
+**Current status:** Save-load safety hotfix. The only gameplay change removes the
+unsafe adjacent-civilian water-travel unique from Marine Naval Integration.
+All v0.2.9 sprite and Rationalism atlas outputs remain byte-identical.
+Manual acceptance of Paul's previously failing save remains pending.
+See `tools/v0210/VERIFICATION.md` for automated gates and runtime evidence.
 
-This file is the implementation truth for the current build. A design being locked does not imply that every part of it can be expressed by an Unciv extension ruleset without engine/state/UI changes.
+This file is the implementation truth for the current build. A locked design does
+not imply that the Unciv extension ruleset implements it completely.
 
-## v0.2.9 corrective scope
+## v0.2.10 scope and confirmed source diagnosis
 
-- 33 Marine/slavery map sprites: native Unciv frame dimensions, native-derived bottom anchoring, native-derived lateral offset, nearest-neighbor scaling, binary alpha.
-- Rationalism city-map marker: transparent tint-safe mask replaces the opaque full-color atlas region used by the city religion overlay.
-- Marine embarked civilian capture: Unciv explicitly blocks embarked land units from entering/capturing civilian-occupied water tiles even when `May attack when embarked` is present. `Marine Naval Integration` therefore adds `May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>` as a narrow engine-compatibility workaround. This changes the unit out of embarked state only while adjacent to a civilian, allowing the normal melee capture path without making Marine water travel globally unconditional.
-- Existing Marine abilities, v0.2.8 portrait/icon art, gameplay values, slavery capture rule, and unrelated systems are preserved.
+Unciv 4.22.4, upstream commit `3318515bfca2609a9edb127b59cfadbab6d58d38`:
+`UncivFiles.loadGameFromFile` calls `GameInfo.setTransients`, then
+`TileMap.setTransients` / `Tile.setUnitTransients`. Each unit receives its owner
+and then calls `MapUnit.setTransients` / `MapUnitCache.updateUniques` sequentially.
+The cache queries `CanMoveOnWater`. The removed conditional scans neighboring
+units and reads `it.civ` before every neighbor has been assigned its owner.
+This explains the reported `lateinit property civ has not been initialized`.
+It does not establish corruption of the serialized save.
+
+Removed exactly:
+`May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>`.
+No exception suppression, engine modification, renamed units, or save mutation.
+The same condition also requires a friendly neighbor (`it.civ == relevantCiv`),
+so the old workaround did not reliably implement adjacent enemy-civilian capture.
+
+Preserved: all 33 native-derived map sprites, hard alpha, nearest-neighbor atlas,
+lateral positioning, bottom anchoring, open-center tint-safe Rationalism marker,
+Marine stats and upgrades, all other abilities, exact 50% Slave Raider rule,
+Operational Intelligence, Knowledge, beliefs, infrastructure and supernatural units.
+
+## Marine civilian capture — unresolved
+
+`UnitMovement.cannotPassThroughReason` rejects a land unit entering an enemy
+civilian's water tile unless `cache.canMoveOnWater` is true. It does not consult
+`AttackOnSea` (`May attack when embarked`) at that gate. Converting Marines to
+naval units or granting unconditional water movement violates the locked scope.
+Terrain-only water-travel conditions would avoid this specific neighbor read but
+would change embarkation/classification more broadly; they are not an equivalent
+safe civilian-capture exception. No supported unique was found for that exception.
+The targeted solution requires an engine entry/capture rule (and matching target
+selection behavior) or a separately designed implementation mechanism. Deferred.
+
+## Embarked movement — separately tracked
+
+`MapUnit.getMaxMovement()` starts embarked land units at **2**, then adds matching
+`Movement` uniques and finally considers same-tile `TransferMovement` effects.
+The safe supported numeric form is `[amount] Movement <when [Embarked]>`, with a
+concrete amount chosen by design; global embarkation/technology movement bonuses
+can also contribute. It is an additive adjustment, not inheritance of naval unit
+stats or recognition by naval filters. No amount is selected by this hotfix.
+`Transfer Movement to [mapUnitFilter]` needs a suitable same-tile supporting unit;
+it is not automatic naval classification. The locked full naval movement/combat
+classification requires engine-level handling. No movement rule is changed.
+
+## Slavery — separately tracked
+
+Slave currently supplies passive adjacent Worker support and a Worker-transform
+prototype. Return / Liberate / Enslave / Execute, provenance, repatriation, Forced
+Labor, diminishing support, abolition, revolt and diplomacy remain unfinished.
+None is implemented or expanded by v0.2.10.
 
 ## Implemented in JSON
 

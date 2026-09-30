@@ -1,6 +1,6 @@
 {
-  "release": "v0.2.9",
-  "predecessor": "v0.2.8",
+  "release": "v0.2.10",
+  "predecessor": "v0.2.9",
   "baseline_commit": "a4cc93578b92a75844eafde6ff605b5303a61630",
   "status": "automated_checks_passed",
   "manual_in_game_acceptance": "pending",
@@ -19,7 +19,7 @@
   "exact_capture_rule": "Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>",
   "capture_chance_percent": 50,
   "military_filter_unchanged_no_barbarian_exclusion_added": true,
-  "marine_capture_workaround": "May travel on Water tiles without embarking <when adjacent to a [Civilian] unit>",
+  "marine_capture_workaround": null,
   "native_reference_repo": "yairm210/Unciv",
   "native_reference_commit": "eba5356202ea101c696f34be1cffee8373eb109a",
   "native_reference_selection": {

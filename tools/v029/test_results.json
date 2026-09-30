@@ -1,5 +1,5 @@
 {
-  "release": "v0.2.9",
+  "release": "v0.2.10",
   "result": "PASS",
   "test_count": 8,
   "negative_test_count": 6,
@@ -14,9 +14,9 @@
       "expected_rejection": "Wrong modVersion"
     },
     {
-      "test": "marine_capture_workaround_missing",
+      "test": "unsafe_marine_capture_workaround_reintroduced",
       "result": "PASS",
-      "expected_rejection": "Marine civilian-at-sea capture workaround missing"
+      "expected_rejection": "Unsafe Marine capture workaround reintroduced"
     },
     {
       "test": "centered_sprite",
