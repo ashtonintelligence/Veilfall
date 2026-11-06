@@ -1,0 +1,75 @@
+drone-review.png
+size: 1024, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+TileSets/FantasyHex/Units/Horizon-class Recon Drone
+  rotate: false
+  xy: 4, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/FantasyHex/Units/Valkyrie-class Assault Drone
+  rotate: false
+  xy: 268, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Horizon-class Recon Drone
+  rotate: false
+  xy: 532, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Valkyrie-class Assault Drone
+  rotate: false
+  xy: 4, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Horizon-class Recon Drone
+  rotate: false
+  xy: 268, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Valkyrie-class Assault Drone
+  rotate: false
+  xy: 532, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+UnitIcons/Horizon-class Recon Drone
+  rotate: false
+  xy: 796, 236
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+UnitIcons/Valkyrie-class Assault Drone
+  rotate: false
+  xy: 4, 468
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+UnitPortraits/Horizon-class Recon Drone
+  rotate: false
+  xy: 140, 468
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+UnitPortraits/Valkyrie-class Assault Drone
+  rotate: false
+  xy: 404, 468
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

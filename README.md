@@ -1,13 +1,24 @@
-# Unciv: Veilfall v0.2.11
+# Unciv: Veilfall v0.2.12-rc1
 
-**Version:** **v0.2.11 prerelease**\
-**Deployment branch:** `main`\
-**Development/source branch:** `veilfall-v0.2.11-marine-polish`\
+**Version:** **v0.2.12-rc1 review**\
+**Deployment branch:** review candidate; stable deployment remains `main`\
+**Development/source branch:** `veilfall-drone-integration-20261105`\
 **Predecessor:** **v0.2.10**\
-**Status:** Marine proportion and universal movement correction; automated Unciv runtime, movement and preservation gates passed; v0.2.11 manual acceptance pending. v0.2.10 save loading, Rationalism marker, sprite offset and sharpness accepted in-game.\
+**Status:** Drone integration review; drone gameplay and art accepted using the isolated companion mod on Android; integrated branch acceptance pending. Existing Marine and slavery mechanics preserved.\
 **Base ruleset:** Civ V - Gods & Kings
 
 Veilfall is an Unciv extension mod combining the supernatural Veilfall roster with the Ashton civilization and its knowledge, expeditionary-warfare, and institutional systems.
+
+## v0.2.12-rc1 — Approved gravitic drones (isolated review branch)
+
+- Adds **Horizon-class Recon Drone** (10 movement, 165 strength, two attacks, passive concealment, +3 sight) and **Valkyrie-class Assault Drone** (8 movement, 225 strength, two attacks, combat recovery). Both use the **Gravitic Drone** type, including land/sea traversal and terrain-independent movement.
+- Carries forward **byte-identical** approved drone sprite atlas and packed art from the companion mod verified in Unciv 4.22.17 on Android.
+- Changes Ashton colors to outer crimson **#A50034** and inner gold **#FFD000**, without changing nation abilities or city names.
+- Retains all legacy supernatural units, including **The Pale Horseman** and **Azazel**, as playable ruleset entries. Removes only their two starting instances from the revised Crash Site scenario save, not from the base mod.
+- The revised Crash Site save uses **Veilfall** alone as its mod dependency and contains two of each new drone. The separate companion test mod is no longer needed with this build.
+- Corrects the `lastUpdated` metadata to the full UTC timestamp syntax needed by Unciv's mod manager. No other existing rules are intentionally changed.
+
+**Publication:** Candidate on `veilfall-drone-integration-20261105`; **not merged into main**. Prior Android in-game acceptance applies to the companion mod. The integrated branch has **not** yet been independently tested on device.
 
 ## Version lineage
 

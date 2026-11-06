@@ -433,5 +433,51 @@
         "text": "The final v0.2 slave-raider iteration: a mobile coercive force whose battlefield victories can generate captives."
       }
     ]
+  },
+  {
+    "name": "Horizon-class Recon Drone",
+    "unitType": "Gravitic Drone",
+    "movement": 10,
+    "strength": 165,
+    "cost": 850,
+    "requiredTech": "Nuclear Fusion",
+    "uniqueTo": "Ashton",
+    "uniques": [
+      "[+3] Sight",
+      "Invisible to non-adjacent units",
+      "[1] additional attacks per turn",
+      "Can move after attacking",
+      "Withdraws before melee combat",
+      "Unit will heal every turn, even if it performs an action",
+      "Uncapturable"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "A compact autonomous reconnaissance and precision-interdiction drone employing an internally generated gravitic drive. Field manipulation provides silent flight above land and sea without exposed propulsion machinery."
+      }
+    ]
+  },
+  {
+    "name": "Valkyrie-class Assault Drone",
+    "unitType": "Gravitic Drone",
+    "movement": 8,
+    "strength": 225,
+    "cost": 1000,
+    "requiredTech": "Nuclear Fusion",
+    "uniqueTo": "Ashton",
+    "uniques": [
+      "[1] additional attacks per turn",
+      "Can move after attacking",
+      "No damage penalty for wounded units",
+      "Heals [30] damage if it kills a unit",
+      "Uncapturable"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "A heavily armored autonomous assault drone using integrated gravity-field propulsion and distributed protection. Designed to dominate contested ground without external turbines, jets, or exposed engine nacelles."
+      }
+    ]
   }
 ]
