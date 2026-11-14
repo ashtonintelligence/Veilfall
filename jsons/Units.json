@@ -432,6 +432,59 @@
       {
         "text": "The final v0.2 slave-raider iteration: a mobile coercive force whose battlefield victories can generate captives."
       }
+    ],
+    "obsoleteTech": "Future Tech",
+    "upgradesTo": "Exo Slave Raider"
+  },
+  {
+    "name": "Exo Slave Raider",
+    "unitType": "Gunpowder",
+    "movement": 5,
+    "strength": 110,
+    "cost": 560,
+    "requiredTech": "Future Tech",
+    "promotions": [
+      "Slave Raider Doctrine"
+    ],
+    "uniques": [
+      "Can move after attacking",
+      "Ignores Zone of Control",
+      "No damage penalty for wounded units"
+    ],
+    "attackSound": "shot",
+    "civilopediaText": [
+      {
+        "text": "Powered-exoskeleton slave-raiding unit. 5 movement, 110 strength; retaining the 67% chance to gain a Slave on defeating a military unit through Slave Raider Doctrine. Visuals temporarily reuse Exo-Marine artwork."
+      }
+    ]
+  },
+  {
+    "name": "The World-Eater",
+    "unitType": "Worldbreaker",
+    "movement": 5,
+    "strength": 3000,
+    "cost": 99999,
+    "uniqueTo": "Ashton",
+    "attackSound": "metalhit",
+    "uniques": [
+      "Unbuildable",
+      "Uncapturable",
+      "Limited to [1] per Civilization",
+      "Unable to capture cities",
+      "[2] additional attacks per turn",
+      "Can move after attacking",
+      "No damage penalty for wounded units",
+      "May heal outside of friendly territory",
+      "All healing effects doubled",
+      "Heals [100] damage if it kills a unit",
+      "Unit will heal every turn, even if it performs an action",
+      "Destroys tile improvements when attacking",
+      "No movement cost to pillage"
+    ],
+    "civilopediaText": [
+      {
+        "text": "The World-Eater is an extinction-class titan that brings cities to the brink of defeat without capturing them. 5 movement, strength 3000, 3 attacks per turn, amphibious/impassable movement. Population halving and individual building losses remain unimplemented engine-level design goals."
+      }
     ]
   }
 ]

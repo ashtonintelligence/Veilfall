@@ -192,12 +192,12 @@
     "uniques": [
       "[-25]% Strength <vs cities> <when attacking>",
       "Unable to capture cities",
-      "Free [Slave] appears <upon defeating a [Military] unit> <with [50]% chance>",
+      "Free [Slave] appears <upon defeating a [Military] unit> <with [67]% chance>",
       "Unavailable"
     ],
     "civilopediaText": [
       {
-        "text": "Slave-raiding units are optimized for capture and prisoner-taking rather than conquest of cities."
+        "text": "When this unit defeats a military unit, it has a 67% chance of generating a Slave. The captured unit appears near the raider if a legal tile exists, otherwise placement follows Unciv's unit-spawn rules. This unit cannot conquer cities."
       }
     ]
   }

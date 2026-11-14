@@ -563,3 +563,38 @@ UnitPromotionPortraits/Slave Raider Doctrine
   orig: 256, 256
   offset: 0, 0
   index: -1
+TileSets/FantasyHex/Units/Exo Slave Raider
+  rotate: false
+  xy: 1618, 1164
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Exo Slave Raider
+  rotate: false
+  xy: 330, 1164
+  size: 64, 56
+  orig: 64, 56
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Exo Slave Raider
+  rotate: false
+  xy: 990, 1164
+  size: 64, 56
+  orig: 64, 56
+  offset: 0, 0
+  index: -1
+UnitIcons/Exo Slave Raider
+  rotate: false
+  xy: 1682, 776
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+UnitPortraits/Exo Slave Raider
+  rotate: false
+  xy: 260, 260
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

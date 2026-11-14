@@ -234,3 +234,24 @@ TileSets/Minimal/Units/Slave Raider
   orig: 256, 224
   offset: 0, 0
   index: -1
+TileSets/FantasyHex/Units/Exo Slave Raider
+  rotate: false
+  xy: 268, 4
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/HexaRealm/Units/Exo Slave Raider
+  rotate: false
+  xy: 1324, 236
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1
+TileSets/Minimal/Units/Exo Slave Raider
+  rotate: false
+  xy: 532, 740
+  size: 256, 224
+  orig: 256, 224
+  offset: 0, 0
+  index: -1

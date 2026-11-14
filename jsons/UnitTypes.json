@@ -31,5 +31,16 @@
     "name": "Veil Hunter",
     "movementType": "Land",
     "uniques": []
+  },
+  {
+    "name": "Worldbreaker",
+    "movementType": "Land",
+    "uniques": [
+      "May travel on Water tiles without embarking",
+      "Can pass through impassable tiles",
+      "Ignores terrain cost",
+      "Ignores Zone of Control",
+      "May enter foreign tiles without open borders"
+    ]
   }
 ]
